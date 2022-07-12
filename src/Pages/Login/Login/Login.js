@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import { NavLink, useLocation, useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import studentLogin from "../../../images/studentLogin.png";
 import useAuth from "../../../hooks/useAuth";
+import Navigation from "../../shared/Navigation/Navigation";
+import Footer from "../../shared/Footer/Footer";
 
 const Login = () => {
 
@@ -30,22 +32,25 @@ const Login = () => {
     }
 
     return (
-        <Container>
-            <Grid container spacing={2}>
-                <Grid item sx={{ mt: 18 }} xs={12} md={6}>
-                    <Typography variant="h4" gutterBottom>
-                        Login
-                    </Typography>
-                    <form onSubmit={handleLoginSubmit}>
-                        <TextField
-                            sx={{ width: '75%', m: 1 }}
-                            id="standard-basic"
-                            label="Email"
-                            name="email"
-                            type="email"
-                            onChange={handleOnChange}
-                            variant="standard" />
-                        {/* <TextField
+        <>
+
+            <Navigation></Navigation>
+            <Container>
+                <Grid container spacing={2}>
+                    <Grid item sx={{ mt: 18 }} xs={12} md={6}>
+                        <Typography variant="h4" gutterBottom>
+                            Login
+                        </Typography>
+                        <form onSubmit={handleLoginSubmit}>
+                            <TextField
+                                sx={{ width: '75%', m: 1 }}
+                                id="standard-basic"
+                                label="Email"
+                                name="email"
+                                type="email"
+                                onChange={handleOnChange}
+                                variant="standard" />
+                            {/* <TextField
                             sx={{ width: '75%', m: 1 }}
                             id="standard-basic"
                             label="Student Id"
@@ -53,43 +58,46 @@ const Login = () => {
 
                             onChange={handleOnChange}
                             variant="standard" /> */}
-                        <TextField
-                            sx={{ width: '75%', m: 1 }}
-                            id="standard-basic"
-                            label="Password"
-                            type="password"
-                            name="password"
-                            onChange={handleOnChange}
-                            variant="standard" />
+                            <TextField
+                                sx={{ width: '75%', m: 1 }}
+                                id="standard-basic"
+                                label="Password"
+                                type="password"
+                                name="password"
+                                onChange={handleOnChange}
+                                variant="standard" />
 
-                        <Button sx={{ width: '75%', m: 3 }}
-                            type="submit" variant="contained">Login
-                        </Button>
+                            <Button sx={{ width: '75%', m: 3 }}
+                                type="submit" variant="contained">Login
+                            </Button>
 
-                        <NavLink style={{ textDecoration: 'none' }} to='/register'>
-                            <Button variant="text">New User? Please Register</Button>
-                        </NavLink>
-                        {isLoading && <CircularProgress />}
+                            <NavLink style={{ textDecoration: 'none' }} to='/register'>
+                                <Button variant="text" style={{ textAlign: 'center' }}>New User? Please Register</Button>
+                            </NavLink>
+                            {isLoading && <CircularProgress />}
 
-                        {user?.email && <Alert severity="success"  >Login successfully!!! </Alert>}
+                            {user?.email && <Alert severity="success"  >Login successfully!!! </Alert>}
 
-                        {authError && <Alert severity="error">{authError}</Alert>}
-                        {/* <p>--------------------------------------</p> */} <br></br> <br></br>
+                            {authError && <Alert severity="error">{authError}</Alert>}
+                            {/* <p>--------------------------------------</p> */} <br></br> <br></br>
 
-                        <Button onClick={handleGoogleSignIn} variant="contained">Login with Google</Button>
-                    </form>
+                            <Button onClick={handleGoogleSignIn} variant="contained" style={{ paddingleft: '25%' }}>Login with Google</Button>
+                        </form>
 
 
 
+
+                    </Grid>
+                    <Grid item xs={12} md={6} sx={{ mt: 8 }}>
+                        <img style={{ width: '75%' }} src={studentLogin} alt="" />
+
+                    </Grid>
 
                 </Grid>
-                <Grid item xs={12} md={6} sx={{ mt: 8 }}>
-                    <img style={{ width: '75%' }} src={studentLogin} alt="" />
+            </Container>
 
-                </Grid>
-
-            </Grid>
-        </Container>
+            <Footer></Footer>
+        </>
     );
 };
 export default Login;

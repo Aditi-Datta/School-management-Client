@@ -51,10 +51,10 @@ const CampusFacilities = () => {
     return (
         <Box sx={{ flexGrow: 1 }}>
             <Container>
-                <Typography variant="h4" component="div" sx={{ color: '#b71c1c', m: 3, fontWeight: 600 }}>
+                <Typography variant="h4" component="div" sx={{ color: '#b71c1c', m: 3, fontWeight: 600 }} style={{ textAlign: 'center' }}>
                     Campus Facilities
                 </Typography>
-                <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
+                <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }} style={{ textAlign: 'center' }}>
                     {
                         facilities.map(facility => <CampusFacility
                             key={facility.name}

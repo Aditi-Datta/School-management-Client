@@ -20,16 +20,16 @@ const StudentDashboard = ({ course }) => {
 
     const handleChange = (data) => {
         // console.log(data);
-        if (data == 'Algorithm') {
-            if (algo == true) {
+        if (data === 'Algorithm') {
+            if (algo === true) {
                 console.log(data, 'our value')
             }
             setAlgo(!algo)
         }
-        if (data == 'DataStructure') {
-            if (datastru == true) {
-                // <AttendanceTable{datastru}></AttendanceTable>
-                // console.log(data, 'our value')
+        if (data === 'DataStructure') {
+            if (datastru === true) {
+
+                console.log(data, 'our value')
             }
             setDatastru(!datastru)
         }
@@ -59,7 +59,7 @@ const StudentDashboard = ({ course }) => {
     return (
         <div>
 
-            <h2>Please enrolled your course for this semester</h2>
+            <h2 >Please enrolled your course for this semester</h2>
 
             <Grid container spacing={0} direction="row"
                 justifyContent="flex-start"
@@ -68,12 +68,7 @@ const StudentDashboard = ({ course }) => {
 
                     <input type='checkbox' value={algo} onChange={() => handleChange('Algorithm')}></input>Algorthm
                     <br></br>
-                    <input type='checkbox' value={datastru} onChange={() => handleChange('DataStructure')}></input>DataStructure
-
-
-
-
-
+                    <input type='checkbox' value={datastru} onChange={() => handleChange('DataStructure')} ></input>DataStructure
 
                     {/* <Checkbox
                         otherProps onChange={e => this.handleChange(e)}

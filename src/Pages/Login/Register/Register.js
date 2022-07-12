@@ -5,6 +5,8 @@ import * as React from 'react';
 import { NavLink, useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import useAuth from "../../../hooks/useAuth";
 import studentLogin from "../../../images/studentLogin.png";
+import Navigation from "../../shared/Navigation/Navigation";
+import Footer from "../../shared/Footer/Footer";
 
 const Register = () => {
     const [loginData, setLoginData] = useState({})
@@ -42,78 +44,85 @@ const Register = () => {
 
     }
     return (
-        <Container>
-            <Grid container spacing={2}>
-                <Grid item sx={{ mt: 14 }} xs={12} md={6}>
-                    <Typography variant="h4" gutterBottom>
-                        Register
-                    </Typography>
+        <>
 
-                    {!isLoading && <form onSubmit={handleRegisterSubmit}>
-                        <TextField
-                            sx={{ width: '75%', m: 1 }}
-                            id="standard-basic"
-                            label="Your Name"
-                            name="name"
-                            onBlur={handleOnBlur}
-                            variant="standard" />
+            <Navigation></Navigation>
 
-                        <TextField
-                            sx={{ width: '75%', m: 1 }}
-                            id="standard-basic"
-                            label="Email"
-                            name="email"
-                            type="email"
-                            onBlur={handleOnBlur}
-                            variant="standard" />
-
-                        <TextField
-                            sx={{ width: '75%', m: 1 }}
-                            id="standard-basic"
-                            label="Password"
-                            type="password"
-                            name="password"
-                            onBlur={handleOnBlur}
-                            variant="standard" />
-                        <TextField
-                            sx={{ width: '75%', m: 1 }}
-                            id="standard-basic"
-                            label="Confirm Password"
-                            type="password"
-                            name="conpassword"
-                            onBlur={handleOnBlur}
-                            variant="standard" />
-
-
-
-                        <Button sx={{ width: '75%', m: 3 }}
-                            type="submit" variant="contained">Register
-                        </Button>
-
-                        <Typography component="div" variant="body1">
-                            <Box sx={{ color: 'success' }}>{error}</Box>
+            <Container>
+                <Grid container spacing={2}>
+                    <Grid item sx={{ mt: 14 }} xs={12} md={6}>
+                        <Typography variant="h4" gutterBottom>
+                            Register
                         </Typography>
 
-                        <NavLink
-                            style={{ textDecoration: 'none' }}
-                            to='/login'>
-                            <Button variant="text">Already Registered? Please Login</Button>
-                        </NavLink>
-                    </form>}
-                    {isLoading && <CircularProgress />}
+                        {!isLoading && <form onSubmit={handleRegisterSubmit}>
+                            <TextField
+                                sx={{ width: '75%', m: 1 }}
+                                id="standard-basic"
+                                label="Your Name"
+                                name="name"
+                                onBlur={handleOnBlur}
+                                variant="standard" />
 
-                    {user?.email && <Alert severity="success">Registered successfully!!! </Alert>}
+                            <TextField
+                                sx={{ width: '75%', m: 1 }}
+                                id="standard-basic"
+                                label="Email"
+                                name="email"
+                                type="email"
+                                onBlur={handleOnBlur}
+                                variant="standard" />
 
-                    {authError && <Alert severity="error">{authError}</Alert>}
+                            <TextField
+                                sx={{ width: '75%', m: 1 }}
+                                id="standard-basic"
+                                label="Password"
+                                type="password"
+                                name="password"
+                                onBlur={handleOnBlur}
+                                variant="standard" />
+                            <TextField
+                                sx={{ width: '75%', m: 1 }}
+                                id="standard-basic"
+                                label="Confirm Password"
+                                type="password"
+                                name="conpassword"
+                                onBlur={handleOnBlur}
+                                variant="standard" />
+
+
+
+                            <Button sx={{ width: '75%', m: 3 }}
+                                type="submit" variant="contained">Register
+                            </Button>
+
+                            <Typography component="div" variant="body1">
+                                <Box sx={{ color: 'success' }}>{error}</Box>
+                            </Typography>
+
+                            <NavLink
+                                style={{ textDecoration: 'none' }}
+                                to='/login'>
+                                <Button variant="text">Already Registered? Please Login</Button>
+                            </NavLink>
+                        </form>}
+                        {isLoading && <CircularProgress />}
+
+                        {user?.email && <Alert severity="success">Registered successfully!!! </Alert>}
+
+                        {authError && <Alert severity="error">{authError}</Alert>}
+
+                    </Grid>
+                    <Grid item xs={12} md={6} sx={{ mt: 8 }}>
+                        <img style={{ width: '75%' }} src={studentLogin} alt="" />
+
+                    </Grid>
 
                 </Grid>
-                <Grid item xs={12} md={6} sx={{ mt: 8 }}>
-                    <img style={{ width: '75%' }} src={studentLogin} alt="" />
+            </Container>
 
-                </Grid>
-
-            </Grid>
-        </Container>
+            <Footer></Footer>
+        </>
     );
 };
 export default Register;

@@ -7,8 +7,6 @@ import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
 import { Button } from "@mui/material";
 import useAuth from "../../../hooks/useAuth";
-import AttendanceTable from "../AttendanceTable/AttendanceTable";
-
 const style = {
     position: 'absolute',
     top: '50%',
@@ -48,7 +46,7 @@ const StudentSubmitModal = ({ openModal, handleModalClose, setRegSuccess }) => {
         }
 
         // send to the server
-        fetch('http://localhost:5000/studentInfo', {
+        fetch('https://secure-temple-79203.herokuapp.com/studentInfo', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -119,19 +117,12 @@ const StudentSubmitModal = ({ openModal, handleModalClose, setRegSuccess }) => {
                             >
                                 Submit</Button>
                         </form>
-
-
-                        {/* <Typography id="transition-modal-description" sx={{ mt: 2 }}> */}
-
-                        {/* </Typography> */}
                     </Box>
                 </Fade>
             </Modal>
-            <div>
-                <AttendanceTable>
-                    studentInfo={studentInfo}
-                </AttendanceTable>
-            </div>
+
+
+
         </>
     );
 };

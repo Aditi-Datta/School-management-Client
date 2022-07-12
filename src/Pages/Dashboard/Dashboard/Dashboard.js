@@ -8,9 +8,10 @@ import Drawer from '@mui/material/Drawer';
 import CssBaseline from '@mui/material/CssBaseline';
 import Box from '@mui/material/Box';
 import Divider from '@mui/material/Divider';
-import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
+// import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import IconButton from '@mui/material/IconButton';
+import HomeIcon from '@mui/icons-material/Home';
 // import InboxIcon from '@mui/icons-material/MoveToInbox';
 // import List from '@mui/material/List';
 // import ListItemButton from '@mui/material/ListItemButton';
@@ -22,6 +23,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
+import AppRegistrationIcon from '@mui/icons-material/AppRegistration';
 // import Checkbox from '@mui/material/Checkbox';
 import {
     // BrowserRouter as Router,
@@ -35,13 +37,20 @@ import StudentDashboard from '../StudentDashboard/StudentDashboard';
 import MakeAdmin from '../MakeAdmin/MakeAdmin';
 import AddTeacher from '../AddTeacher/AddTeacher';
 import TeacherDashboard from '../Teacherdashboard/TeacherDashboard';
-
 import useAuth from '../../../hooks/useAuth';
 import AdminRoute from '../../Login/AdminRoute/AdminRoute';
 import DashboardHome from '../DashboardHome/DashboardHome';
 import AttendanceTable from '../AttendanceTable/AttendanceTable';
 // import StudentSubmitModal from '../StudentSubmitModal/StudentSubmitModal';
-
+import ArrowCircleLeftIcon from '@mui/icons-material/ArrowCircleLeft';
+import DataAttendanceTable from '../AttendanceTable/DataAttendanceTable/DataAttendanceTable';
+import SevenRegistration from '../ClassSevenReg/SevenRegistration/SevenRegistration';
+import ClassIcon from '@mui/icons-material/Class';
+import KeyboardDoubleArrowDownIcon from '@mui/icons-material/KeyboardDoubleArrowDown';
+import MathAttendanceTable from '../ClassSevenReg/AttendanceSeven/MathAttendanceTable/MathAttendanceTable';
+import BanglaAttendanceTable from '../ClassSevenReg/AttendanceSeven/BanglaAttendanceTable/BanglaAttendanceTable';
+import EnglishAttendanceTable from '../ClassSevenReg/AttendanceSeven/EnglishAttendanceTable/EnglishAttendanceTable';
+import AllUsers from '../AllUsers/AllUsers';
 // const drawerWidth = 200;
 const drawerWidth = 230;
 
@@ -104,6 +113,9 @@ function Dashboard() {
         setOpen(false);
     };
 
+    // const [openModal, setOpenModal] = React.useState(false);
+    // const handleModalOpen = () => setOpenModal(true);
+    // const handleModalClose = () => setOpenModal(false);
 
     // const { window } = props;
     // const [open, setOpen] = React.useState(false);
@@ -134,37 +146,94 @@ function Dashboard() {
     const drawer = (
         <div >
             {/* <Divider /> */}
-            <Box sx={{ backgroundColor: '#58e7f3', height: '650px' }}>
+            <Box sx={{ backgroundColor: '#110941', height: '650px' }} style={{ textAlign: 'center' }}>
                 {/* <Box sx={{ height: '625px' }}> */}
 
                 <Toolbar />
-                <Link to='/'><Button
+
+                <Link to={`${url}/allUsers`}><Button
                     style={{
-                        color: 'Black',
+                        color: 'white',
                         // borderRadius: 35,
                         // backgroundColor: "#21b6ae",
                         // padding: "18px 36px",
                         fontSize: "16px"
                     }}
-                >Home</Button></Link>
-                <Link to={`${url}/studentDashboard`}><Button
+                >
+
+                    All Users</Button></Link><br></br>
+
+                <Link to='/'><Button
                     style={{
-                        color: 'Black',
+                        color: 'white',
+                        // borderRadius: 35,
+                        // backgroundColor: "#21b6ae",
+                        // padding: "18px 36px",
                         fontSize: "16px"
                     }}
-                > Student Dashboard</Button></Link>
+                >
+                    <HomeIcon style={{ paddingRight: '2%', color: 'yellow' }}></HomeIcon>
+                    Home</Button></Link>
+
+                <Typography style={{ marginTop: '5px', marginBottom: '5px', color: '  #a1a499 ', variant: 'h4' }}>Student Register here</Typography>
+                <KeyboardDoubleArrowDownIcon style={{ color: ' #acda1d ' }} />
+
+                <Link to={`${url}/studentDashboard`}><Button
+                    style={{
+                        color: 'white',
+                        fontSize: "16px"
+                    }}
+                >
+                    <AppRegistrationIcon style={{ color: 'yellow' }} />
+                    Student Register</Button></Link>
+
+                <Link to={`${url}/class7Registration`}><Button
+                    style={{
+                        color: 'white',
+                        fontSize: "16px"
+                    }}
+                >
+                    <ClassIcon style={{ color: 'yellow' }} />
+                    Class 7 </Button></Link>
+
                 <Link to={`${url}/attendanceTable`}><Button
                     style={{
-                        color: 'Black',
+                        color: 'white',
                         fontSize: "16px"
                     }}
                 >Attendance Table</Button></Link>
+                <Link to={`${url}/mathAttendanceTable`}><Button
+                    style={{
+                        color: 'white',
+                        fontSize: "16px"
+                    }}
+                >MathAttendance </Button></Link>
+                <Link to={`${url}/banglaAttendanceTable`}><Button
+                    style={{
+                        color: 'white',
+                        fontSize: "16px"
+                    }}
+                >BanglaAttendance </Button></Link>
+                <Link to={`${url}/englishAttendanceTable`}><Button
+                    style={{
+                        color: 'white',
+                        fontSize: "16px"
+                    }}
+                >EnglishAttendance </Button></Link>
+
+
+                <Link to={`${url}/dataAttendanceTable`}><Button
+                    style={{
+                        color: 'white',
+                        fontSize: "16px"
+                    }}
+                >Data Attendance Table</Button></Link>
 
 
                 {teacher &&
                     < Link to={`${url}/teacherDashboard`}><Button
                         style={{
-                            color: 'Black',
+                            color: 'white',
                             fontSize: "16px"
                         }}
                     >Teacher Dashboard</Button></Link>
@@ -174,13 +243,13 @@ function Dashboard() {
                     admin && <Box>
                         <Link to={`${url}/makeAdmin`}><Button
                             style={{
-                                color: 'Black',
+                                color: 'white',
                                 fontSize: "16px"
                             }}
                         >Make Admin</Button></Link>
                         <Link to={`${url}/addTeacher`}><Button
                             style={{
-                                color: 'Black',
+                                color: 'white',
                                 fontSize: "16px"
                             }}
                         >Add Teacher</Button></Link>
@@ -218,16 +287,18 @@ function Dashboard() {
     return (
         <Box sx={{ display: 'flex' }}>
             <CssBaseline />
-            <AppBar position="fixed" open={open}>
+            <AppBar position="fixed" open={open} style={{ backgroundColor: '#110941' }}>
                 <Toolbar>
                     <IconButton
-                        color="inherit"
+                        backgroundColor="white"
                         aria-label="open drawer"
                         onClick={handleDrawerOpen}
                         edge="start"
+                        style={{ color: 'white' }}
                         sx={{ mr: 2, ...(open && { display: 'none' }) }}
                     >
-                        <MenuIcon />
+                        {/* <MenuIcon />*/}
+                        <MenuIcon style={{ color: 'yellow' }} />
                     </IconButton>
                     <Typography variant="h6" noWrap component="div">
                         Dashboard
@@ -249,15 +320,16 @@ function Dashboard() {
                 anchor="left"
                 open={open}
             >
-                <DrawerHeader sx={{ backgroundColor: ' #58e7f3' }}>
+                <DrawerHeader sx={{ backgroundColor: '#110941' }}>
                     <Box >
-                        <IconButton onClick={handleDrawerClose}>
-                            {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
+                        <IconButton onClick={handleDrawerClose} style={{ color: 'white', fontSize: '2.5em' }}>
+                            {theme.direction === 'ltr' ?
+                                <ArrowCircleLeftIcon style={{ color: 'yellow' }} /> : <ChevronRightIcon />}
                         </IconButton>
                     </Box>
                 </DrawerHeader>
                 {/* <Divider style={{ color: ' #1d0326 ' }} /> */}
-                <Divider style={{ backgroundColor: ' #1d0326 ' }}></Divider>
+                <Divider style={{ backgroundColor: ' white ' }}></Divider>
                 {drawer}
 
                 {/* {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
@@ -292,11 +364,29 @@ function Dashboard() {
                     <Route exact path={path}>
                         <DashboardHome></DashboardHome>
                     </Route>
+                    <Route exact path={`${path}/allUsers`}>
+                        <AllUsers></AllUsers>
+                    </Route>
                     <Route exact path={`${path}/studentDashboard`}>
-                        <StudentDashboard course></StudentDashboard>
+                        <StudentDashboard ></StudentDashboard>
+                    </Route>
+                    <Route exact path={`${path}/mathAttendanceTable`}>
+                        <MathAttendanceTable></MathAttendanceTable>
+                    </Route>
+                    <Route exact path={`${path}/banglaAttendanceTable`}>
+                        <BanglaAttendanceTable></BanglaAttendanceTable>
+                    </Route>
+                    <Route exact path={`${path}/englishAttendanceTable`}>
+                        <EnglishAttendanceTable></EnglishAttendanceTable>
+                    </Route>
+                    <Route exact path={`${path}/class7Registration`}>
+                        <SevenRegistration></SevenRegistration>
                     </Route>
                     <Route exact path={`${path}/attendanceTable`}>
                         <AttendanceTable ></AttendanceTable>
+                    </Route>
+                    <Route exact path={`${path}/dataAttendanceTable`}>
+                        <DataAttendanceTable></DataAttendanceTable>
                     </Route>
                     <Route path={`${path}/teacherDashboard`}>
                         <TeacherDashboard></TeacherDashboard>
@@ -307,6 +397,8 @@ function Dashboard() {
                     <AdminRoute path={`${path}/addTeacher`}>
                         <AddTeacher ></AddTeacher>
                     </AdminRoute>
+
+
                 </Switch>
             </Box>
 
@@ -314,7 +406,10 @@ function Dashboard() {
                 <DrawerHeader />
 
             </Main>
-        </Box>
+
+
+
+        </Box >
     );
 }
 

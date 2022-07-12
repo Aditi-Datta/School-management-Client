@@ -13,15 +13,27 @@ import AuthProvider from './contexts/AuthProvider/AuthProvider';
 import PrivateRoute from './Pages/Login/privateRoute/privateRoute';
 import Dashboard from './Pages/Dashboard/Dashboard/Dashboard';
 import AboutUs from './Pages/HomePage/Attendance/Attendance/AboutUs';
+import ContactUs from './Pages/HomePage/ContactUs/ContactUs';
+
+import backgroundImg from '../src/images/background.jpg';
+
+
+// const bannerBackground = {
+//   background: `url(${backgroundImg})`,
+// }
 
 function App() {
   return (
-    <div className="App">
+    <div className="App" >
+
       <AuthProvider>
         <Router>
           <Switch>
             <Route path="/home">
               <Home />
+            </Route>
+            <Route path="/contactUs">
+              <ContactUs />
             </Route>
             <PrivateRoute path="/dashboard">
               <Dashboard />

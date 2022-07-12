@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import Faq from '../Faq/Faq';
-import faqImg from '../../../images/ss6.png';
+import faqImg from '../../../images/ss5.jpg';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import { Container } from "@mui/material";
@@ -10,23 +10,33 @@ function FaqQuestions() {
 
     const [faqs, setfaqs] = useState([
         {
-            question: "How many programers here?",
-            answer: 'around 20',
+            question: "	Do you have the Government approval?",
+            answer: 'Yes. Leading Light School & College is approved by the Government of Bangladesh on September 2020.',
             open: true
         },
         {
-            question: "What are the services do you offer ?",
-            answer: 'more then 200',
+            question: "What is the full name of the College?",
+            answer: 'Leading Light School & College',
             open: false
         },
         {
-            question: "Are your services beginners friendly?",
-            answer: 'Yeah, Definitely.',
+            question: "College Address?",
+            answer: 'TB Gate, Tultikor, Sylhet, Bangladesh.',
             open: false
         },
         {
-            question: "what how does it take to upgrade a package?",
-            answer: 'Right right',
+            question: "	Contact Number?",
+            answer: '+88 01720 532169, 01766 857322',
+            open: false
+        },
+        {
+            question: "	E-mail Address?",
+            answer: 'info@leadinglight.edu.bd',
+            open: false
+        },
+        {
+            question: "	Website Address?",
+            answer: 'http://www.leadinglight.edu/',
             open: false
         }
     ]);
@@ -38,28 +48,48 @@ function FaqQuestions() {
 
     };
     const imgStyle = {
-        width: '200px',
+        // width: '200px',
+        width: '40%',
         // margin: '3% auto',
         height: '200px',
         position: 'related',
+        marginTop: '20px',
+        marginBottom: '2%'
     };
     const faqsStyle = {
         display: 'flex',
         width: '100%'
+
     };
+    const faqQuestionStyle = {
+        marginTop: '0'
+    };
+    const toggleFAQ = index => {
+        setfaqs(faqs.map((faq, i) => {
+            if (i === index) {
+                faq.open = !faq.open
+            }
+            else {
+                faq.open = false;
+            }
+
+            return faq;
+        }))
+    }
+
     return (
         <div >
             <Container>
                 <Box style={faqsStyle}>
-                    <Grid container rowSpacing={1} spacing={0} columns={16}>
-                        <Grid item xs={8} style={imgStyle}>
+                    <Grid container rowSpacing={1} spacing={0} columns={{ xs: 12, sm: 12, md: 12 }}>
+                        <Grid item xs={12} sm={12} md={6} style={imgStyle}>
                             <img src={faqImg}></img>
                         </Grid>
-                        <Grid item xs={8}>
-                            <h1 style={headderStyle}>FAQs</h1>
+                        <Grid className='faqs' item xs={12} sm={12} md={6} style={faqQuestionStyle}>
+                            <h1 className='htag' style={headderStyle}>Frequently Asked Questions</h1>
                             {
                                 faqs.map((faq, i) => (
-                                    <Faq faq={faq} index={i}></Faq>
+                                    <Faq faq={faq} index={i} toggleFAQ={toggleFAQ}></Faq>
                                 ))
                             }
                         </Grid>
