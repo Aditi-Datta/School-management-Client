@@ -36,9 +36,15 @@ const Login = () => {
 
             <Navigation></Navigation>
             <Container>
-                <Grid container spacing={2}>
+                <Grid container spacing={2} sx={{ml:'6%'}}>
+
+                <Grid item xs={12} md={6} sx={{ mt: 10 }}>
+                <img style={{ width: '78%' }} src={studentLogin} alt="" />
+
+            </Grid>
+
                     <Grid item sx={{ mt: 18 }} xs={12} md={6}>
-                        <Typography variant="h4" gutterBottom>
+                        <Typography variant="h4" gutterBottom sx={{ml:'30%'}}>
                             Login
                         </Typography>
                         <form onSubmit={handleLoginSubmit}>
@@ -67,12 +73,12 @@ const Login = () => {
                                 onChange={handleOnChange}
                                 variant="standard" />
 
-                            <Button sx={{ width: '75%', m: 3 }}
+                            <Button sx={{ width: '75%', m: 3,ml:1 }}
                                 type="submit" variant="contained">Login
                             </Button>
 
                             <NavLink style={{ textDecoration: 'none' }} to='/register'>
-                                <Button variant="text" style={{ textAlign: 'center' }}>New User? Please Register</Button>
+                                <Button variant="text" sx={{ml:15}} >New User? Please Register</Button>
                             </NavLink>
                             {isLoading && <CircularProgress />}
 
@@ -81,17 +87,14 @@ const Login = () => {
                             {authError && <Alert severity="error">{authError}</Alert>}
                             {/* <p>--------------------------------------</p> */} <br></br> <br></br>
 
-                            <Button onClick={handleGoogleSignIn} variant="contained" style={{ paddingleft: '25%' }}>Login with Google</Button>
+                            <Button onClick={handleGoogleSignIn} sx={{ml:18}} variant="contained" style={{ paddingleft: '25%', backgroundColor:'green'}}>Login with Google</Button>
                         </form>
 
 
 
 
                     </Grid>
-                    <Grid item xs={12} md={6} sx={{ mt: 8 }}>
-                        <img style={{ width: '75%' }} src={studentLogin} alt="" />
-
-                    </Grid>
+                   
 
                 </Grid>
             </Container>

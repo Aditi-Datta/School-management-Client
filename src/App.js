@@ -16,7 +16,10 @@ import AboutUs from './Pages/HomePage/Attendance/Attendance/AboutUs';
 import ContactUs from './Pages/HomePage/ContactUs/ContactUs';
 
 import backgroundImg from '../src/images/background.jpg';
-
+import TeacherDashboard from './Pages/TeacherDashboard/TeacherDashboard/TeacherDashboard';
+import MathAttendanceTableSeven from './Pages/TeacherDashboard/ClassSeven/AttendanceTableSeven/MathAttendanceTableSeven/MathAttendanceTableSeven';
+import EnglishAttendanceTableSeven from './Pages/TeacherDashboard/ClassSeven/AttendanceTableSeven/EnglishAttendanceTableSeven/EnglishAttendanceTableSeven';
+import BanglaAttendanceTableSeven from './Pages/TeacherDashboard/ClassSeven/AttendanceTableSeven/BanglaAttendanceTableSeven/BanglaAttendanceTableSeven';
 
 // const bannerBackground = {
 //   background: `url(${backgroundImg})`,
@@ -32,15 +35,18 @@ function App() {
             <Route path="/home">
               <Home />
             </Route>
-            <Route path="/contactUs">
+            <PrivateRoute path="/contactUs">
               <ContactUs />
-            </Route>
+            </PrivateRoute>
             <PrivateRoute path="/dashboard">
               <Dashboard />
             </PrivateRoute>
-            <PrivateRoute path="/aboutus">
-              <AboutUs />
+            <PrivateRoute path="/teacher">
+              <TeacherDashboard/>
             </PrivateRoute>
+            <Route path="/aboutus">
+              <AboutUs />
+            </Route>
             <Route path="/login">
               <Login />
             </Route>
@@ -50,6 +56,21 @@ function App() {
             <Route exact path="/">
               <Home />
             </Route>
+
+
+
+            <Route path="/SevenMath">
+              <MathAttendanceTableSeven />
+            </Route>
+            <Route path="/SevenEnglish">
+              <EnglishAttendanceTableSeven />
+            </Route>
+            <Route path="/SevenBangla">
+              <BanglaAttendanceTableSeven />
+            </Route>
+
+
+
           </Switch>
         </Router>
       </AuthProvider>

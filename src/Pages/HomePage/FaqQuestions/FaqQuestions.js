@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import Faq from '../Faq/Faq';
-import faqImg from '../../../images/ss5.jpg';
+import faqImg from '../../../images/ss6.png';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import { Container } from "@mui/material";
@@ -53,7 +53,7 @@ function FaqQuestions() {
         // margin: '3% auto',
         height: '200px',
         position: 'related',
-        marginTop: '20px',
+        marginTop: '5%',
         marginBottom: '2%'
     };
     const faqsStyle = {
@@ -78,14 +78,16 @@ function FaqQuestions() {
     }
 
     return (
-        <div >
+        <div>
             <Container>
                 <Box style={faqsStyle}>
                     <Grid container rowSpacing={1} spacing={0} columns={{ xs: 12, sm: 12, md: 12 }}>
-                        <Grid item xs={12} sm={12} md={6} style={imgStyle}>
+                        <Grid item xs={12} sm={12} md={6} style={imgStyle} data-aos="fade-up"
+                        >
                             <img src={faqImg}></img>
                         </Grid>
-                        <Grid className='faqs' item xs={12} sm={12} md={6} style={faqQuestionStyle}>
+                        <Grid data-aos="fade-up" data-aos-easing="ease-out-cubic"
+                        data-aos-duration="2000" className='faqs' item xs={12} sm={12} md={6} style={faqQuestionStyle}>
                             <h1 className='htag' style={headderStyle}>Frequently Asked Questions</h1>
                             {
                                 faqs.map((faq, i) => (

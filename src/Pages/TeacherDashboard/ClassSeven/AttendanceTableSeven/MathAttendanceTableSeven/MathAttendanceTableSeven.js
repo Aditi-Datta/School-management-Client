@@ -21,8 +21,7 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
     },
 }));
 
-const EnglishAttendanceTable = () => {
-
+const MathAttendanceTableSeven = () => {
     const { user } = useAuth();
     const [studentInformation, setStudentInformation] = useState([]);
     const [checkBoxes, setCheckBoxes] = React.useState([]);
@@ -59,12 +58,11 @@ const EnglishAttendanceTable = () => {
         setCheckBoxes(chackBoxData);
     };
 
-
     return (
 
         <>
             <div>
-                <h2 style={{ textAlign: "center", color: 'green', margin: 20 }}>Class 7 English Attendance Table</h2>
+                <h2 style={{ textAlign: "center", color: 'green', margin: 20 }}>Class 7 Mathmatics Attendance Table</h2>
 
                 <h5 style={{ textAlign: "left", margin: 20 }}>Total Registered students: {studentInformation.length}</h5>
             </div>
@@ -209,4 +207,6 @@ const EnglishAttendanceTable = () => {
     );
 };
 
-export default EnglishAttendanceTable;
+
+
+export default MathAttendanceTableSeven;

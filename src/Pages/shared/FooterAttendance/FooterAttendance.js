@@ -21,8 +21,8 @@ const Footer = () => {
         marginTop: '60px',
         width: '100%',
         bottom:0,
-        borderTop: 'solid 1px'
-       
+        borderTop: 'solid 1px',
+        
     };
 
     return (

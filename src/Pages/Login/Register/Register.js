@@ -30,11 +30,11 @@ const Register = () => {
             return;
         }
 
-        if (!/^(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z]).{6}$/.test(loginData.password)) {
-            setError('Password Must contain 1 upper case, 1 lower case, 1 special character,1 digit & 6 characters long');
+        if (!/((?=.*\d)(?=.*[a-zA-Z])(?=(.*\W){2}).{8,})/.test(loginData.password)) {
+            setError('Password Must contain 1 digit,1 alphabet,2 special character & 8 characters long');
             return;
         }
-
+        // /^(?=.*\d)(?=.*[a-zA-Z])[a-zA-Z0-9]{7,}$/
         if (loginData.password !== loginData.conpassword) {
             alert("your password didn't match!!!");
             return;
@@ -49,9 +49,15 @@ const Register = () => {
             <Navigation></Navigation>
 
             <Container>
-                <Grid container spacing={2}>
+                <Grid container spacing={2} sx={{ml:'6%'}}>
+
+                <Grid item xs={12} md={6} sx={{mt: 10  }}>
+                        <img style={{ width: '78%' }} src={studentLogin} alt="" />
+
+                    </Grid>
+
                     <Grid item sx={{ mt: 14 }} xs={12} md={6}>
-                        <Typography variant="h4" gutterBottom>
+                        <Typography variant="h4" gutterBottom sx={{ml:'30%'}}>
                             Register
                         </Typography>
 
@@ -61,6 +67,7 @@ const Register = () => {
                                 id="standard-basic"
                                 label="Your Name"
                                 name="name"
+                                required
                                 onBlur={handleOnBlur}
                                 variant="standard" />
 
@@ -70,6 +77,7 @@ const Register = () => {
                                 label="Email"
                                 name="email"
                                 type="email"
+                                required
                                 onBlur={handleOnBlur}
                                 variant="standard" />
 
@@ -79,6 +87,7 @@ const Register = () => {
                                 label="Password"
                                 type="password"
                                 name="password"
+                                required
                                 onBlur={handleOnBlur}
                                 variant="standard" />
                             <TextField
@@ -87,36 +96,36 @@ const Register = () => {
                                 label="Confirm Password"
                                 type="password"
                                 name="conpassword"
+                                required
                                 onBlur={handleOnBlur}
                                 variant="standard" />
 
 
 
-                            <Button sx={{ width: '75%', m: 3 }}
+                            <Button sx={{ width: '75%', m: 3 ,ml:1}}
                                 type="submit" variant="contained">Register
                             </Button>
 
-                            <Typography component="div" variant="body1">
-                                <Box sx={{ color: 'success' }}>{error}</Box>
-                            </Typography>
+                            
+                                <Box style={{color:'red',textAlign:'center'}}>{error}</Box>
+                            
 
                             <NavLink
                                 style={{ textDecoration: 'none' }}
                                 to='/login'>
-                                <Button variant="text">Already Registered? Please Login</Button>
+                                <Button variant="text" sx={{ml:11}}>Already Registered? Please Login</Button>
                             </NavLink>
                         </form>}
                         {isLoading && <CircularProgress />}
 
                         {user?.email && <Alert severity="success">Registered successfully!!! </Alert>}
-
-                        {authError && <Alert severity="error">{authError}</Alert>}
-
-                    </Grid>
-                    <Grid item xs={12} md={6} sx={{ mt: 8 }}>
-                        <img style={{ width: '75%' }} src={studentLogin} alt="" />
+<Box style={{color:'red',textAlign:'center'}}> 
+{authError}
+</Box>
+{authError && <Alert severity="error">{authError}</Alert>}                  
 
                     </Grid>
+                    
 
                 </Grid>
             </Container>

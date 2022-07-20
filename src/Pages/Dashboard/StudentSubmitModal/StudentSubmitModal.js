@@ -91,6 +91,7 @@ const StudentSubmitModal = ({ openModal, handleModalClose, setRegSuccess }) => {
                                 name='studentId'
                                 onBlur={handleOnBlur}
                                 variant="outlined"
+                                required
                             />
                             <TextField
                                 id="outlined-basic"

@@ -7,10 +7,18 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import Checkbox from "@mui/material/Checkbox";
-import useAuth from "../../../hooks/useAuth";
+import useAuth from "../../../../../hooks/useAuth";
 import { styled } from '@mui/material/styles';
 import TableCell, { tableCellClasses } from '@mui/material/TableCell';
-import Footer from "../../shared/FooterAttendance/FooterAttendance";
+import Calender from "../../../../shared/Calender/Calender";
+import { Button, Divider, Grid } from "@mui/material";
+import Navigation from "../../../../shared/Navigation/Navigation";
+import FooterAttendance from "../../../../shared/FooterAttendance/FooterAttendance";
+
+import TextField from '@mui/material/TextField';
+import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
@@ -22,39 +30,38 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
     },
 }));
 
-
-const AttendanceTable = () => {
-
+const BanglaAttendanceTableSeven = () => {
     const { user } = useAuth();
     const [studentInformation, setStudentInformation] = useState([]);
     const [checkBoxes, setCheckBoxes] = React.useState([]);
+    const [date, setDate] = React.useState(new Date());
+
+
+    const [attendance, setAttendance] = useState([]);
+
+
+
+    const todayDate = date.toLocaleDateString();
+
     console.log("checkBoxes", checkBoxes);
     useEffect(() => {
-        const url = `https://secure-temple-79203.herokuapp.com/studentInfo`;
-
+        const url = `https://secure-temple-79203.herokuapp.com/classSevenStudent`;
         fetch(url)
             .then((res) => res.json())
             .then((data) => {
                 setStudentInformation(data);
+                console.log(data);
+                setAttendance(data);
                 setCheckBoxes(
                     data.map((data) => ({
                         _id: data._id,
                         studentId: data.studentId,
+                        studentName: data.studentName,
                         totalSelect: [],
                     }))
                 );
             });
     }, [user.email]);
-
-    {/*const [totalSelectedCheckboxes, setTotalSelectedCheckboxes] =
-React.useState(0);*/}
-
-    {/* function handleChk() {
-        // let elem = document.getElementById("select");
-        setTotalSelectedCheckboxes(
-            document.querySelectorAll("input[type=checkbox]:checked").length
-        );
-    }*/}
 
     const handleCheckboxChange = (id, index) => {
         console.log(id, index);
@@ -71,17 +78,88 @@ React.useState(0);*/}
         setCheckBoxes(chackBoxData);
     };
 
-    {/*React.useEffect(() => {
-        console.log(totalSelectedCheckboxes);
-    }, [totalSelectedCheckboxes]);*/}
+    const  handleAttendanceValueSubmit = e => {
+        // collect data
+        const url = `https://secure-temple-79203.herokuapp.com/banglaAttendance`;
+        const body =  checkBoxes.map(data=> {
+           return { id: data._id,
+            studentId: data.studentId,
+            studentName: data.studentName,
+            totalSelect: data.totalSelect,
+            date: todayDate,
+            }
+        })
+        // send to the server
+        fetch(url, { 
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            }, 
+            body: JSON.stringify(body)
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+        });
+        e.preventDefault();
+    };
 
+
+    useEffect(() => {
+        const url = `https://secure-temple-79203.herokuapp.com/banglaAttendance`;
+        fetch(url)
+            .then((res) => res.json())
+            .then((data) => {    
+                setCheckBoxes(
+                    data.map((data) => ({ 
+                        _id: data._id,
+                        studentId: data.studentId,
+                        studentName: data.studentName,
+                        totalSelect: data.totalSelect.length,
+                        date: todayDate,
+                    }))  
+                );       
+            });   
+    },);
+
+    
     return (
+
         <>
+
+        <Navigation></Navigation>
             <div>
-                <h2 style={{ textAlign: "center", margin: 20 }}>Total Registered students: {studentInformation.length}</h2>
+                <h2 style={{ textAlign: "center", color: 'green', margin: 20 }}>Class 7 Bangla Attendance Table</h2>
+                <Divider sx={{  borderBottomWidth: '5px' ,borderBottomColor:'#105373', marginBottom:'15px'}} ></Divider>
+                
             </div>
+            <Grid container justifyContent="space-around"
+            alignItems="center" marginBottom={'2%'}>
+            <Grid >
+            <h5 style={{ textAlign: "left", margin: 20 }}>Total Registered students: {studentInformation.length}</h5>
+            </Grid>
+            <Grid  >
+             {/*<Calender></Calender>*/}
+
+             <LocalizationProvider dateAdapter={AdapterDateFns}>
+             <DatePicker
+               label="Calender"
+               value={date}
+               onChange={(newValue) => {
+                 setDate(newValue);
+               }}
+               renderInput={(params) => <TextField {...params} />}
+             />
+           </LocalizationProvider>
+            </Grid>
+            
+            </Grid>
+            
+            
+            <Grid container alignItems='center' justifyContent='center'  marginBottom={'2%'} >
+            <h2>Selected Date: {todayDate}</h2>
             <Paper sx={{ overflowX: 'hidden', overflowY: 'hidden' }}>
-                <TableContainer sx={{ maxHeight: 440, maxWidth: 1200 }}>
+                <TableContainer sx={{ maxHeight: '100vh', maxWidth: '80vw' }}>
                     <Table
                         stickyHeader aria-label="sticky table"
                         position="static"
@@ -104,7 +182,7 @@ React.useState(0);*/}
                                 <StyledTableCell align="right" sx={{ border: 0 }}>
                                     D3
                                 </StyledTableCell>
-                                <StyledTableCell align="right" sx={{ border: 0 }}>
+                                <StyledTableCell align="right" sx={{  }}>
                                     D4
                                 </StyledTableCell>
                                 <StyledTableCell align="right" sx={{ border: 0 }}>
@@ -213,16 +291,30 @@ React.useState(0);*/}
                                 </TableRow>
                             ))}
                         </TableBody>
-
-
-
-
                     </Table>
                 </TableContainer>
             </Paper >
+            
 
-            <Footer></Footer>
+            
+            
+            </Grid>
+
+            <Grid container alignItems='right' justifyContent='right' marginRight={'2%'} marginBottom={'2%'}>
+            <Button onClick={handleAttendanceValueSubmit} type="submit" variant="contained"
+                sx={{ p: 2, mr: 32 }}
+                style={{ color: 'black', borderRadius: 25, fontSize: "18px", backgroundColor: '#14a363' }}
+            >
+                Submit</Button>
+                </Grid>
+            
+
+            <FooterAttendance></FooterAttendance>
         </>
+
     );
 };
-export default AttendanceTable;
+
+
+
+export default BanglaAttendanceTableSeven;

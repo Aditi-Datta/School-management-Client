@@ -10,6 +10,10 @@ import Checkbox from "@mui/material/Checkbox";
 import useAuth from "../../../../../hooks/useAuth";
 import { styled } from '@mui/material/styles';
 import TableCell, { tableCellClasses } from '@mui/material/TableCell';
+import Calender from "../../../../shared/Calender/Calender";
+import { Button, Divider, Grid } from "@mui/material";
+import Navigation from "../../../../shared/Navigation/Navigation";
+import FooterAttendance from "../../../../shared/FooterAttendance/FooterAttendance";
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
@@ -21,24 +25,27 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
     },
 }));
 
-
-const MathAttendanceTable = () => {
-
+const EnglishAttendanceTableEight = () => {
     const { user } = useAuth();
     const [studentInformation, setStudentInformation] = useState([]);
     const [checkBoxes, setCheckBoxes] = React.useState([]);
+
+
+    const [attendance, setAttendance] = useState([]);
+
     console.log("checkBoxes", checkBoxes);
     useEffect(() => {
         const url = `https://secure-temple-79203.herokuapp.com/classSevenStudent`;
-
         fetch(url)
             .then((res) => res.json())
             .then((data) => {
                 setStudentInformation(data);
+                setAttendance(data);
                 setCheckBoxes(
                     data.map((data) => ({
                         _id: data._id,
                         studentId: data.studentId,
+                        studentName: data.studentName,
                         totalSelect: [],
                     }))
                 );
@@ -60,16 +67,75 @@ const MathAttendanceTable = () => {
         setCheckBoxes(chackBoxData);
     };
 
+    const  handleAttendanceValueSubmit = e => {
+        // collect data
+        const url = `https://secure-temple-79203.herokuapp.com/banglaAttendance`;
+        const body = checkBoxes.map(data=> {
+           return { id: data._id,
+            studentId: data.studentId,
+            studentName: data.studentName,
+            totalSelect: data.totalSelect.length,}
+        })
+        // send to the server
+        fetch(url, { 
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            }, 
+            body: JSON.stringify(body)
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+        });
+        e.preventDefault();
+    };
+
+
+    useEffect(() => {
+        const url = `https://secure-temple-79203.herokuapp.com/banglaAttendance`;
+        fetch(url)
+            .then((res) => res.json())
+            .then((data) => {
+               
+                setAttendance(data);
+                setCheckBoxes(
+                    data.map((data) => ({
+                        _id: data._id,
+                        studentId: data.studentId,
+                        studentName: data.studentName,
+                        totalSelect: data.totalSelect,
+                    }))
+                );
+            });
+    }, [user.email]);
+
+    
     return (
 
         <>
-            <div>
-                <h2 style={{ textAlign: "center", color: 'green', margin: 20 }}>Class 7 Mathmatics Attendance Table</h2>
 
-                <h5 style={{ textAlign: "left", margin: 20 }}>Total Registered students: {studentInformation.length}</h5>
+        <Navigation></Navigation>
+            <div>
+                <h2 style={{ textAlign: "center", color: 'green', margin: 20 }}>Class 7 Bangla Attendance Table</h2>
+<Divider sx={{  borderBottomWidth: '5px' ,borderBottomColor:'#105373', marginBottom:'15px'}} ></Divider>
+                
             </div>
+            <Grid container justifyContent="space-around"
+            alignItems="center" marginBottom={'2%'}>
+            <Grid >
+            <h5 style={{ textAlign: "left", margin: 20 }}>Total Registered students: {studentInformation.length}</h5>
+            </Grid>
+            <Grid  >
+            <Calender></Calender>
+            </Grid>
+            </Grid>
+            
+            
+            <Grid container alignItems='center' justifyContent='center'  marginBottom={'2%'} >
+            
             <Paper sx={{ overflowX: 'hidden', overflowY: 'hidden' }}>
-                <TableContainer sx={{ maxHeight: 440, maxWidth: 1200 }}>
+                <TableContainer sx={{ maxHeight: '100vh', maxWidth: '80vw' }}>
                     <Table
                         stickyHeader aria-label="sticky table"
                         position="static"
@@ -92,7 +158,7 @@ const MathAttendanceTable = () => {
                                 <StyledTableCell align="right" sx={{ border: 0 }}>
                                     D3
                                 </StyledTableCell>
-                                <StyledTableCell align="right" sx={{ border: 0 }}>
+                                <StyledTableCell align="right" sx={{  }}>
                                     D4
                                 </StyledTableCell>
                                 <StyledTableCell align="right" sx={{ border: 0 }}>
@@ -204,6 +270,22 @@ const MathAttendanceTable = () => {
                     </Table>
                 </TableContainer>
             </Paper >
+            
+
+            
+            
+            </Grid>
+
+            <Grid container alignItems='right' justifyContent='right' marginRight={'2%'} marginBottom={'2%'}>
+            <Button onClick={handleAttendanceValueSubmit} type="submit" variant="contained"
+                sx={{ p: 2, mr: 32 }}
+                style={{ color: 'black', borderRadius: 25, fontSize: "18px", backgroundColor: '#14a363' }}
+            >
+                Submit</Button>
+                </Grid>
+            
+
+            <FooterAttendance></FooterAttendance>
         </>
 
     );
@@ -211,4 +293,4 @@ const MathAttendanceTable = () => {
 
 
 
-export default MathAttendanceTable;
+export default EnglishAttendanceTableEight;

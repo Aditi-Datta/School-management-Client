@@ -36,21 +36,17 @@ import {
 import StudentDashboard from '../StudentDashboard/StudentDashboard';
 import MakeAdmin from '../MakeAdmin/MakeAdmin';
 import AddTeacher from '../AddTeacher/AddTeacher';
-import TeacherDashboard from '../Teacherdashboard/TeacherDashboard';
 import useAuth from '../../../hooks/useAuth';
 import AdminRoute from '../../Login/AdminRoute/AdminRoute';
 import DashboardHome from '../DashboardHome/DashboardHome';
 import AttendanceTable from '../AttendanceTable/AttendanceTable';
 // import StudentSubmitModal from '../StudentSubmitModal/StudentSubmitModal';
 import ArrowCircleLeftIcon from '@mui/icons-material/ArrowCircleLeft';
-import DataAttendanceTable from '../AttendanceTable/DataAttendanceTable/DataAttendanceTable';
 import SevenRegistration from '../ClassSevenReg/SevenRegistration/SevenRegistration';
 import ClassIcon from '@mui/icons-material/Class';
 import KeyboardDoubleArrowDownIcon from '@mui/icons-material/KeyboardDoubleArrowDown';
-import MathAttendanceTable from '../ClassSevenReg/AttendanceSeven/MathAttendanceTable/MathAttendanceTable';
-import BanglaAttendanceTable from '../ClassSevenReg/AttendanceSeven/BanglaAttendanceTable/BanglaAttendanceTable';
-import EnglishAttendanceTable from '../ClassSevenReg/AttendanceSeven/EnglishAttendanceTable/EnglishAttendanceTable';
 import AllUsers from '../AllUsers/AllUsers';
+import BanglaAttendanceTableSeven from '../../TeacherDashboard/ClassSeven/AttendanceTableSeven/BanglaAttendanceTableSeven/BanglaAttendanceTableSeven';
 // const drawerWidth = 200;
 const drawerWidth = 230;
 
@@ -113,35 +109,9 @@ function Dashboard() {
         setOpen(false);
     };
 
-    // const [openModal, setOpenModal] = React.useState(false);
-    // const handleModalOpen = () => setOpenModal(true);
-    // const handleModalClose = () => setOpenModal(false);
-
-    // const { window } = props;
-    // const [open, setOpen] = React.useState(false);
-    // const [course, setCourse] = React.useState('');
-
-    // const { user } = useAuth();
-    // const initialInfo = { studentName: user.displayName, studentId: '' }
-    // const [studentInfo, setStudentInfo] = useState(initialInfo);
-
-
-
     let { path, url } = useRouteMatch();
     const { admin } = useAuth();
     const { teacher } = useAuth();
-
-    // const handleDrawerToggle = () => {
-    //     setMobileOpen(!mobileOpen);
-    // };
-
-    // const handleDrawerOpen = () => {
-    //     setOpen(true);
-    // };
-
-    // const handleDrawerClose = () => {
-    //     setOpen(false);
-    // };
 
     const drawer = (
         <div >
@@ -196,49 +166,12 @@ function Dashboard() {
                     <ClassIcon style={{ color: 'yellow' }} />
                     Class 7 </Button></Link>
 
-                <Link to={`${url}/attendanceTable`}><Button
-                    style={{
-                        color: 'white',
-                        fontSize: "16px"
-                    }}
-                >Attendance Table</Button></Link>
-                <Link to={`${url}/mathAttendanceTable`}><Button
-                    style={{
-                        color: 'white',
-                        fontSize: "16px"
-                    }}
-                >MathAttendance </Button></Link>
                 <Link to={`${url}/banglaAttendanceTable`}><Button
                     style={{
                         color: 'white',
                         fontSize: "16px"
                     }}
-                >BanglaAttendance </Button></Link>
-                <Link to={`${url}/englishAttendanceTable`}><Button
-                    style={{
-                        color: 'white',
-                        fontSize: "16px"
-                    }}
-                >EnglishAttendance </Button></Link>
-
-
-                <Link to={`${url}/dataAttendanceTable`}><Button
-                    style={{
-                        color: 'white',
-                        fontSize: "16px"
-                    }}
-                >Data Attendance Table</Button></Link>
-
-
-                {teacher &&
-                    < Link to={`${url}/teacherDashboard`}><Button
-                        style={{
-                            color: 'white',
-                            fontSize: "16px"
-                        }}
-                    >Teacher Dashboard</Button></Link>
-                }
-
+                >Bangla</Button></Link>
                 {
                     admin && <Box>
                         <Link to={`${url}/makeAdmin`}><Button
@@ -370,26 +303,13 @@ function Dashboard() {
                     <Route exact path={`${path}/studentDashboard`}>
                         <StudentDashboard ></StudentDashboard>
                     </Route>
-                    <Route exact path={`${path}/mathAttendanceTable`}>
-                        <MathAttendanceTable></MathAttendanceTable>
-                    </Route>
-                    <Route exact path={`${path}/banglaAttendanceTable`}>
-                        <BanglaAttendanceTable></BanglaAttendanceTable>
-                    </Route>
-                    <Route exact path={`${path}/englishAttendanceTable`}>
-                        <EnglishAttendanceTable></EnglishAttendanceTable>
-                    </Route>
+                    
                     <Route exact path={`${path}/class7Registration`}>
                         <SevenRegistration></SevenRegistration>
                     </Route>
-                    <Route exact path={`${path}/attendanceTable`}>
-                        <AttendanceTable ></AttendanceTable>
-                    </Route>
-                    <Route exact path={`${path}/dataAttendanceTable`}>
-                        <DataAttendanceTable></DataAttendanceTable>
-                    </Route>
-                    <Route path={`${path}/teacherDashboard`}>
-                        <TeacherDashboard></TeacherDashboard>
+                   
+                    <Route exact path={`${path}/banglaAttendanceTable`}>
+                        <BanglaAttendanceTableSeven></BanglaAttendanceTableSeven>
                     </Route>
                     <AdminRoute path={`${path}/makeAdmin`}>
                         <MakeAdmin></MakeAdmin>
