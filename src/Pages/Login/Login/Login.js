@@ -9,11 +9,11 @@ import Footer from "../../shared/Footer/Footer";
 const Login = () => {
 
     const [loginData, setLoginData] = useState({})
-    const { user, loginUser, signInWithGoogle, isLoading, authError } = useAuth();
+    const { user, loginUser, signInWithGoogle, isLoading, authError,handleResetPassword } = useAuth();
 
     const location = useLocation();
     const history = useHistory();
-
+    
     const handleOnChange = e => {
         const field = e.target.name;
         const value = e.target.value;
@@ -30,6 +30,11 @@ const Login = () => {
     const handleGoogleSignIn = () => {
         signInWithGoogle(location, history);
     }
+
+    const handleForgetPassword = () => {
+        handleResetPassword(loginData.email);
+    }
+    
 
     return (
         <>
@@ -54,6 +59,7 @@ const Login = () => {
                                 label="Email"
                                 name="email"
                                 type="email"
+                                required
                                 onChange={handleOnChange}
                                 variant="standard" />
                             {/* <TextField
@@ -70,24 +76,38 @@ const Login = () => {
                                 label="Password"
                                 type="password"
                                 name="password"
+                                required
                                 onChange={handleOnChange}
                                 variant="standard" />
+                                <br></br>
 
-                            <Button sx={{ width: '75%', m: 3,ml:1 }}
+                            <Button sx={{ width: '75%',  m: 3,ml:1 }}
                                 type="submit" variant="contained">Login
                             </Button>
 
+                            <br></br>
+
+                            
+                                <Button variant="link" sx={{}} onClick={handleForgetPassword}>Forgot Password?</Button>
+                          
                             <NavLink style={{ textDecoration: 'none' }} to='/register'>
-                                <Button variant="text" sx={{ml:15}} >New User? Please Register</Button>
-                            </NavLink>
+                            <Button variant="text" sx={{ml:'18%'}} >Create New account</Button>
+                        </NavLink>
+                            <br></br>
+
                             {isLoading && <CircularProgress />}
 
                             {user?.email && <Alert severity="success"  >Login successfully!!! </Alert>}
 
                             {authError && <Alert severity="error">{authError}</Alert>}
-                            {/* <p>--------------------------------------</p> */} <br></br> <br></br>
+                            {/* <p>--------------------------------------</p> */} <br></br>
 
-                            <Button onClick={handleGoogleSignIn} sx={{ml:18}} variant="contained" style={{ paddingleft: '25%', backgroundColor:'green'}}>Login with Google</Button>
+                            <Button onClick={handleGoogleSignIn} sx={{ml:12,p:1}} variant="contained" style={{   width: '45%',  backgroundColor:'green'}}>Login with Google</Button><br></br>
+
+                           
+                            
+
+                            
                         </form>
 
 

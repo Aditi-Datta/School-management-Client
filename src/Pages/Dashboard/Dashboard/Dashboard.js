@@ -46,6 +46,7 @@ import SevenRegistration from '../ClassSevenReg/SevenRegistration/SevenRegistrat
 import ClassIcon from '@mui/icons-material/Class';
 import KeyboardDoubleArrowDownIcon from '@mui/icons-material/KeyboardDoubleArrowDown';
 import AllUsers from '../AllUsers/AllUsers';
+
 import BanglaAttendanceTableSeven from '../../TeacherDashboard/ClassSeven/AttendanceTableSeven/BanglaAttendanceTableSeven/BanglaAttendanceTableSeven';
 // const drawerWidth = 200;
 const drawerWidth = 230;
@@ -100,7 +101,8 @@ const DrawerHeader = styled('div')(({ theme }) => ({
 function Dashboard() {
     const theme = useTheme();
     const [open, setOpen] = React.useState(false);
-
+    
+    const { user } = useAuth();
     const handleDrawerOpen = () => {
         setOpen(true);
     };
@@ -216,9 +218,14 @@ function Dashboard() {
     );
 
     // const container = window !== undefined ? () => window().document.body : undefined;
-
+console.log(user);
+console.log(user.emailVerified);
     return (
+        <>
         <Box sx={{ display: 'flex' }}>
+
+        
+
             <CssBaseline />
             <AppBar position="fixed" open={open} style={{ backgroundColor: '#110941' }}>
                 <Toolbar>
@@ -292,11 +299,17 @@ function Dashboard() {
             </Drawer>
             <Box>
                 <Toolbar />
-                {/* exact path={`${path}`} */}
+               </Box>
                 <Switch>
-                    <Route exact path={path}>
-                        <DashboardHome></DashboardHome>
-                    </Route>
+            {/*  {user.emailVerified? <Route exact path={path}>
+                    <DashboardHome ></DashboardHome>
+                </Route>:<p>not verified</p>} */}
+               
+                   
+                <Route exact path={path}>
+                    <DashboardHome ></DashboardHome>
+                </Route>
+
                     <Route exact path={`${path}/allUsers`}>
                         <AllUsers></AllUsers>
                     </Route>
@@ -317,193 +330,16 @@ function Dashboard() {
                     <AdminRoute path={`${path}/addTeacher`}>
                         <AddTeacher ></AddTeacher>
                     </AdminRoute>
-
-
                 </Switch>
-            </Box>
+           
 
             <Main open={open}>
                 <DrawerHeader />
 
             </Main>
-
-
-
-        </Box >
+            </Box>
+        </>
     );
 }
-
-
-
-
-//         <>
-//             <Box sx={{ display: 'flex' }}>
-//                 {/* sx={{ display: 'flex', backgroundColor: '  #eee18f  ', height: '600px' }} */}
-//                 <CssBaseline />
-//                 <AppBar
-//                     position="fixed" open={open}
-//                 // sx={{
-//                 //     width: { sm: `calc(100% - ${drawerWidth}px)` },
-//                 //     ml: { sm: `${drawerWidth}px` },
-//                 // }}
-//                 >
-//                     <Toolbar>
-//                         <IconButton
-//                             color="inherit"
-//                             aria-label="open drawer"
-//                             edge="start"
-//                             onClick={handleDrawerOpen}
-//                             sx={{ mr: 2, ...(open && { display: 'none' }) }}
-//                         // sx={{ mr: 2, display: { sm: 'none' } }}
-//                         >
-//                             <MenuIcon />
-//                         </IconButton>
-//                         <Typography variant="h6" noWrap component="div">
-//                             Dashboard
-//                         </Typography>
-
-//                     </Toolbar>
-//                 </AppBar>
-
-//                 <Drawer
-//                     sx={{
-//                         width: drawerWidth,
-//                         flexShrink: 0,
-//                         '& .MuiDrawer-paper': {
-//                             width: drawerWidth,
-//                             boxSizing: 'border-box',
-//                         },
-//                     }}
-//                     variant="persistent"
-//                     anchor="left"
-//                     open={open}
-//                 >
-//                     <DrawerHeader>
-//                         <IconButton onClick={handleDrawerClose}>
-//                             {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
-//                         </IconButton>
-//                     </DrawerHeader>
-//                     <Divider />
-
-
-
-
-
-
-
-
-
-
-
-
-
-//                     {/* <Box
-//                     component="nav"
-//                     sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
-//                     aria-label="mailbox folders"
-//                 >
-//                     {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
-//                     {/* <Drawer
-//                         container={container}
-//                         variant="temporary"
-//                         open={open}
-//                         onClose={handleDrawerClose}
-//                         ModalProps={{
-//                             keepMounted: true, // Better open performance on mobile.
-//                         }}
-//                         sx={{
-//                             display: { xs: 'block', sm: 'none' },
-//                             '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
-//                         }}
-//                     >
-//                         {drawer}
-//                     </Drawer>
-//                     <Drawer
-//                         variant="permanent"
-//                         sx={{
-//                             display: { xs: 'none', sm: 'block' },
-//                             '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
-//                         }}
-//                         open
-//                     >
-//                         {drawer}
-//                     </Drawer>
-//                 </Box> */}
-//                     <Box
-//                         component="main"
-//                         sx={{ flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)` } }}
-//                     >
-//                         <Toolbar />
-//                         {/* exact path={`${path}`} */}
-//                         <Switch>
-//                             <Route exact path={path}>
-//                                 <DashboardHome></DashboardHome>
-//                             </Route>
-//                             <Route exact path={`${path}/studentDashboard`}>
-//                                 <StudentDashboard course={course}></StudentDashboard>
-//                             </Route>
-//                             <Route exact path={`${path}/attendanceTable`}>
-//                                 <AttendanceTable ></AttendanceTable>
-//                             </Route>
-//                             <Route path={`${path}/teacherDashboard`}>
-//                                 <TeacherDashboard></TeacherDashboard>
-//                             </Route>
-//                             <AdminRoute path={`${path}/makeAdmin`}>
-//                                 <MakeAdmin></MakeAdmin>
-//                             </AdminRoute>
-//                             <AdminRoute path={`${path}/addTeacher`}>
-//                                 <AddTeacher course={course} setCourse={setCourse}></AddTeacher>
-//                             </AdminRoute>
-//                         </Switch>
-
-
-//                         {/* <Typography paragraph>
-//                     Select Your Cource
-//                 </Typography> */}
-
-//                         {/* <Grid
-//                     sx={{
-//                         display: 'grid',
-//                         gap: 1,
-//                         gridTemplateColumns: 'repeat(2, 1fr)',
-//                     }}
-//                     container spacing={2}>
-//                     <Grid item xs={8}>
-//                         <Cource></Cource>
-//                     </Grid>
-//                     <Grid item xs={4}>
-//                         <Cource></Cource>
-//                     </Grid>
-//                     <Grid item xs={4}>
-//                         <Cource></Cource>
-//                     </Grid>
-//                     <Grid item xs={8}>
-//                         <Cource></Cource>
-//                     </Grid>
-//                 </Grid>
-//  */}
-
-
-//                     </Box>
-//                     {/* <StudentSubmitModal
-//                 studentInfo={studentInfo}
-//                 setStudentInfo={setStudentInfo}
-//             > </StudentSubmitModal>
-//             <AttendanceTable
-//                 studentInfo={studentInfo}
-//             ></AttendanceTable> */}
-//                     {/* </Box > */}
-
-//                 </>
-//                 );
-// };
-//                 {/*  
-//               Dashboard.propTypes = { 
-
-//                 * Injected by the documentation to work in an iframe.
-//                 * You won't need it on your project.
-//                 */
-//                     //  window: PropTypes.func, */}
-//                     {/* };   */ }
 
 export default Dashboard;

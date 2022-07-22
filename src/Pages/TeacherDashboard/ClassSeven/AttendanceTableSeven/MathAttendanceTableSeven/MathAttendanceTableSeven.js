@@ -28,7 +28,6 @@ const MathAttendanceTableSeven = () => {
     console.log("checkBoxes", checkBoxes);
     useEffect(() => {
         const url = `https://secure-temple-79203.herokuapp.com/classSevenStudent`;
-
         fetch(url)
             .then((res) => res.json())
             .then((data) => {

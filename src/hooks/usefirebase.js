@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import initializeFirebase from "../Pages/Login/Firebase/firebase.init";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, GoogleAuthProvider, signInWithPopup, updateProfile, getIdToken, signOut, } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, GoogleAuthProvider, signInWithPopup, updateProfile, getIdToken, signOut, sendEmailVerification , sendPasswordResetEmail  } from "firebase/auth";
 
 //initialize firebase app
 initializeFirebase();
@@ -20,6 +20,9 @@ const useFirebase = () => {
         createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 setAuthError('');
+
+                verifyEmail();
+
                 const newUser = { email, displayName: name };
                 setUser(newUser);
                 //save user to the database
@@ -39,6 +42,21 @@ const useFirebase = () => {
             .finally(() => setIsLoading(false));
     }
 
+
+    const verifyEmail = () => {
+        sendEmailVerification(auth.currentUser)
+        .then(()=> {
+            console.log("Email verification sent");
+        });
+    }
+
+    const handleResetPassword = (email) => {
+        sendPasswordResetEmail(auth, email)
+        .then (() => { 
+            console.log('email sent');
+        })
+    }
+    
 
     const loginUser = (email, password, location, history) => {
         setIsLoading(true);
@@ -137,7 +155,10 @@ const useFirebase = () => {
         registerUser,
         loginUser,
         signInWithGoogle,
-        logout,
+        logout,  
+        authError,
+        handleResetPassword,
+
     }
 }
 

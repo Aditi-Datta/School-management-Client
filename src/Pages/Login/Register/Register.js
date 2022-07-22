@@ -119,10 +119,8 @@ const Register = () => {
                         {isLoading && <CircularProgress />}
 
                         {user?.email && <Alert severity="success">Registered successfully!!! </Alert>}
-<Box style={{color:'red',textAlign:'center'}}> 
-{authError}
-</Box>
-{authError && <Alert severity="error">{authError}</Alert>}                  
+
+                        {authError && <Alert severity="error">{authError}</Alert>}                  
 
                     </Grid>
                     
