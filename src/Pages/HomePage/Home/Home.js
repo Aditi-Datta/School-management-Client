@@ -3,9 +3,11 @@ import Footer from "../../shared/Footer/Footer";
 import Navigation from "../../shared/Navigation/Navigation";
 import Banner from "../Banner/Banner";
 import CampusFacilities from "../CampusFacilities/CampusFacilities";
+import ContactUs from "../ContactUs/ContactUs";
+import ContactUsForm from "../ContactUs/ContactUsForm";
 
 import FaqQuestions from "../FaqQuestions/FaqQuestions";
-import MainBanner from "../MainBanner/MainBanner";
+// import MainBanner from "../MainBanner/MainBanner";
 
 
 
@@ -21,9 +23,11 @@ const Home = () => {
             <br></br>
 
             <CampusFacilities></CampusFacilities>
-            <br></br>
+            <br></br><br></br>
 
-            
+            <ContactUsForm></ContactUsForm>
+            <br></br>
+           
             <Footer></Footer>
         </div>
     );

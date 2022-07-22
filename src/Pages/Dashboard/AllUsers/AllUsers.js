@@ -9,6 +9,7 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { Button , Alert } from '@mui/material';
 import useAuth from "../../../hooks/useAuth";
+import AllUserRow from './AllUserRow';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
@@ -31,14 +32,14 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
   }));
 
   
-  
+ 
 
-const AllUsers = () => {
+  const AllUsers = () => {
 
     const [allUser, setAllUser] = useState([]);
     const { token } = useAuth();
     const [success, setSuccess] = useState(false);
-
+    const { user } = useAuth();
     useEffect(() => {
         const url = `https://secure-temple-79203.herokuapp.com/users`;
         fetch(url)
@@ -47,62 +48,67 @@ const AllUsers = () => {
 
     }, []);
 
-   const {email} = allUser;
-    const makeAdmin = () =>{
+  //   const makeAdmin =() =>{
        
-        fetch(`https://secure-temple-79203.herokuapp.com/users/admins/${email}`, {
-            method: 'PUT',
-            headers: {
-              'authorization': `Bearer ${token}`,
-                
-            }
-            // body: JSON.stringify(allUser)
-        })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data);
-                // if (data.modifiedCount) {
-                //     console.log(data);
-                //     // setEmail('');
-                //     setSuccess(true);
-                // }
-
-            })
-    }
-
+  //     useEffect(() => {
+  //       const url = `https://secure-temple-79203.herokuapp.com/users/admin`;
+  //       fetch(url, {
+  //           method: 'PUT',
+  //           headers: {
+  //             'authorization': `Bearer ${token}`,
+  //             'content-type': 'application/json'
+  //           }
+  //           // body: JSON.stringify(allUser)
+  //       })
+  //           .then(res => res.json())
+  //           .then(data => {
+  //               console.log(data);
+  //               // if (data.modifiedCount) {
+  //               //     console.log(data);
+  //               //     // setEmail('');
+  //               //     setSuccess(true);
+  //               // }
+  
+  //           })
+  //   }, [user.email]);
+  // }
+  
+    
     return (
-        <>
-        <h2>AllUsers : {allUser.length}</h2>
+        // <>
+        <div>
+        <h2>AllUsers </h2>
+        </div>
+      
 
-        <Paper sx={{ overflowX: 'hidden', overflowY: 'hidden' }}>
-        <TableContainer sx={{ height: '60vh' ,width:'80vw' }}>
-        <Table  stickyHeader aria-label="sticky table"
-        position="static">
-          <TableHead>
-            <TableRow>
-              <StyledTableCell>User Email</StyledTableCell>
-              <StyledTableCell align="right"></StyledTableCell>
-              <StyledTableCell align="right"></StyledTableCell>
+      //   <Paper sx={{ overflowX: 'hidden', overflowY: 'hidden' }}>
+      //   <TableContainer sx={{ height: '60vh' ,width:'80vw' }}>
+      //   <Table  stickyHeader aria-label="sticky table"
+      //   position="static">
+      //     <TableHead>
+      //       <TableRow>
+      //         <StyledTableCell>User Email</StyledTableCell>
+      //         <StyledTableCell align="right"></StyledTableCell>
+      //         <StyledTableCell align="right"></StyledTableCell>
              
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {allUser.map((row) => (
-              <StyledTableRow key={row._id}>
-                <StyledTableCell component="th" scope="row">
-                  {row.email}
-                </StyledTableCell>
-                <StyledTableCell align="right"><Button onClick={makeAdmin} variant="contained" size="small" style={{backgroundColor:'#9a123a'}}>Make Admin</Button></StyledTableCell>
-                <StyledTableCell align="right"><Button variant="contained" size="small" style={{backgroundColor:'#9a123a'}}>Remove User</Button></StyledTableCell>
-                
-              </StyledTableRow>
-            ))}
-          </TableBody>
-        </Table>
-      </TableContainer>
-      </Paper>
- {success && <Alert severity="success"  >Made Admin successfully!!! </Alert>}
-      </>
+      //       </TableRow>
+      //     </TableHead>
+
+      //     <TableBody>
+      //     <StyledTableRow >
+      //     <StyledTableCell component="th" scope="row">
+            
+      //     </StyledTableCell>
+      //     <StyledTableCell align="right"><Button  variant="contained" size="small" style={{backgroundColor:'#9a123a'}}>Make Admin</Button></StyledTableCell>
+      //      <StyledTableCell align="right"><Button variant="contained" size="small" style={{backgroundColor:'#9a123a'}}>Remove User</Button></StyledTableCell>
+
+      //   </StyledTableRow>
+      //     </TableBody>
+      //   </Table>
+      // </TableContainer>
+      // </Paper>
+//  {success && <Alert severity="success"  >Made Admin successfully!!! </Alert>}
+      // </>
     );
 };
 
