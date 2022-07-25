@@ -29,7 +29,7 @@ const StudentDashboard = ({ course }) => {
                 alignItems="center">
                 <Grid item xs={6} md={6}>
 
-                  <button>Algorithm</button>
+                  <button>Algorithm</button> <br/>
                   <button>Data</button>
                    
                 </Grid>

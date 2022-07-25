@@ -13,7 +13,7 @@ import TableCell, { tableCellClasses } from '@mui/material/TableCell';
 import Calender from "../../../../shared/Calender/Calender";
 import { Button, Divider, Grid } from "@mui/material";
 import Navigation from "../../../../shared/Navigation/Navigation";
-import FooterAttendance from "../../../../shared/FooterAttendance/FooterAttendance";
+import FooterAttendance from "../../../../shared/Footer/Footer";
 
 import TextField from '@mui/material/TextField';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';

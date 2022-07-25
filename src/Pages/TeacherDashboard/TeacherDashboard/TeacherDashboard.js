@@ -37,8 +37,7 @@ import ArrowCircleLeftIcon from '@mui/icons-material/ArrowCircleLeft';
 import ClassIcon from '@mui/icons-material/Class';
 import KeyboardDoubleArrowDownIcon from '@mui/icons-material/KeyboardDoubleArrowDown';
 import HomeClassSeven from '../ClassSeven/HomeClassSeven/HomeClassSeven';
-import HomeClassEight from '../ClassEight/HomeClassEight/HomeClassEight';
-import Bangla from '../ClassSeven/DatabaseAttendance/Bangla';
+
 
 
 const drawerWidth = 230;
@@ -133,18 +132,8 @@ function TeacherDashboard() {
                     }}
                 >Class Seven </Button></Link>
                 
-                    <Link to={`${url}/classEight`}><Button
-                    style={{
-                        color: 'white',
-                        fontSize: "16px"
-                    }}
-                >Class Eight </Button></Link>
-                    <Link to={`${url}/databaseBangla`}><Button
-                    style={{
-                        color: 'white',
-                        fontSize: "16px"
-                    }}
-                >Databasebangla </Button></Link>
+                   
+                    
             </Box>
             </div >
     );
@@ -208,12 +197,8 @@ function TeacherDashboard() {
                         <Route exact path={`${path}/classSeven`}>
                             <HomeClassSeven></HomeClassSeven>
                         </Route>
-                        <Route exact path={`${path}/classEight`}>
-                            <HomeClassEight></HomeClassEight>
-                        </Route>
-                        <Route exact path={`${path}/databaseBangla`}>
-                            <Bangla></Bangla>
-                        </Route>
+                        
+                        
                     </Switch>
                 </Box>
     

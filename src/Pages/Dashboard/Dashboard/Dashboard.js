@@ -48,6 +48,7 @@ import KeyboardDoubleArrowDownIcon from '@mui/icons-material/KeyboardDoubleArrow
 import AllUsers from '../AllUsers/AllUsers';
 
 import BanglaAttendanceTableSeven from '../../TeacherDashboard/ClassSeven/AttendanceTableSeven/BanglaAttendanceTableSeven/BanglaAttendanceTableSeven';
+import AddResult from '../AddResult/AddResult';
 // const drawerWidth = 200;
 const drawerWidth = 230;
 
@@ -147,8 +148,8 @@ function Dashboard() {
                     <HomeIcon style={{ paddingRight: '2%', color: 'yellow' }}></HomeIcon>
                     Home</Button></Link>
 
-                <Typography style={{ marginTop: '5px', marginBottom: '5px', color: '  #a1a499 ', variant: 'h4' }}>Student Register here</Typography>
-                <KeyboardDoubleArrowDownIcon style={{ color: ' #acda1d ' }} />
+               
+                
 
                 <Link to={`${url}/studentDashboard`}><Button
                     style={{
@@ -168,12 +169,7 @@ function Dashboard() {
                     <ClassIcon style={{ color: 'yellow' }} />
                     Class 7 </Button></Link>
 
-                <Link to={`${url}/banglaAttendanceTable`}><Button
-                    style={{
-                        color: 'white',
-                        fontSize: "16px"
-                    }}
-                >Bangla</Button></Link>
+               
                 {
                     admin && <Box>
                         <Link to={`${url}/makeAdmin`}><Button
@@ -188,6 +184,12 @@ function Dashboard() {
                                 fontSize: "16px"
                             }}
                         >Add Teacher</Button></Link>
+                        <Link to={`${url}/Result`}><Button
+                            style={{
+                                color: 'white',
+                                fontSize: "16px"
+                            }}
+                        >Add Result</Button></Link>
                     </Box>
                 }
             </Box>
@@ -317,16 +319,18 @@ console.log(user.emailVerified);
                     <Route exact path={`${path}/class7Registration`}>
                         <SevenRegistration></SevenRegistration>
                     </Route>
-                   
-                    <Route exact path={`${path}/banglaAttendanceTable`}>
-                        <BanglaAttendanceTableSeven></BanglaAttendanceTableSeven>
-                    </Route>
+                    
+                    
                     <AdminRoute path={`${path}/makeAdmin`}>
                         <MakeAdmin></MakeAdmin>
                     </AdminRoute>
                     <AdminRoute path={`${path}/addTeacher`}>
                         <AddTeacher ></AddTeacher>
                     </AdminRoute>
+                    <AdminRoute path={`${path}/Result`}>
+                    <AddResult></AddResult>
+                    </AdminRoute>
+
                 </Switch>
            </Box>
 

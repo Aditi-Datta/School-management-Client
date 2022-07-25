@@ -10,7 +10,7 @@ import Checkbox from "@mui/material/Checkbox";
 import useAuth from "../../../hooks/useAuth";
 import { styled } from '@mui/material/styles';
 import TableCell, { tableCellClasses } from '@mui/material/TableCell';
-import Footer from "../../shared/FooterAttendance/FooterAttendance";
+import Footer from "../../shared/Footer/Footer";
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {

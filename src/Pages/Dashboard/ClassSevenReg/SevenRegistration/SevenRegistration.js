@@ -37,13 +37,10 @@ const SevenRegistration = () => {
 
     return (
         <>
-            <Box sx={{ flexGrow: 1 }}>
-                <Grid container spacing={2}>
+            <Box sx={{ flexGrow: 1 }} >
+                <Grid container spacing={2} style={{marginTop:'15%'}}>
                     <List sx={{ width: '100%', bgcolor: 'background.paper' }}>
-                        <Grid item xs={12} md={6}>
-                            <Item>Math</Item>
-
-                        </Grid>
+                        
                         <Grid item xs={12} md={6}>
                             <ListItem>
                                 <ListItemAvatar>
@@ -74,26 +71,7 @@ const SevenRegistration = () => {
                                 <ListItemText primary="Math" />
                             </ListItem>
                         </Grid>
-                        <Grid item xs={12} md={6}>
-                            <ListItem>
-                                <ListItemAvatar>
-                                    <Avatar>
-                                        <MenuBookOutlinedIcon style={{ color: 'green' }} />
-                                    </Avatar>
-                                </ListItemAvatar>
-                                <ListItemText primary="English" />
-                            </ListItem>
-                        </Grid>
-                        <Grid item xs={12} md={6}>
-                            <ListItem>
-                                <ListItemAvatar>
-                                    <Avatar>
-                                        <MenuBookOutlinedIcon style={{ color: 'green' }} />
-                                    </Avatar>
-                                </ListItemAvatar>
-                                <ListItemText primary="Bangla" />
-                            </ListItem>
-                        </Grid>
+                        
                     </List>
                 </Grid>
             </Box >
