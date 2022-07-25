@@ -217,15 +217,12 @@ function Dashboard() {
         </div >
     );
 
-    // const container = window !== undefined ? () => window().document.body : undefined;
+  
 console.log(user);
 console.log(user.emailVerified);
     return (
-        <>
+      
         <Box sx={{ display: 'flex' }}>
-
-        
-
             <CssBaseline />
             <AppBar position="fixed" open={open} style={{ backgroundColor: '#110941' }}>
                 <Toolbar>
@@ -241,7 +238,7 @@ console.log(user.emailVerified);
                         <MenuIcon style={{ color: 'yellow' }} />
                     </IconButton>
                     <Typography variant="h6" noWrap component="div">
-                        Dashboard
+                       Dashboard
                     </Typography>
                 </Toolbar>
             </AppBar>
@@ -299,7 +296,7 @@ console.log(user.emailVerified);
             </Drawer>
             <Box>
                 <Toolbar />
-               </Box>
+              
                 <Switch>
             {/*  {user.emailVerified? <Route exact path={path}>
                     <DashboardHome ></DashboardHome>
@@ -331,14 +328,14 @@ console.log(user.emailVerified);
                         <AddTeacher ></AddTeacher>
                     </AdminRoute>
                 </Switch>
-           
+           </Box>
 
             <Main open={open}>
                 <DrawerHeader />
 
             </Main>
             </Box>
-        </>
+      
     );
 }
 

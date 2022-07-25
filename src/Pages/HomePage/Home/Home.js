@@ -7,6 +7,7 @@ import ContactUs from "../ContactUs/ContactUs";
 import ContactUsForm from "../ContactUs/ContactUsForm";
 
 import FaqQuestions from "../FaqQuestions/FaqQuestions";
+import WhatWeOffer from "../whatWeOffer/WhatWeOffer";
 // import MainBanner from "../MainBanner/MainBanner";
 
 
@@ -18,7 +19,10 @@ const Home = () => {
            
            
            <Banner></Banner>
-            <br></br>
+            
+
+            <WhatWeOffer></WhatWeOffer><br/>
+
             <FaqQuestions></FaqQuestions>
             <br></br>
 
@@ -26,7 +30,7 @@ const Home = () => {
             <br></br><br></br>
 
             <ContactUsForm></ContactUsForm>
-            <br></br>
+            
            
             <Footer></Footer>
         </div>

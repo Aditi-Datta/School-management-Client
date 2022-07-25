@@ -44,6 +44,8 @@ const BanglaAttendanceTableSeven = () => {
     const todayDate = date.toLocaleDateString();
 
     console.log("checkBoxes", checkBoxes);
+
+    
     useEffect(() => {
         const url = `https://secure-temple-79203.herokuapp.com/classSevenStudent`;
         fetch(url)
@@ -85,7 +87,7 @@ const BanglaAttendanceTableSeven = () => {
            return { id: data._id,
             studentId: data.studentId,
             studentName: data.studentName,
-            totalSelect: data.totalSelect,
+            totalSelect: data.totalSelect.length,
             date: todayDate,
             }
         })
@@ -105,22 +107,22 @@ const BanglaAttendanceTableSeven = () => {
     };
 
 
-    useEffect(() => {
-        const url = `https://secure-temple-79203.herokuapp.com/banglaAttendance`;
-        fetch(url)
-            .then((res) => res.json())
-            .then((data) => {    
-                setCheckBoxes(
-                    data.map((data) => ({ 
-                        _id: data._id,
-                        studentId: data.studentId,
-                        studentName: data.studentName,
-                        totalSelect: data.totalSelect.length,
-                        date: todayDate,
-                    }))  
-                );       
-            });   
-    },);
+    // useEffect(() => {
+    //     const url = `https://secure-temple-79203.herokuapp.com/banglaAttendance`;
+    //     fetch(url)
+    //         .then((res) => res.json())
+    //         .then((data) => {    
+    //             setCheckBoxes(
+    //                 data.map((data) => ({ 
+    //                     _id: data._id,
+    //                     studentId: data.studentId,
+    //                     studentName: data.studentName,
+    //                     totalSelect: data.totalSelect.length,
+    //                     date: todayDate,
+    //                 }))  
+    //             );       
+    //         });   
+    // },);
 
     
     return (
@@ -130,7 +132,7 @@ const BanglaAttendanceTableSeven = () => {
         <Navigation></Navigation>
             <div>
                 <h2 style={{ textAlign: "center", color: 'green', margin: 20 }}>Class 7 Bangla Attendance Table</h2>
-                <Divider sx={{  borderBottomWidth: '5px' ,borderBottomColor:'#105373', marginBottom:'15px'}} ></Divider>
+    {/* <Divider sx={{  borderBottomWidth: '5px' ,borderBottomColor:'#105373', marginBottom:'15px'}} ></Divider>*/}
                 
             </div>
             <Grid container justifyContent="space-around"
