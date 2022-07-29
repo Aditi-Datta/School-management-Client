@@ -10,6 +10,7 @@ import Paper from '@mui/material/Paper';
 import { Button , Alert } from '@mui/material';
 import useAuth from "../../../hooks/useAuth";
 import AllUserRow from './AllUserRow';
+import { Container } from '@mui/system';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
@@ -75,40 +76,44 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
   
     
     return (
-        // <>
-        <div>
-        <h2>AllUsers </h2>
+        <>
+        
+        <div style={{textAlign:'center', marginTop:'2%'}}>
+        <h1>All Users: {allUser.length} </h1>
         </div>
       
 
-      //   <Paper sx={{ overflowX: 'hidden', overflowY: 'hidden' }}>
-      //   <TableContainer sx={{ height: '60vh' ,width:'80vw' }}>
-      //   <Table  stickyHeader aria-label="sticky table"
-      //   position="static">
-      //     <TableHead>
-      //       <TableRow>
-      //         <StyledTableCell>User Email</StyledTableCell>
-      //         <StyledTableCell align="right"></StyledTableCell>
-      //         <StyledTableCell align="right"></StyledTableCell>
-             
-      //       </TableRow>
-      //     </TableHead>
+        <Container style={{margin:'4%'}}>
+       <Paper sx={{ overflowX: 'hidden', overflowY: 'hidden' }}>
+       <TableContainer sx={{  height: '80vh' ,width:'80vw' }}>
+       <Table  stickyHeader aria-label="sticky table"
+       position="static">
+         <TableHead>
+           <StyledTableRow>
+             <StyledTableCell></StyledTableCell>
+             <StyledTableCell >User Email</StyledTableCell>
+             <StyledTableCell align="right"></StyledTableCell>
+             <StyledTableCell ></StyledTableCell>
+           </StyledTableRow>
+         </TableHead>
 
-      //     <TableBody>
-      //     <StyledTableRow >
-      //     <StyledTableCell component="th" scope="row">
-            
-      //     </StyledTableCell>
-      //     <StyledTableCell align="right"><Button  variant="contained" size="small" style={{backgroundColor:'#9a123a'}}>Make Admin</Button></StyledTableCell>
-      //      <StyledTableCell align="right"><Button variant="contained" size="small" style={{backgroundColor:'#9a123a'}}>Remove User</Button></StyledTableCell>
-
-      //   </StyledTableRow>
-      //     </TableBody>
-      //   </Table>
-      // </TableContainer>
-      // </Paper>
-//  {success && <Alert severity="success"  >Made Admin successfully!!! </Alert>}
-      // </>
+         <TableBody>
+           {
+             allUser.map((allUser, index)=><AllUserRow
+               key={allUser._id}
+               allUser={allUser}
+               index={index}
+               StyledTableRow={StyledTableRow}
+               StyledTableCell={StyledTableCell}
+               ></AllUserRow>)
+           }
+         </TableBody>
+       </Table>
+     </TableContainer>
+     </Paper>
+       </Container>
+ {success && <Alert severity="success"  >Made Admin successfully!!! </Alert>}
+      </>
     );
 };
 

@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import TextField from '@mui/material/TextField';
-import { Button, Alert } from "@mui/material";
+import { Button, Alert, Container } from "@mui/material";
 import useAuth from "../../../hooks/useAuth";
 
 const AddResult = () => {
@@ -47,45 +47,91 @@ const AddResult = () => {
     }
 
     return (
-        <div>
+        <Container style={{textAlign:'center', margin:'5%', padding:'2%'}}>
 
-        <h2>Add Result</h2>
+        <h1 >Add Result</h1>
 
-        <form onSubmit={handleResultSubmit}>
+        <form onSubmit={handleResultSubmit} style={{padding:'5%', }}>
             <TextField
                 sx={{ width: '50vw' }}
-                label="Name"
+                label="Student Name"
                 type='text'
                 name='studentName'
                 onBlur={handleOnBlur}
+                required
                 variant="standard" /> <br/>
-            <TextField
+            {/*<TextField
                 sx={{ width: '50vw' }}
-                label="Email"
+                label="Student Email"
                 type='email'
                 name='studentEmail'
                 onBlur={handleOnBlur}
-                variant="standard" /><br/>
+                required
+            variant="standard" /><br/>*/}
+
             <TextField
                 sx={{ width: '50vw' }}
-                label="studentId"
-                type='text'
+                label="Student Id"
+                type='number'
                 name='studentId'
                 onBlur={handleOnBlur}
+                required
                 variant="standard" /><br/>
             
             <TextField
                 sx={{ width: '50vw' }}
-                label="Result"
-                type='result'
-                name='result'
+                label="Bangla"
+                type='number'
+                name='Bangla'
                 onBlur={handleOnBlur}
+                required
+                variant="standard" /><br/>
+            <TextField
+                sx={{ width: '50vw' }}
+                label="English"
+                type='number'
+                name='English'
+                onBlur={handleOnBlur}
+                required
+                variant="standard" /><br/>
+            <TextField
+                sx={{ width: '50vw' }}
+                label="Math"
+                type='number'
+                name='Math'
+                onBlur={handleOnBlur}
+                required
+                variant="standard" /><br/>
+            <TextField
+                sx={{ width: '50vw' }}
+                label="Science"
+                type='number'
+                name='Science'
+                onBlur={handleOnBlur}
+                required
+                variant="standard" /><br/>
+            <TextField
+                sx={{ width: '50vw' }}
+                label="Sociology"
+                type='number'
+                name='Sociology'
+                onBlur={handleOnBlur}
+                required
+                variant="standard" /><br/>
+            
+            <TextField
+                sx={{ width: '50vw' }}
+                label="Total Result"
+                type='number'
+                name='TotalResult'
+                onBlur={handleOnBlur}
+                required
                 variant="standard" /><br/><br/>
             <Button type='submit' variant='contained'>Result Submit</Button>
         </form>
 
         {success && <Alert severity="success"  >Result Submitted successfully!!! </Alert>}
-        </div>
+        </Container>
 
         );
 };

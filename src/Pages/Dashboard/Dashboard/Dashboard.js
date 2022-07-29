@@ -49,6 +49,8 @@ import AllUsers from '../AllUsers/AllUsers';
 
 import BanglaAttendanceTableSeven from '../../TeacherDashboard/ClassSeven/AttendanceTableSeven/BanglaAttendanceTableSeven/BanglaAttendanceTableSeven';
 import AddResult from '../AddResult/AddResult';
+import SearchResult from '../SearchResult/SearchResult';
+import Footer from '../../shared/Footer/Footer';
 // const drawerWidth = 200;
 const drawerWidth = 230;
 
@@ -160,6 +162,13 @@ function Dashboard() {
                     <AppRegistrationIcon style={{ color: 'yellow' }} />
                     Student Register</Button></Link>
 
+                    <Link to={`${url}/SearchResult`}><Button
+                    style={{
+                        color: 'white',
+                        fontSize: "16px"
+                    }}
+                >Search Result</Button></Link>
+
                 <Link to={`${url}/class7Registration`}><Button
                     style={{
                         color: 'white',
@@ -190,6 +199,8 @@ function Dashboard() {
                                 fontSize: "16px"
                             }}
                         >Add Result</Button></Link>
+
+                        
                     </Box>
                 }
             </Box>
@@ -223,6 +234,7 @@ function Dashboard() {
 console.log(user);
 console.log(user.emailVerified);
     return (
+        <>
       
         <Box sx={{ display: 'flex' }}>
             <CssBaseline />
@@ -300,9 +312,9 @@ console.log(user.emailVerified);
                 <Toolbar />
               
                 <Switch>
-            {/*  {user.emailVerified? <Route exact path={path}>
+             {user.emailVerified? <Route exact path={path}>
                     <DashboardHome ></DashboardHome>
-                </Route>:<p>not verified</p>} */}
+                </Route>:<p>not verified</p>} 
                
                    
                 <Route exact path={path}>
@@ -318,6 +330,9 @@ console.log(user.emailVerified);
                     
                     <Route exact path={`${path}/class7Registration`}>
                         <SevenRegistration></SevenRegistration>
+                    </Route>
+                    <Route exact path={`${path}/SearchResult`}>
+                        <SearchResult></SearchResult>
                     </Route>
                     
                     
@@ -338,7 +353,11 @@ console.log(user.emailVerified);
                 <DrawerHeader />
 
             </Main>
+            
             </Box>
+            <Footer></Footer>
+            </>
+           
       
     );
 }

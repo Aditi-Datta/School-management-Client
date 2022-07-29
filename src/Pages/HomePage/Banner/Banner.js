@@ -52,7 +52,7 @@ const Banner = () => {
 
     return (
         <>
-        <Particles
+        {/*<Particles
         id="tsparticles"
         init={particlesInit}
         loaded={particlesLoaded}
@@ -124,7 +124,7 @@ const Banner = () => {
           },
           detectRetina: true,
         }}
-      />
+      />*/}
 
 
 
