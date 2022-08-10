@@ -3,6 +3,7 @@ import TextField from '@mui/material/TextField';
 import { Button, Alert, Container } from "@mui/material";
 import useAuth from "../../../hooks/useAuth";
 
+
 const AddResult = () => {
     
     const [success, setSuccess] = useState(false);
@@ -47,6 +48,8 @@ const AddResult = () => {
     }
 
     return (
+
+        <>
         <Container style={{textAlign:'center', margin:'5%', padding:'2%'}}>
 
         <h1 >Add Result</h1>
@@ -59,7 +62,9 @@ const AddResult = () => {
                 name='studentName'
                 onBlur={handleOnBlur}
                 required
-                variant="standard" /> <br/>
+                // variant="standard"
+                variant="outlined"
+                /> <br/><br/>
             {/*<TextField
                 sx={{ width: '50vw' }}
                 label="Student Email"
@@ -74,64 +79,88 @@ const AddResult = () => {
                 label="Student Id"
                 type='number'
                 name='studentId'
+                
                 onBlur={handleOnBlur}
                 required
-                variant="standard" /><br/>
+                // variant="standard"
+                variant="outlined"
+                /><br/><br/>
             
             <TextField
                 sx={{ width: '50vw' }}
                 label="Bangla"
-                type='number'
+                // type='number'
                 name='Bangla'
+                defaultValue='Bangla = '
                 onBlur={handleOnBlur}
                 required
-                variant="standard" /><br/>
+                // variant="standard" 
+                variant="outlined"
+                /><br/><br/>
             <TextField
                 sx={{ width: '50vw' }}
                 label="English"
-                type='number'
+                // type='number'
                 name='English'
+                defaultValue='English = '
                 onBlur={handleOnBlur}
                 required
-                variant="standard" /><br/>
+                // variant="standard"
+                variant="outlined" 
+                /><br/><br/>
             <TextField
                 sx={{ width: '50vw' }}
                 label="Math"
-                type='number'
+                // type='number'
                 name='Math'
+                defaultValue='Math = '
                 onBlur={handleOnBlur}
                 required
-                variant="standard" /><br/>
+                // variant="standard" 
+                variant="outlined"
+                /><br/><br/>
             <TextField
                 sx={{ width: '50vw' }}
                 label="Science"
-                type='number'
+                // type='number'
                 name='Science'
+                defaultValue='Science = '
                 onBlur={handleOnBlur}
                 required
-                variant="standard" /><br/>
+                // variant="standard"
+                variant="outlined"
+                /><br/><br/>
             <TextField
                 sx={{ width: '50vw' }}
                 label="Sociology"
-                type='number'
+                // type='number'
                 name='Sociology'
+                defaultValue='Sociology = '
                 onBlur={handleOnBlur}
                 required
-                variant="standard" /><br/>
+                variant="outlined"
+                // variant="standard"
+                 /><br/><br/>
             
             <TextField
                 sx={{ width: '50vw' }}
                 label="Total Result"
-                type='number'
+                // type='number'
                 name='TotalResult'
+                defaultValue='Total Result = '
                 onBlur={handleOnBlur}
                 required
-                variant="standard" /><br/><br/>
+                variant="outlined"
+                // variant="standard"
+                 /><br/><br/>
             <Button type='submit' variant='contained'>Result Submit</Button>
         </form>
 
         {success && <Alert severity="success"  >Result Submitted successfully!!! </Alert>}
         </Container>
+
+        
+        </>
 
         );
 };

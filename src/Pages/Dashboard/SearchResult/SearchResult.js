@@ -18,11 +18,17 @@ const SearchResult = () => {
         .then((res) => res.json())
         .then(data => {
             setResult(data)
-                // data.map((data)=>({
-                //     // id: data._id,
-                //     studentId: data.studentId,
-                //     result: data.result,
-                // }))
+                data.map((data)=>({
+                    // id: data._id,
+                    // studentId: data.studentId,
+                    // bangla: data.Bangla,
+                    // english: data.English,
+                    // math: data.Math,
+                    // sociology: data.Sociology,
+                    // science: data.Science,
+                    // total: data.TotalResult,
+
+                }))
                 // );        
             console.log(data); 
     });
@@ -62,9 +68,14 @@ const SearchResult = () => {
 
          <Button variant="contained" onClick={handleResultSearch} type="submit" style={{marginLeft:'40%', marginTop:'2%', padding:'10px 22px'}}>Submit</Button> <br></br>
 
-         <h2>Student Name: {result.studentName}</h2>
-         <h2>Student Id: {result.studentId}</h2>
-         <h2>Result {result.result}</h2>
+         <h2>Name: {result.studentName}</h2>
+         <h2>Id: {result.studentId}</h2>
+         <h2>{result.Bangla}</h2>
+         <h2>{result.English}</h2>
+         <h2>{result.Math}</h2>
+         <h2>{result.Sociology}</h2>
+         <h2>{result.Science}</h2>
+         <h2>{result.TotalResult}</h2>
         
         
          </Box>

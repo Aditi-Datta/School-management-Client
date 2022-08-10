@@ -20,11 +20,11 @@ import { Link, NavLink } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
 import LightbulbIcon from '@mui/icons-material/Lightbulb';
 import Teacher from "../../TeacherDashboard/TeacherDashboard/TeacherDashboard";
-
+import '../../../App.css';
 
 const Navigation = () => {
-    const { user, logout } = useAuth();
-    const { teacher } = useAuth();
+    const { user,teacher,admin, logout } = useAuth();
+    // const { teacher , admin} = useAuth();
 
 
     const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -44,6 +44,8 @@ const Navigation = () => {
     const handleCloseUserMenu = () => {
         setAnchorElUser(null);
     };
+
+    
 
 
     return (
@@ -109,6 +111,9 @@ const Navigation = () => {
                                         {teacher &&
                                             < Link to="/teacher"><Button color="inherit" sx={{ color: 'white' }}>Teacher </Button></Link>
                                         }
+                                        {admin &&
+                                            < Link to="/admin"><Button color="inherit" sx={{ color: 'green' }}>Admin </Button></Link>
+                                        }
 
 
                                         {
@@ -144,26 +149,31 @@ const Navigation = () => {
                                 color: 'inherit',
                                 textDecoration: 'none',
                             }}
+                            
                         >
                             Leading Light School & College
                         </Typography>
-                        <Box sx={{ display: { xs: 'none', md: 'block' } }}>
+                        <Box sx={{ display: { xs: 'none', md: 'block' } }} >
 
                             <Button
-
+                            
                                 onClick={handleCloseNavMenu}
                                 sx={{ my: 2, color: 'white' }}
                             >
-                                <Link to="/home"><Button color="inherit" sx={{
+                                <Link to="/home"><Button className='buttonHover' color="inherit" sx={{
                                     color: 'white'
                                 }}>Home</Button></Link>
-                                <Link to="/aboutus"><Button color="inherit" sx={{ color: 'white' }}>About</Button></Link>
-                                <Link to="/contactUs"><Button color="inherit" sx={{ color: 'white' }}>Contact</Button></Link>
-                                <Link to="/dashboard"><Button color="inherit" sx={{ color: 'white' }}>Dashboard</Button></Link>
+                                <Link to="/aboutus"><Button className='buttonHover' color="inherit" sx={{ color: 'white' }}>About</Button></Link>
+                                <Link to="/contactUs"><Button className='buttonHover' color="inherit" sx={{ color: 'white' }}>Contact</Button></Link>
+                                <Link to="/dashboard"><Button className='buttonHover' color="inherit" sx={{ color: 'white' }}>Dashboard</Button></Link>
 
 
                                 {teacher &&
-                    < Link to="/teacher"><Button color="inherit" sx={{ color: 'white' }}>Teacher </Button></Link>
+                    < Link to="/teacher"><Button  className='buttonHover' color="inherit" sx={{ color: 'white' }}>Teacher </Button></Link>
+                }
+
+                {admin &&
+                    < Link to="/admin"><Button className='buttonHover'  sx={{ color: 'white' }}>Admin </Button></Link>
                 }
 
 
@@ -171,10 +181,10 @@ const Navigation = () => {
                                     user?.email ?
                                         <Box>
                                             
-                                            <Button onClick={logout} color="inherit" sx={{ color: 'white' }}>Logout</Button>
+                                            <Button onClick={logout}  className='buttonHover' color="inherit" sx={{ color: 'white' }}>Logout</Button>
                                         </Box>
                                         :
-                                        <NavLink to="/login"><Button color="inherit" sx={{ color: 'white' }}>Login</Button></NavLink>
+                                        <NavLink to="/login"><Button  className='buttonHover' color="inherit" sx={{ color: 'white' }}>Login</Button></NavLink>
                                 }
                             </Button>
 

@@ -37,6 +37,8 @@ import ArrowCircleLeftIcon from '@mui/icons-material/ArrowCircleLeft';
 import ClassIcon from '@mui/icons-material/Class';
 import KeyboardDoubleArrowDownIcon from '@mui/icons-material/KeyboardDoubleArrowDown';
 import HomeClassSeven from '../ClassSeven/HomeClassSeven/HomeClassSeven';
+import AddResult from '../AddResult/AddResult';
+import Footer from '../../shared/Footer/Footer';
 
 
 
@@ -100,8 +102,6 @@ function TeacherDashboard() {
     };
 
     let { path, url } = useRouteMatch();
-    const { admin } = useAuth();
-    const { teacher } = useAuth();
 
     const drawer = (
         <div >
@@ -132,13 +132,19 @@ function TeacherDashboard() {
                     }}
                 >Class Seven </Button></Link>
                 
-                   
+                <Link to={`${url}/Result`}><Button
+                style={{
+                    color: 'white',
+                    fontSize: "16px"
+                }}
+            >Add Result</Button></Link>
                     
             </Box>
             </div >
     );
 
     return (
+        <>
         <Box sx={{ display: 'flex' }}>
             <CssBaseline />
             <AppBar position="fixed" open={open} style={{ backgroundColor: '#110941' }}>
@@ -197,6 +203,9 @@ function TeacherDashboard() {
                         <Route exact path={`${path}/classSeven`}>
                             <HomeClassSeven></HomeClassSeven>
                         </Route>
+                        <Route exact path={`${path}/Result`}>
+                            <AddResult></AddResult>
+                        </Route>
                         
                         
                     </Switch>
@@ -206,6 +215,8 @@ function TeacherDashboard() {
                     <DrawerHeader />
                 </Main>
             </Box >
+            <Footer></Footer>
+            </>
         );
     }
     export default TeacherDashboard;

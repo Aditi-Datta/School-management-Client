@@ -13,7 +13,11 @@ const bannerBackground = {
     backgroundPosition: 'center',
     backgroundColor: 'rgba(27, 44, 84 ,0.1)',
     backgroundBlendMode: 'darken, luminosity',
-    width: '100vw',
+    width: '100vW',
+    margin:90,
+
+    // marginLeft: '20%',
+    // marginRight:'20%',
     height: '70vH'
 
 }
@@ -62,7 +66,7 @@ const ContactUsForm = () => {
 
     return (
 <>
-            <div style={bannerBackground} sx={{ height:'100vh'}}>
+            <div style={bannerBackground } sx={{ height:'100vh'}} >
             <Box container  style={{textAlign: 'center',paddingTop:'5%'}}>
 
             <Typography variant="h4" style={{margin:15}}>Contact With Us</Typography>

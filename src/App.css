@@ -20,7 +20,14 @@
   padding-bottom: N;
   
 }
+.buttonHover:hover{
 
+ 
+  font-weight:lighter;
+ 
+  /* color: #eff32b; */
+  color: #e0d561;
+}
 /* .App-header {
   background-color: #282c34;
   min-height: 100vh;

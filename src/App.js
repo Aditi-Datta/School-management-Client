@@ -20,6 +20,7 @@ import TeacherDashboard from './Pages/TeacherDashboard/TeacherDashboard/TeacherD
 import MathAttendanceTableSeven from './Pages/TeacherDashboard/ClassSeven/AttendanceTableSeven/MathAttendanceTableSeven/MathAttendanceTableSeven';
 import EnglishAttendanceTableSeven from './Pages/TeacherDashboard/ClassSeven/AttendanceTableSeven/EnglishAttendanceTableSeven/EnglishAttendanceTableSeven';
 import BanglaAttendanceTableSeven from './Pages/TeacherDashboard/ClassSeven/AttendanceTableSeven/BanglaAttendanceTableSeven/BanglaAttendanceTableSeven';
+import AdminDashboard from './Pages/Admin/AdminDashboard/AdminDashboard';
 
 // const bannerBackground = {
 //   background: `url(${backgroundImg})`,
@@ -43,6 +44,9 @@ function App() {
             </PrivateRoute>
             <PrivateRoute path="/teacher">
               <TeacherDashboard/>
+            </PrivateRoute>
+            <PrivateRoute path="/admin">
+              <AdminDashboard/>
             </PrivateRoute>
             <Route path="/aboutus">
               <AboutUs />

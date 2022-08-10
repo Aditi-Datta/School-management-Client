@@ -1,7 +1,4 @@
 import * as React from 'react';
-// import useState from 'react';
-// import PropTypes from 'prop-types';
-// import AppBar from '@mui/material/AppBar';
 import MuiAppBar from '@mui/material/AppBar';
 import { styled, useTheme } from '@mui/material/styles';
 import Drawer from '@mui/material/Drawer';
@@ -34,25 +31,17 @@ import {
     useRouteMatch
 } from "react-router-dom";
 
-import MakeAdmin from '../MakeAdmin/MakeAdmin';
-import AddTeacher from '../AddTeacher/AddTeacher';
 import useAuth from '../../../hooks/useAuth';
-import AdminRoute from '../../Login/AdminRoute/AdminRoute';
-import DashboardHome from '../DashboardHome/DashboardHome';
-import AttendanceTable from '../AttendanceTable/AttendanceTable';
-// import StudentSubmitModal from '../StudentSubmitModal/StudentSubmitModal';
+// import HomeTeacherDashboard from '../HomeTeacherDashboard/HomeTeacherDashboard';
 import ArrowCircleLeftIcon from '@mui/icons-material/ArrowCircleLeft';
-import SevenRegistration from '../ClassSevenReg/SevenRegistration/SevenRegistration';
 import ClassIcon from '@mui/icons-material/Class';
 import KeyboardDoubleArrowDownIcon from '@mui/icons-material/KeyboardDoubleArrowDown';
+// import HomeClassSeven from '../ClassSeven/HomeClassSeven/HomeClassSeven';
+import HomeAdminDashboard from '../HomeAdminDashboard/HomeAdminDashboard';
+import AllUsers from '../AllUsers/AllUsers';
 
 
-import BanglaAttendanceTableSeven from '../../TeacherDashboard/ClassSeven/AttendanceTableSeven/BanglaAttendanceTableSeven/BanglaAttendanceTableSeven';
 
-import SearchResult from '../SearchResult/SearchResult';
-import Footer from '../../shared/Footer/Footer';
-import MakeTeacher from '../MakeTeacher/MakeTeacher';
-// const drawerWidth = 200;
 const drawerWidth = 230;
 
 const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(
@@ -100,13 +89,10 @@ const DrawerHeader = styled('div')(({ theme }) => ({
     justifyContent: 'flex-end',
 }));
 
-
-// function Dashboard(prop) {
-function Dashboard() {
+function AdminDashboard() {
     const theme = useTheme();
     const [open, setOpen] = React.useState(false);
-    
-    const { user } = useAuth();
+
     const handleDrawerOpen = () => {
         setOpen(true);
     };
@@ -127,7 +113,7 @@ function Dashboard() {
 
                 <Toolbar />
 
-               
+                
                 <Link to='/'><Button
                     style={{
                         color: 'white',
@@ -138,87 +124,29 @@ function Dashboard() {
                     }}
                 >
                     <HomeIcon style={{ paddingRight: '2%', color: 'yellow' }}></HomeIcon>
-                    Home</Button></Link>
-
-               
-                
-
-
-                    <Link to={`${url}/SearchResult`}><Button
+                    Home</Button></Link><br></br>
+                    <Link to={`${url}/allUsers`}><Button
                     style={{
                         color: 'white',
-                        fontSize: "16px"
-                    }}
-                >Search Result</Button></Link>
-
-                <Link to={`${url}/class7Registration`}><Button
-                    style={{
-                        color: 'white',
+                        // borderRadius: 35,
+                        // backgroundColor: "#21b6ae",
+                        // padding: "18px 36px",
                         fontSize: "16px"
                     }}
                 >
-                    <ClassIcon style={{ color: 'yellow' }} />
-                    Class 7 </Button></Link>
 
+                    All Users</Button></Link><br></br>
+
+                
                
-                {
-                    admin && <Box>
-                        <Link to={`${url}/makeAdmin`}><Button
-                            style={{
-                                color: 'white',
-                                fontSize: "16px"
-                            }}
-                        >Make Admin</Button></Link>
-                        <Link to={`${url}/addTeacher`}><Button
-                            style={{
-                                color: 'white',
-                                fontSize: "16px"
-                            }}
-                        >Add Teacher</Button></Link>
-                       
-                        <Link to={`${url}/makeTeacher`}><Button
-                            style={{
-                                color: 'white',
-                                fontSize: "16px"
-                            }}
-                        >Make Teacher</Button></Link>
-
-                        
-                    </Box>
-                }
+                
+                   
+                    
             </Box>
-
-            {/*  <List>
-               
-    {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-                    <ListItem button key={text}>
-                        <ListItemIcon>
-                            {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                        </ListItemIcon>
-                        <ListItemText primary={text} />
-                    </ListItem>
-                ))}
-    </List>
-            <Divider />
-            <List>
-                {['All mail', 'Trash', 'Spam'].map((text, index) => (
-                    <ListItem button key={text}>
-                        <ListItemIcon>
-                            {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                        </ListItemIcon>
-                        <ListItemText primary={text} />
-                    </ListItem>
-                ))}
-            </List> */}
-        </div >
+            </div >
     );
 
-  
-console.log(user);
-console.log(user.emailVerified);
     return (
-        <>
-      
         <Box sx={{ display: 'flex' }}>
             <CssBaseline />
             <AppBar position="fixed" open={open} style={{ backgroundColor: '#110941' }}>
@@ -235,7 +163,7 @@ console.log(user.emailVerified);
                         <MenuIcon style={{ color: 'yellow' }} />
                     </IconButton>
                     <Typography variant="h6" noWrap component="div">
-                       Dashboard
+                       Admin Dashboard
                     </Typography>
                 </Toolbar>
             </AppBar>
@@ -266,79 +194,26 @@ console.log(user.emailVerified);
                 <Divider style={{ backgroundColor: ' white ' }}></Divider>
                 {drawer}
 
-                {/* {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-                        <ListItem key={text} disablePadding>
-                            <ListItemButton>
-                                <ListItemIcon>
-                                    {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                                </ListItemIcon>
-                                <ListItemText primary={text} />
-                            </ListItemButton>
-                        </ListItem>
-                    ))} */}
-                {/* </List> */}
-                {/* <Divider />
-                <List>
-                    {['All mail', 'Trash', 'Spam'].map((text, index) => (
-                        <ListItem key={text} disablePadding>
-                            <ListItemButton>
-                                <ListItemIcon>
-                                    {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                                </ListItemIcon>
-                                <ListItemText primary={text} />
-                            </ListItemButton>
-                        </ListItem>
-                    ))}
-                </List> */}
-            </Drawer>
-            <Box>
-                <Toolbar />
-              
-                <Switch>
-             {user.emailVerified? <Route exact path={path}>
-                    <DashboardHome ></DashboardHome>
-                </Route>:<p>not verified</p>} 
-               
-                   
-                <Route exact path={path}>
-                    <DashboardHome ></DashboardHome>
-                </Route>
-
-                    
-                   
-                    <Route exact path={`${path}/class7Registration`}>
-                        <SevenRegistration></SevenRegistration>
+                </Drawer>
+                <Box>
+                    <Toolbar />
+                    {/* exact path={`${path}`} */}
+                    <Switch>
+                        <Route exact path={path}>
+                            <HomeAdminDashboard></HomeAdminDashboard>
+                        </Route>
+                        <Route exact path={`${path}/allUsers`}>
+                        <AllUsers></AllUsers>
                     </Route>
-                    <Route exact path={`${path}/SearchResult`}>
-                        <SearchResult></SearchResult>
-                    </Route>
-                    
-                    
-                    <AdminRoute path={`${path}/makeAdmin`}>
-                        <MakeAdmin></MakeAdmin>
-                    </AdminRoute>
-                    <AdminRoute path={`${path}/addTeacher`}>
-                        <AddTeacher ></AddTeacher>
-                    </AdminRoute>
-                   
-                    <AdminRoute path={`${path}/makeTeacher`}>
-                    <MakeTeacher></MakeTeacher>
-                    </AdminRoute>
-
-                </Switch>
-           </Box>
-
-            <Main open={open}>
-                <DrawerHeader />
-
-            </Main>
-            
-            </Box>
-            <Footer></Footer>
-            </>
-           
-      
-    );
-}
-
-export default Dashboard;
+                        
+                        
+                    </Switch>
+                </Box>
+    
+                <Main open={open}>
+                    <DrawerHeader />
+                </Main>
+            </Box >
+        );
+    }
+    export default AdminDashboard;

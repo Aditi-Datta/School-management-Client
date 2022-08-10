@@ -10,7 +10,7 @@ import Checkbox from "@mui/material/Checkbox";
 import useAuth from "../../../../../hooks/useAuth";
 import { styled } from '@mui/material/styles';
 import TableCell, { tableCellClasses } from '@mui/material/TableCell';
-import Calender from "../../../../shared/Calender/Calender";
+// import Calender from "../../../../shared/Calender/Calender";
 import { Button, Divider, Grid } from "@mui/material";
 import Navigation from "../../../../shared/Navigation/Navigation";
 import FooterAttendance from "../../../../shared/Footer/Footer";
@@ -157,10 +157,11 @@ const BanglaAttendanceTableSeven = () => {
             
             </Grid>
             
-            
+            <h2 style={{textAlign:'center', paddingBottom:'2%'}}>Selected Date: {todayDate}</h2>
             <Grid container alignItems='center' justifyContent='center'  marginBottom={'2%'} >
-            <h2>Selected Date: {todayDate}</h2>
+            
             <Paper sx={{ overflowX: 'hidden', overflowY: 'hidden' }}>
+            
                 <TableContainer sx={{ maxHeight: '100vh', maxWidth: '80vw' }}>
                     <Table
                         stickyHeader aria-label="sticky table"
