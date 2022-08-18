@@ -109,7 +109,7 @@ const Navigation = () => {
                                         <Link to="/dashboard"><Button color="inherit" sx={{ color: 'green' }}>Dashboard</Button></Link><br />
 
                                         {teacher &&
-                                            < Link to="/teacher"><Button color="inherit" sx={{ color: 'white' }}>Teacher </Button></Link>
+                                            < Link to="/teacher"><Button color="inherit" sx={{ color: 'green' }}>Teacher </Button></Link>
                                         }
                                         {admin &&
                                             < Link to="/admin"><Button color="inherit" sx={{ color: 'green' }}>Admin </Button></Link>

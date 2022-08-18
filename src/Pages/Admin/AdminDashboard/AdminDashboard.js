@@ -39,6 +39,14 @@ import KeyboardDoubleArrowDownIcon from '@mui/icons-material/KeyboardDoubleArrow
 // import HomeClassSeven from '../ClassSeven/HomeClassSeven/HomeClassSeven';
 import HomeAdminDashboard from '../HomeAdminDashboard/HomeAdminDashboard';
 import AllUsers from '../AllUsers/AllUsers';
+import AddTeacher from '../AddTeacher/AddTeacher';
+import { Grid, List } from '@mui/material';
+import OtherHousesIcon from '@mui/icons-material/OtherHouses';
+import LayersIcon from '@mui/icons-material/Layers';
+import GroupIcon from '@mui/icons-material/Group';
+import AddModeratorIcon from '@mui/icons-material/AddModerator';
+import AdminFooter from '../../shared/AdminFooter/AdminFooter';
+// import AddTeacher from '../../Dashboard/AddTeacher/AddTeacher';
 
 
 
@@ -102,18 +110,28 @@ function AdminDashboard() {
     };
 
     let { path, url } = useRouteMatch();
-    const { admin } = useAuth();
-    const { teacher } = useAuth();
 
     const drawer = (
         <div >
             {/* <Divider /> */}
-            <Box sx={{ backgroundColor: '#110941', height: '650px' }} style={{ textAlign: 'center' }}>
+            <Box sx={{ backgroundColor: '#07474e', height: '650px' }} style={{ textAlign: 'center' }}>
                 {/* <Box sx={{ height: '625px' }}> */}
 
                 <Toolbar />
 
-                
+                <Grid container spacing={0} style={{marginLeft:'7%'}}>
+
+               <Grid xs={4}>
+                <Box style={{color:'skyBlue', fontSize:'8%'}}>
+                    <List>  <OtherHousesIcon/> </List>
+                    <List>  <GroupIcon/> </List>
+                    <List>  <AddModeratorIcon/> </List>
+                  
+                </Box>
+               </Grid>
+
+               <Grid xs={8} style={{textAlign:'left'}}>
+               <Box>
                 <Link to='/'><Button
                     style={{
                         color: 'white',
@@ -123,7 +141,7 @@ function AdminDashboard() {
                         fontSize: "16px"
                     }}
                 >
-                    <HomeIcon style={{ paddingRight: '2%', color: 'yellow' }}></HomeIcon>
+                    {/*<HomeIcon style={{ paddingRight: '2%', color: 'yellow' }}></HomeIcon>*/}
                     Home</Button></Link><br></br>
                     <Link to={`${url}/allUsers`}><Button
                     style={{
@@ -135,21 +153,31 @@ function AdminDashboard() {
                     }}
                 >
 
-                    All Users</Button></Link><br></br>
+                    Users</Button></Link><br></br>
+                    <Link to={`${url}/addTeacher`}><Button
+                    style={{
+                        color: 'white',
+                        // borderRadius: 35,
+                        // backgroundColor: "#21b6ae",
+                        // padding: "18px 36px",
+                        fontSize: "16px"
+                    }}
+                >
 
-                
-               
-                
-                   
-                    
+                    Add Teacher</Button></Link><br></br> 
+            </Box>
+            </Grid>
+            </Grid>
+        
             </Box>
             </div >
     );
 
     return (
+        <>
         <Box sx={{ display: 'flex' }}>
             <CssBaseline />
-            <AppBar position="fixed" open={open} style={{ backgroundColor: '#110941' }}>
+            <AppBar position="fixed" open={open} style={{ backgroundColor: '#07474e' }}>
                 <Toolbar>
                     <IconButton
                         backgroundColor="white"
@@ -160,7 +188,7 @@ function AdminDashboard() {
                         sx={{ mr: 2, ...(open && { display: 'none' }) }}
                     >
                         {/* <MenuIcon />*/}
-                        <MenuIcon style={{ color: 'yellow' }} />
+                        <MenuIcon style={{ color: '#c9d4d5' }} />
                     </IconButton>
                     <Typography variant="h6" noWrap component="div">
                        Admin Dashboard
@@ -182,11 +210,11 @@ function AdminDashboard() {
                 anchor="left"
                 open={open}
             >
-                <DrawerHeader sx={{ backgroundColor: '#110941' }}>
+                <DrawerHeader sx={{ backgroundColor: '#07474e' }}>
                     <Box >
                         <IconButton onClick={handleDrawerClose} style={{ color: 'white', fontSize: '2.5em' }}>
                             {theme.direction === 'ltr' ?
-                                <ArrowCircleLeftIcon style={{ color: 'yellow' }} /> : <ChevronRightIcon />}
+                                <ArrowCircleLeftIcon style={{ color: '#c9d4d5' }} /> : <ChevronRightIcon />}
                         </IconButton>
                     </Box>
                 </DrawerHeader>
@@ -205,6 +233,9 @@ function AdminDashboard() {
                         <Route exact path={`${path}/allUsers`}>
                         <AllUsers></AllUsers>
                     </Route>
+                        <Route exact path={`${path}/addTeacher`}>
+                        <AddTeacher></AddTeacher>
+                    </Route>
                         
                         
                     </Switch>
@@ -213,7 +244,11 @@ function AdminDashboard() {
                 <Main open={open}>
                     <DrawerHeader />
                 </Main>
+
+                
             </Box >
+            <AdminFooter></AdminFooter>
+            </>
         );
     }
     export default AdminDashboard;

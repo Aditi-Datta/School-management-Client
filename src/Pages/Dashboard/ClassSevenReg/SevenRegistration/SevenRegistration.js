@@ -37,49 +37,40 @@ const SevenRegistration = () => {
 
     return (
         <>
-            <Box sx={{ flexGrow: 1 }} >
-                <Grid container spacing={2} style={{marginTop:'15%'}}>
-                    <List sx={{ width: '100%', bgcolor: 'background.paper' }}>
-                        
-                        <Grid item xs={12} md={6}>
-                            <ListItem>
-                                <ListItemAvatar>
-                                    <Avatar>
-                                        <MenuBookOutlinedIcon style={{ color: 'green' }} />
-                                    </Avatar>
-                                </ListItemAvatar>
-                                <ListItemText primary="English" />
-                            </ListItem>
-                        </Grid>
-                        <Grid item xs={12} md={6}>
-                            <ListItem>
-                                <ListItemAvatar>
-                                    <Avatar>
-                                        <MenuBookOutlinedIcon style={{ color: 'green' }} />
-                                    </Avatar>
-                                </ListItemAvatar>
-                                <ListItemText primary="Bangla" />
-                            </ListItem>
-                        </Grid>
-                        <Grid item xs={12} md={6}>
-                            <ListItem>
-                                <ListItemAvatar>
-                                    <Avatar>
-                                        <MenuBookOutlinedIcon style={{ color: 'green' }} />
-                                    </Avatar>
-                                </ListItemAvatar>
-                                <ListItemText primary="Math" />
-                            </ListItem>
-                        </Grid>
-                        
-                    </List>
-                </Grid>
+            <Box sx={{ flexGrow: 1 }} style={{marginTop:'5%'}}>
+            <Grid container direction="column"
+            justifyContent="flex-start"
+            alignItems="center"  spacing={2}  style={{width:'80vw'}} >
+               
+                   
+                    <Typography variant="h5" style={{color:'#4c0258'}} >Class Seven Student Registration</Typography>
+                    <Grid item xs={12} md={12}>
+                    <Paper elevation={3} style={{padding:'3%', textAlign:'center', width:'30vw', fontSize:'20px'}}>Bangla</Paper>
+                    </Grid>
+                    <Grid item xs={12} md={12}>
+                    <Paper elevation={3} style={{padding:'3%', textAlign:'center', width:'30vw',fontSize:'20px'}}>English</Paper>
+                    </Grid>
+                    <Grid item xs={12} md={12}>
+                    <Paper elevation={3} style={{padding:'3%', textAlign:'center', width:'30vw',fontSize:'20px'}}>Math</Paper>
+                    </Grid>
+                    <Grid item xs={12} md={12}>
+                    <Paper elevation={3} style={{padding:'3%', textAlign:'center', width:'30vw',fontSize:'20px'}}>Science</Paper>
+                    </Grid>
+                    <Grid item xs={12} md={12}  >
+                    <Paper elevation={3} style={{padding:'3%', textAlign:'center', width:'30vw',fontSize:'20px'}}>Sociology</Paper>
+                    </Grid>
+                    <Grid item xs={12} md={12}  >
+                    <Paper elevation={3} style={{padding:'3%', textAlign:'center', width:'30vw',fontSize:'20px'}}>ICT</Paper>
+                    </Grid>
+                    
+                    <Button className='registerHover' onClick={handleModalOpen} variant="contained"
+                    // sx={{ p: 2, m: 5 }}
+                    style={{ color: 'black', margin:'2%',marginLeft:'3%', borderRadius: 30, fontSize: "18px", backgroundColor: '#58e7f3',padding:'1%', textAlign:'center', width:'30vw', }}
+                >
+                    Register</Button>
+            </Grid>
             </Box >
-            <Button onClick={handleModalOpen} variant="contained"
-                sx={{ p: 2, m: 3 }}
-                style={{ color: 'black', borderRadius: 35, fontSize: "18px", backgroundColor: '#58e7f3' }}
-            >
-                Register</Button>
+            
 
             {regSuccess && <Alert severity="success"  >Student Registration is successfully done!!! </Alert>}
 

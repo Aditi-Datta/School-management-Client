@@ -22,7 +22,7 @@ const style = {
 
 };
 
-const ModalSeven = ({ openModal, handleModalClose, setRegSuccess }) => {
+const ModalEight = ({ openModal, handleModalClose, setRegSuccess }) => {
     const { user } = useAuth();
     const initialInfo = { studentName: user.displayName, email: user.email }
     const [studentInfo, setStudentInfo] = useState(initialInfo);
@@ -45,7 +45,7 @@ const ModalSeven = ({ openModal, handleModalClose, setRegSuccess }) => {
         }
 
         // send to the server
-        fetch('https://secure-temple-79203.herokuapp.com/classSevenStudent', {
+        fetch('https://secure-temple-79203.herokuapp.com/classEightStudent', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -114,7 +114,7 @@ const ModalSeven = ({ openModal, handleModalClose, setRegSuccess }) => {
                             <Grid container justifyContent="center">
                             <Button type='submit' variant="contained"
                                 sx={{ m: 2 }}
-                               style={{width:'8vw',backgroundColor:'green',borderRadius:'5px'}}
+                               style={{width:'8vw',backgroundColor:'green', borderRadius:'5px'}}
                             >
                                 Submit</Button>
                             </Grid>
@@ -126,4 +126,4 @@ const ModalSeven = ({ openModal, handleModalClose, setRegSuccess }) => {
     );
 };
 
-export default ModalSeven;
+export default ModalEight;

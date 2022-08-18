@@ -21,12 +21,15 @@
   
 }
 .buttonHover:hover{
-
- 
   font-weight:lighter;
  
   /* color: #eff32b; */
   color: #e0d561;
+}
+.registerHover:hover{
+  color: rgb(255, 89, 0);
+  font-weight: bolder;
+  border-radius: 0%;
 }
 /* .App-header {
   background-color: #282c34;

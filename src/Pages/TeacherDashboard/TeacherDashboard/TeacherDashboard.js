@@ -39,9 +39,15 @@ import KeyboardDoubleArrowDownIcon from '@mui/icons-material/KeyboardDoubleArrow
 import HomeClassSeven from '../ClassSeven/HomeClassSeven/HomeClassSeven';
 import AddResult from '../AddResult/AddResult';
 import Footer from '../../shared/Footer/Footer';
-
-
-
+import HomeClassEight from '../ClassEight/HomeClassEight/HomeClassEight';
+import HomeClassNine from '../ClassNine/HomeClassNine/HomeClassNine';
+import HomeClassSix from '../ClassSix/HomeClassSix/HomeClassSix';
+import HomeClassTen from '../ClassTen/HomeClassTen/HomeClassTen';
+import { Grid, List } from '@mui/material';
+import OtherHousesIcon from '@mui/icons-material/OtherHouses';
+import LayersIcon from '@mui/icons-material/Layers';
+import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
+import TeacherFooter from '../../shared/TeacherFooter/TeacherFooter';
 const drawerWidth = 230;
 
 const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(
@@ -106,12 +112,27 @@ function TeacherDashboard() {
     const drawer = (
         <div >
             {/* <Divider /> */}
-            <Box sx={{ backgroundColor: '#110941', height: '650px' }} style={{ textAlign: 'center' }}>
+            <Box sx={{ backgroundColor: '#7b0d69', height: '650px' }} style={{ textAlign: 'center' }}>
                 {/* <Box sx={{ height: '625px' }}> */}
 
                 <Toolbar />
 
-                
+                <Grid container spacing={2} style={{marginLeft:'7%'}}>
+
+               <Grid xs={4}>
+                <Box style={{color:'skyBlue', fontSize:'8%'}}>
+                    <List>  <OtherHousesIcon /> </List>
+                    <List>  <CalendarMonthIcon /> </List>
+                    <List>  <CalendarMonthIcon /> </List>
+                    <List>  <CalendarMonthIcon /> </List>
+                    <List>  <CalendarMonthIcon /> </List>
+                    <List>  <CalendarMonthIcon /> </List> 
+                    <List>  <LayersIcon /> </List> 
+                </Box>
+               </Grid>
+
+               <Grid xs={8} style={{textAlign:'left'}}>
+               <Box>
                 <Link to='/'><Button
                     style={{
                         color: 'white',
@@ -121,16 +142,42 @@ function TeacherDashboard() {
                         fontSize: "16px"
                     }}
                 >
-                    <HomeIcon style={{ paddingRight: '2%', color: 'yellow' }}></HomeIcon>
+                    {/*<HomeIcon style={{ paddingRight: '2%', color: 'yellow' }}></HomeIcon>*/}
                     Home</Button></Link><br></br>
 
+                
+                    <Link to={`${url}/classSix`}><Button
+                    style={{
+                        color: 'white',
+                        fontSize: "16px"
+                    }}
+                >Class VI </Button></Link><br/>
                 
                     <Link to={`${url}/classSeven`}><Button
                     style={{
                         color: 'white',
                         fontSize: "16px"
                     }}
-                >Class Seven </Button></Link>
+                >Class VII </Button></Link>
+
+                    <Link to={`${url}/classEight`}><Button
+                    style={{
+                        color: 'white',
+                        fontSize: "16px"
+                    }}
+                >Class VIII </Button></Link> <br/>
+                    <Link to={`${url}/classNine`}><Button
+                    style={{
+                        color: 'white',
+                        fontSize: "16px"
+                    }}
+                >Class IX </Button></Link><br/>
+                    <Link to={`${url}/classTen`}><Button
+                    style={{
+                        color: 'white',
+                        fontSize: "16px"
+                    }}
+                >Class X </Button></Link><br/>
                 
                 <Link to={`${url}/Result`}><Button
                 style={{
@@ -138,7 +185,10 @@ function TeacherDashboard() {
                     fontSize: "16px"
                 }}
             >Add Result</Button></Link>
-                    
+            </Box>  
+            </Grid>
+            </Grid>
+        
             </Box>
             </div >
     );
@@ -147,7 +197,7 @@ function TeacherDashboard() {
         <>
         <Box sx={{ display: 'flex' }}>
             <CssBaseline />
-            <AppBar position="fixed" open={open} style={{ backgroundColor: '#110941' }}>
+            <AppBar position="fixed" open={open} style={{ backgroundColor: '#7b0d69' }}>
                 <Toolbar>
                     <IconButton
                         backgroundColor="white"
@@ -158,7 +208,7 @@ function TeacherDashboard() {
                         sx={{ mr: 2, ...(open && { display: 'none' }) }}
                     >
                         {/* <MenuIcon />*/}
-                        <MenuIcon style={{ color: 'yellow' }} />
+                        <MenuIcon style={{ color: 'skyBlue' }} />
                     </IconButton>
                     <Typography variant="h6" noWrap component="div">
                        Teacher Dashboard
@@ -180,11 +230,11 @@ function TeacherDashboard() {
                 anchor="left"
                 open={open}
             >
-                <DrawerHeader sx={{ backgroundColor: '#110941' }}>
+                <DrawerHeader sx={{ backgroundColor: '#7b0d69' }}>
                     <Box >
                         <IconButton onClick={handleDrawerClose} style={{ color: 'white', fontSize: '2.5em' }}>
                             {theme.direction === 'ltr' ?
-                                <ArrowCircleLeftIcon style={{ color: 'yellow' }} /> : <ChevronRightIcon />}
+                                <ArrowCircleLeftIcon style={{ color: 'skyBlue' }} /> : <ChevronRightIcon />}
                         </IconButton>
                     </Box>
                 </DrawerHeader>
@@ -200,8 +250,20 @@ function TeacherDashboard() {
                         <Route exact path={path}>
                             <HomeTeacherDashboard></HomeTeacherDashboard>
                         </Route>
+                        <Route exact path={`${path}/classSix`}>
+                            <HomeClassSix></HomeClassSix>
+                        </Route>
                         <Route exact path={`${path}/classSeven`}>
                             <HomeClassSeven></HomeClassSeven>
+                        </Route>
+                        <Route exact path={`${path}/classEight`}>
+                            <HomeClassEight></HomeClassEight>
+                        </Route>
+                        <Route exact path={`${path}/classNine`}>
+                            <HomeClassNine></HomeClassNine>
+                        </Route>
+                        <Route exact path={`${path}/classTen`}>
+                            <HomeClassTen></HomeClassTen>
                         </Route>
                         <Route exact path={`${path}/Result`}>
                             <AddResult></AddResult>
@@ -215,7 +277,7 @@ function TeacherDashboard() {
                     <DrawerHeader />
                 </Main>
             </Box >
-            <Footer></Footer>
+            <TeacherFooter></TeacherFooter>
             </>
         );
     }

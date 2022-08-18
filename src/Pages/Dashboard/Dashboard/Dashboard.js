@@ -12,18 +12,18 @@ import Divider from '@mui/material/Divider';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import IconButton from '@mui/material/IconButton';
 import HomeIcon from '@mui/icons-material/Home';
-// import InboxIcon from '@mui/icons-material/MoveToInbox';
-// import List from '@mui/material/List';
-// import ListItemButton from '@mui/material/ListItemButton';
-// import ListItem from '@mui/material/ListItem';
-// import ListItemIcon from '@mui/material/ListItemIcon';
-// import ListItemText from '@mui/material/ListItemText';
-// import MailIcon from '@mui/icons-material/Mail';
+import InboxIcon from '@mui/icons-material/MoveToInbox';
+import List from '@mui/material/List';
+import ListItemButton from '@mui/material/ListItemButton';
+import ListItem from '@mui/material/ListItem';
+import ListItemIcon from '@mui/material/ListItemIcon';
+import ListItemText from '@mui/material/ListItemText';
+import MailIcon from '@mui/icons-material/Mail';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
-import AppRegistrationIcon from '@mui/icons-material/AppRegistration';
+
 // import Checkbox from '@mui/material/Checkbox';
 import {
     // BrowserRouter as Router,
@@ -34,24 +34,29 @@ import {
     useRouteMatch
 } from "react-router-dom";
 
-import MakeAdmin from '../MakeAdmin/MakeAdmin';
-import AddTeacher from '../AddTeacher/AddTeacher';
 import useAuth from '../../../hooks/useAuth';
 import AdminRoute from '../../Login/AdminRoute/AdminRoute';
 import DashboardHome from '../DashboardHome/DashboardHome';
-import AttendanceTable from '../AttendanceTable/AttendanceTable';
 // import StudentSubmitModal from '../StudentSubmitModal/StudentSubmitModal';
 import ArrowCircleLeftIcon from '@mui/icons-material/ArrowCircleLeft';
 import SevenRegistration from '../ClassSevenReg/SevenRegistration/SevenRegistration';
 import ClassIcon from '@mui/icons-material/Class';
 import KeyboardDoubleArrowDownIcon from '@mui/icons-material/KeyboardDoubleArrowDown';
 
-
-import BanglaAttendanceTableSeven from '../../TeacherDashboard/ClassSeven/AttendanceTableSeven/BanglaAttendanceTableSeven/BanglaAttendanceTableSeven';
+import OtherHousesIcon from '@mui/icons-material/OtherHouses';
+import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
+import AppRegistrationIcon from '@mui/icons-material/AppRegistration';
+import LayersIcon from '@mui/icons-material/Layers';
 
 import SearchResult from '../SearchResult/SearchResult';
 import Footer from '../../shared/Footer/Footer';
 import MakeTeacher from '../MakeTeacher/MakeTeacher';
+import EightRegistration from '../ClassEightReg/EightRegistration/EightRegistration';
+import SixRegistration from '../ClassSixReg/SixRegistration/SixRegistration';
+import NineRegistration from '../ClassNineReg/NineRegistration/NineRegistration';
+import TenRegistration from '../ClassTenReg/TenRegistration/TenRegistration';
+import { Grid } from '@mui/material';
+// import { ListItem } from '@mui/material';
 // const drawerWidth = 200;
 const drawerWidth = 230;
 
@@ -116,8 +121,8 @@ function Dashboard() {
     };
 
     let { path, url } = useRouteMatch();
-    const { admin } = useAuth();
-    const { teacher } = useAuth();
+    // const { admin } = useAuth();
+    // const { teacher } = useAuth();
 
     const drawer = (
         <div >
@@ -127,89 +132,90 @@ function Dashboard() {
 
                 <Toolbar />
 
+               <Grid container spacing={2} style={{marginLeft:'10%'}}>
+
+               <Grid xs={4}>
+                <Box style={{color:'skyBlue', fontSize:'8%'}}>
+                    <List>  <OtherHousesIcon /> </List>
+                    <List>  <AppRegistrationIcon /> </List>
+                    <List>  <AppRegistrationIcon /> </List>
+                    <List>  <AppRegistrationIcon /> </List>
+                    <List>  <AppRegistrationIcon /> </List>
+                    <List>  <AppRegistrationIcon /> </List>
+                    <List>  <LayersIcon /> </List>
+                   
+                    
+                </Box>
+               </Grid>
                
+               
+                <Grid xs={8} style={{textAlign:'left'}}>
+                <Box>
                 <Link to='/'><Button
-                    style={{
-                        color: 'white',
-                        // borderRadius: 35,
-                        // backgroundColor: "#21b6ae",
-                        // padding: "18px 36px",
-                        fontSize: "16px"
-                    }}
-                >
-                    <HomeIcon style={{ paddingRight: '2%', color: 'yellow' }}></HomeIcon>
-                    Home</Button></Link>
+                style={{
+                    color: 'white',
+                    // borderRadius: 35,
+                    // backgroundColor: "#21b6ae",
+                    // padding: "18px 36px",
+                    fontSize: "16px"
+                }}
+            >
+                {/*<HomeIcon style={{ paddingRight: '2%', color: 'yellow' }}></HomeIcon>*/}
+                Home</Button></Link><br/>  
+                <Link to={`${url}/classSixRegistration`}><Button
+                style={{
+                    color: 'white',
+                    fontSize: "16px"
+                }}
+            >
+                {/*<ClassIcon style={{ color: 'yellow' }} />*/}
+                 Six</Button></Link> <br/>
+                <Link to={`${url}/classSevenRegistration`}><Button
+                style={{
+                    color: 'white',
+                    fontSize: "16px"
+                }}
+            >
+                {/*<ClassIcon style={{ color: 'yellow' }} />*/}
+                Seven </Button></Link> <br/>
+                <Link to={`${url}/classEightRegistration`}><Button
+                style={{
+                    color: 'white',
+                    fontSize: "16px"
+                }}
+            >
+                {/*<ClassIcon style={{ color: 'yellow' }} />*/}
+                Eight </Button></Link> <br/>
+                <Link to={`${url}/classNineRegistration`}><Button
+                style={{
+                    color: 'white',
+                    fontSize: "16px"
+                }}
+            >
+                {/*<ClassIcon style={{ color: 'yellow' }} />*/}
+                Nine </Button></Link> <br/>
+                <Link to={`${url}/classTenRegistration`}><Button
+                style={{
+                    color: 'white',
+                    fontSize: "16px"
+                }}
+            >
+                {/*<ClassIcon style={{ color: 'yellow' }} />*/}
+                Ten </Button></Link> <br/>
+                <Link to={`${url}/SearchResult`}><Button
+                style={{
+                    color: 'white',
+                    fontSize: "16px"
+                }}
+            >Result</Button></Link>
+                </Box>
 
-               
-                
-
-
-                    <Link to={`${url}/SearchResult`}><Button
-                    style={{
-                        color: 'white',
-                        fontSize: "16px"
-                    }}
-                >Search Result</Button></Link>
-
-                <Link to={`${url}/class7Registration`}><Button
-                    style={{
-                        color: 'white',
-                        fontSize: "16px"
-                    }}
-                >
-                    <ClassIcon style={{ color: 'yellow' }} />
-                    Class 7 </Button></Link>
-
-               
-                {
-                    admin && <Box>
-                        <Link to={`${url}/makeAdmin`}><Button
-                            style={{
-                                color: 'white',
-                                fontSize: "16px"
-                            }}
-                        >Make Admin</Button></Link>
-                        <Link to={`${url}/addTeacher`}><Button
-                            style={{
-                                color: 'white',
-                                fontSize: "16px"
-                            }}
-                        >Add Teacher</Button></Link>
-                       
-                        <Link to={`${url}/makeTeacher`}><Button
-                            style={{
-                                color: 'white',
-                                fontSize: "16px"
-                            }}
-                        >Make Teacher</Button></Link>
-
-                        
-                    </Box>
-                }
+                </Grid>
+                </Grid>
             </Box>
 
-            {/*  <List>
-               
-    {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-                    <ListItem button key={text}>
-                        <ListItemIcon>
-                            {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                        </ListItemIcon>
-                        <ListItemText primary={text} />
-                    </ListItem>
-                ))}
-    </List>
-            <Divider />
-            <List>
-                {['All mail', 'Trash', 'Spam'].map((text, index) => (
-                    <ListItem button key={text}>
-                        <ListItemIcon>
-                            {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                        </ListItemIcon>
-                        <ListItemText primary={text} />
-                    </ListItem>
-                ))}
-            </List> */}
+            
+            
         </div >
     );
 
@@ -232,7 +238,7 @@ console.log(user.emailVerified);
                         sx={{ mr: 2, ...(open && { display: 'none' }) }}
                     >
                         {/* <MenuIcon />*/}
-                        <MenuIcon style={{ color: 'yellow' }} />
+                        <MenuIcon style={{ color: 'skyBlue' }} />
                     </IconButton>
                     <Typography variant="h6" noWrap component="div">
                        Dashboard
@@ -258,7 +264,7 @@ console.log(user.emailVerified);
                     <Box >
                         <IconButton onClick={handleDrawerClose} style={{ color: 'white', fontSize: '2.5em' }}>
                             {theme.direction === 'ltr' ?
-                                <ArrowCircleLeftIcon style={{ color: 'yellow' }} /> : <ChevronRightIcon />}
+                                <ArrowCircleLeftIcon style={{ color: 'skyBlue' }} /> : <ChevronRightIcon />}
                         </IconButton>
                     </Box>
                 </DrawerHeader>
@@ -266,30 +272,7 @@ console.log(user.emailVerified);
                 <Divider style={{ backgroundColor: ' white ' }}></Divider>
                 {drawer}
 
-                {/* {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-                        <ListItem key={text} disablePadding>
-                            <ListItemButton>
-                                <ListItemIcon>
-                                    {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                                </ListItemIcon>
-                                <ListItemText primary={text} />
-                            </ListItemButton>
-                        </ListItem>
-                    ))} */}
-                {/* </List> */}
-                {/* <Divider />
-                <List>
-                    {['All mail', 'Trash', 'Spam'].map((text, index) => (
-                        <ListItem key={text} disablePadding>
-                            <ListItemButton>
-                                <ListItemIcon>
-                                    {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                                </ListItemIcon>
-                                <ListItemText primary={text} />
-                            </ListItemButton>
-                        </ListItem>
-                    ))}
-                </List> */}
+               
             </Drawer>
             <Box>
                 <Toolbar />
@@ -297,7 +280,7 @@ console.log(user.emailVerified);
                 <Switch>
              {user.emailVerified? <Route exact path={path}>
                     <DashboardHome ></DashboardHome>
-                </Route>:<p>not verified</p>} 
+                </Route>:<p>Your email is not verified</p>} 
                
                    
                 <Route exact path={path}>
@@ -306,20 +289,24 @@ console.log(user.emailVerified);
 
                     
                    
-                    <Route exact path={`${path}/class7Registration`}>
+                    <Route exact path={`${path}/classSixRegistration`}>
+                        <SixRegistration></SixRegistration>
+                    </Route>
+                    <Route exact path={`${path}/classSevenRegistration`}>
                         <SevenRegistration></SevenRegistration>
+                    </Route>
+                    <Route exact path={`${path}/classEightRegistration`}>
+                        <EightRegistration></EightRegistration>
+                    </Route>
+                    <Route exact path={`${path}/classNineRegistration`}>
+                        <NineRegistration></NineRegistration>
+                    </Route>
+                    <Route exact path={`${path}/classTenRegistration`}>
+                        <TenRegistration></TenRegistration>
                     </Route>
                     <Route exact path={`${path}/SearchResult`}>
                         <SearchResult></SearchResult>
                     </Route>
-                    
-                    
-                    <AdminRoute path={`${path}/makeAdmin`}>
-                        <MakeAdmin></MakeAdmin>
-                    </AdminRoute>
-                    <AdminRoute path={`${path}/addTeacher`}>
-                        <AddTeacher ></AddTeacher>
-                    </AdminRoute>
                    
                     <AdminRoute path={`${path}/makeTeacher`}>
                     <MakeTeacher></MakeTeacher>

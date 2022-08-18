@@ -22,7 +22,7 @@ const style = {
 
 };
 
-const ModalSeven = ({ openModal, handleModalClose, setRegSuccess }) => {
+const ModalSix = ({ openModal, handleModalClose, setRegSuccess }) => {
     const { user } = useAuth();
     const initialInfo = { studentName: user.displayName, email: user.email }
     const [studentInfo, setStudentInfo] = useState(initialInfo);
@@ -45,7 +45,7 @@ const ModalSeven = ({ openModal, handleModalClose, setRegSuccess }) => {
         }
 
         // send to the server
-        fetch('https://secure-temple-79203.herokuapp.com/classSevenStudent', {
+        fetch('https://secure-temple-79203.herokuapp.com/classSixStudent', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -118,6 +118,7 @@ const ModalSeven = ({ openModal, handleModalClose, setRegSuccess }) => {
                             >
                                 Submit</Button>
                             </Grid>
+                            
                         </form>
                     </Box>
                 </Fade>
@@ -126,4 +127,4 @@ const ModalSeven = ({ openModal, handleModalClose, setRegSuccess }) => {
     );
 };
 
-export default ModalSeven;
+export default ModalSix;

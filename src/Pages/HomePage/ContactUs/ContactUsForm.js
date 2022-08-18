@@ -7,18 +7,25 @@ import useAuth from "../../../hooks/useAuth";
 import { useState } from "react";
 
 const bannerBackground = {
-    background: `url(${backgroundImg})`,
-    backgroundSize: 'cover',
-    backgroundRepeat: 'no-repeat',
-    backgroundPosition: 'center',
-    backgroundColor: 'rgba(27, 44, 84 ,0.1)',
-    backgroundBlendMode: 'darken, luminosity',
-    width: '100vW',
-    margin:90,
-
-    // marginLeft: '20%',
+    // background: `url(${backgroundImg})`,
+    backgroundColor:'#ded5e1',
+    borderRadius:'15px',
+    // borderSize:'5px',
+    borderWidth:  3, 
+    //  borderLeftColor:  'red',
+     borderStyle:  'dashed',
+    // backgroundSize: 'cover',
+    // backgroundRepeat: 'no-repeat',
+    // backgroundPosition: 'center',
+    // backgroundColor: 'rgba(27, 44, 84 ,0.1)',
+    // backgroundBlendMode: 'darken, luminosity',
+    width: '80vW',
+    textAlign:'center',
+    // margin:'20%',
+    marginTop:'5%',
+    marginLeft: '10%',
     // marginRight:'20%',
-    height: '70vH'
+    // height: '70vH'
 
 }
 
@@ -66,8 +73,8 @@ const ContactUsForm = () => {
 
     return (
 <>
-            <div style={bannerBackground } sx={{ height:'100vh'}} >
-            <Box container  style={{textAlign: 'center',paddingTop:'5%'}}>
+            <div style={bannerBackground } sx={{ height:'100vh' }} >
+            <Box container justifyContent='center' style={{textAlign: 'center',paddingTop:'5%'}}>
 
             <Typography variant="h4" style={{margin:15}}>Contact With Us</Typography>
 
@@ -105,7 +112,7 @@ const ContactUsForm = () => {
             <br></br>
            
 
-            <Button variant="contained" type="submit" style={{marginLeft:'40%', marginTop:'2%', padding:'10px 22px'}}>Submit</Button> <br></br>
+            <Button variant="contained" type="submit" style={{marginLeft:'50%', marginTop:'2%',  marginBottom:'2%', padding:'15px 55px', backgroundColor:'#053965', borderRadius:'15px'}}>Submit</Button> <br></br>
 
             </form>
             </Box>

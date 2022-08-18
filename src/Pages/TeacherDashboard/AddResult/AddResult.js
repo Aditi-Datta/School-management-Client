@@ -62,98 +62,69 @@ const AddResult = () => {
                 name='studentName'
                 onBlur={handleOnBlur}
                 required
-                // variant="standard"
                 variant="outlined"
                 /> <br/><br/>
-            {/*<TextField
-                sx={{ width: '50vw' }}
-                label="Student Email"
-                type='email'
-                name='studentEmail'
-                onBlur={handleOnBlur}
-                required
-            variant="standard" /><br/>*/}
 
             <TextField
                 sx={{ width: '50vw' }}
                 label="Student Id"
                 type='number'
                 name='studentId'
-                
                 onBlur={handleOnBlur}
                 required
-                // variant="standard"
                 variant="outlined"
                 /><br/><br/>
             
             <TextField
                 sx={{ width: '50vw' }}
                 label="Bangla"
-                // type='number'
                 name='Bangla'
-                defaultValue='Bangla = '
                 onBlur={handleOnBlur}
                 required
-                // variant="standard" 
                 variant="outlined"
                 /><br/><br/>
             <TextField
                 sx={{ width: '50vw' }}
                 label="English"
-                // type='number'
                 name='English'
-                defaultValue='English = '
                 onBlur={handleOnBlur}
                 required
-                // variant="standard"
                 variant="outlined" 
                 /><br/><br/>
             <TextField
                 sx={{ width: '50vw' }}
                 label="Math"
-                // type='number'
                 name='Math'
-                defaultValue='Math = '
                 onBlur={handleOnBlur}
                 required
-                // variant="standard" 
                 variant="outlined"
                 /><br/><br/>
             <TextField
                 sx={{ width: '50vw' }}
                 label="Science"
-                // type='number'
                 name='Science'
-                defaultValue='Science = '
                 onBlur={handleOnBlur}
                 required
-                // variant="standard"
                 variant="outlined"
                 /><br/><br/>
             <TextField
                 sx={{ width: '50vw' }}
                 label="Sociology"
-                // type='number'
-                name='Sociology'
-                defaultValue='Sociology = '
+                name='Sociology' 
                 onBlur={handleOnBlur}
                 required
                 variant="outlined"
-                // variant="standard"
                  /><br/><br/>
             
             <TextField
                 sx={{ width: '50vw' }}
                 label="Total Result"
-                // type='number'
                 name='TotalResult'
-                defaultValue='Total Result = '
                 onBlur={handleOnBlur}
                 required
                 variant="outlined"
-                // variant="standard"
                  /><br/><br/>
-            <Button type='submit' variant='contained'>Result Submit</Button>
+            <Button type='submit' style={{backgroundColor:'#066ca6'}} variant='contained'>Result Submit</Button>
         </form>
 
         {success && <Alert severity="success"  >Result Submitted successfully!!! </Alert>}
