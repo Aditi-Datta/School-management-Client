@@ -2,7 +2,7 @@ import { Grid, Paper } from "@mui/material";
 import { Box } from "@mui/system";
 import React from "react";
 import education from '../../../images/edu.jpg';
-import program from '../../../images/program.jpg';
+import program from '../../../images/program4.png';
 import campus from '../../../images/campuss.png';
 import { Container } from "react-bootstrap";
 const WhatWeOffer = () => {

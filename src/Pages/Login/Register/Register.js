@@ -34,7 +34,7 @@ const Register = () => {
             setError('Password Must contain 1 digit,1 alphabet,2 special character & 8 characters long');
             return;
         }
-        // /^(?=.*\d)(?=.*[a-zA-Z])[a-zA-Z0-9]{7,}$/
+        
         if (loginData.password !== loginData.conpassword) {
             alert("your password didn't match!!!");
             return;

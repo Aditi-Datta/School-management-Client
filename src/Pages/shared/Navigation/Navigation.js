@@ -50,7 +50,7 @@ const Navigation = () => {
 
     return (
         <Box sx={{ flexGrow: 1 }}>
-            <AppBar position="static" style={{ backgroundColor: '#110941' }}>
+            <AppBar position="static" style={{ backgroundColor: '#1b1b1b' }}>
                 <Container maxWidth="xl">
                     <Toolbar disableGutters>
 
@@ -146,8 +146,9 @@ const Navigation = () => {
                                 fontFamily: 'monospace',
                                 fontWeight: 700,
                                 letterSpacing: '.3rem',
-                                color: 'inherit',
+                                // color: 'inherit',
                                 textDecoration: 'none',
+                                // color:'#fff'
                             }}
                             
                         >
@@ -158,14 +159,14 @@ const Navigation = () => {
                             <Button
                             
                                 onClick={handleCloseNavMenu}
-                                sx={{ my: 2, color: 'white' }}
+                                sx={{ my: 2, color: 'gray' }}
                             >
                                 <Link to="/home"><Button className='buttonHover' color="inherit" sx={{
-                                    color: 'white'
+                                    color: '#1fa4b7'
                                 }}>Home</Button></Link>
-                                <Link to="/aboutus"><Button className='buttonHover' color="inherit" sx={{ color: 'white' }}>About</Button></Link>
-                                <Link to="/contactUs"><Button className='buttonHover' color="inherit" sx={{ color: 'white' }}>Contact</Button></Link>
-                                <Link to="/dashboard"><Button className='buttonHover' color="inherit" sx={{ color: 'white' }}>Dashboard</Button></Link>
+                                <Link to="/aboutus"><Button className='buttonHover' color="inherit" sx={{ color: '#1fa4b7' }}>About</Button></Link>
+                                <Link to="/contactUs"><Button className='buttonHover' color="inherit" sx={{ color: '#1fa4b7' }}>Contact</Button></Link>
+                                <Link to="/dashboard"><Button className='buttonHover' color="inherit" sx={{ color: 'gray' }}>Dashboard</Button></Link>
 
 
                                 {teacher &&

@@ -6,7 +6,7 @@ import React from "react";
 const Faq = ({ faq, index, toggleFAQ }) => {
 
     const faqStyle = {
-        // margin: '15px',
+        margin: '5px',
         // padding: '15px',
         backgroundColor: 'white',
     };

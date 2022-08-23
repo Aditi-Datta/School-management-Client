@@ -11,6 +11,7 @@ import { Button , Alert } from '@mui/material';
 import useAuth from "../../../hooks/useAuth";
 import AllUserRow from './AllUserRow';
 import { Container } from '@mui/system';
+import DeleteConfirmModal from './DeleteConfirmModal';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
@@ -37,9 +38,15 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
 
   const AllUsers = () => {
 
+    const [openModal, setOpenModal] = React.useState(false);
+    const handleModalOpen = () => setOpenModal(true);
+    const handleModalClose = () => setOpenModal(false);
+
+    const [deleteUser,setDeleteUser] = useState(null);
+
     const [allUser, setAllUser] = useState([]);
     const { token } = useAuth();
-    const [success, setSuccess] = useState(false);
+    const [deleteSuccess, setDeleteSuccess] = useState(false);
     const { user } = useAuth();
     useEffect(() => {
         const url = `https://secure-temple-79203.herokuapp.com/users`;
@@ -105,6 +112,13 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
                index={index}
                StyledTableRow={StyledTableRow}
                StyledTableCell={StyledTableCell}
+
+              //  openModal={openModal}
+              //  handleModalOpen={handleModalOpen}
+              //  handleModalClose={handleModalClose}
+              //  setDeleteSuccess={setDeleteSuccess}
+               setDeleteUser={setDeleteUser}
+              //  deleteUser={deleteUser}
                ></AllUserRow>)
            }
          </TableBody>
@@ -112,7 +126,9 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
      </TableContainer>
      </Paper>
        </Container>
- {success && <Alert severity="success"  >Made Admin successfully!!! </Alert>}
+      {deleteSuccess && <Alert severity="success"  >{allUser.displayName} is deleted!!...</Alert>}
+
+     {deleteUser && <DeleteConfirmModal></DeleteConfirmModal>}
       </>
     );
 };

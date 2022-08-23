@@ -8,25 +8,27 @@ import { useState } from "react";
 
 const bannerBackground = {
     // background: `url(${backgroundImg})`,
-    backgroundColor:'#ded5e1',
+    backgroundColor:'black',
     borderRadius:'15px',
     // borderSize:'5px',
     borderWidth:  3, 
     //  borderLeftColor:  'red',
-     borderStyle:  'dashed',
+    //  borderStyle:  'dashed',
     // backgroundSize: 'cover',
     // backgroundRepeat: 'no-repeat',
     // backgroundPosition: 'center',
     // backgroundColor: 'rgba(27, 44, 84 ,0.1)',
     // backgroundBlendMode: 'darken, luminosity',
-    width: '80vW',
+    // width: '80vW',
     textAlign:'center',
     // margin:'20%',
+    width:'100vw',
+    height:'100vh',
     marginTop:'5%',
-    marginLeft: '10%',
+    // marginLeft: '10%',
     // marginRight:'20%',
     // height: '70vH'
-
+    // color:'white'
 }
 
 const ContactUsForm = () => {
@@ -83,18 +85,20 @@ const ContactUsForm = () => {
             <TextField 
             style={{margin:18, width:'50vw'}} 
             label="Say something about us" 
-            color="secondary"
+            // color="secondary" 
             onBlur={handleOnBlur} 
             name='review'
             required
-            focused />
+            
+            focused 
+            />
 
             <br></br>
 
             <TextField 
             style={{margin:18, width:'50vw'}} 
             label="Name" 
-            color="secondary" 
+            // color="secondary" 
             onBlur={handleOnBlur} 
             defaultValue={user.displayName}
             focused />
@@ -104,7 +108,7 @@ const ContactUsForm = () => {
             <TextField 
             style={{margin:18, width:'50vw'}} 
             label="Email" 
-            color="secondary" 
+            // color="secondary" 
             onBlur={handleOnBlur} 
             defaultValue={user.email}
             
@@ -112,7 +116,7 @@ const ContactUsForm = () => {
             <br></br>
            
 
-            <Button variant="contained" type="submit" style={{marginLeft:'50%', marginTop:'2%',  marginBottom:'2%', padding:'15px 55px', backgroundColor:'#053965', borderRadius:'15px'}}>Submit</Button> <br></br>
+            <Button variant="contained" type="submit" style={{marginLeft:'40%', marginTop:'2%',  marginBottom:'2%', padding:'15px 55px', backgroundColor:'#053965', borderRadius:'15px'}}>Submit</Button> <br></br>
 
             </form>
             </Box>

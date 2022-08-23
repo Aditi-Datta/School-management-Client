@@ -13,8 +13,11 @@ import WhatWeOffer from "../whatWeOffer/WhatWeOffer";
 
 
 const Home = () => {
+    const background= {
+        backgroundColor:'#1b1b1b'
+    }
     return (
-        <div>
+        <div style={background}>
             <Navigation></Navigation>
            
            

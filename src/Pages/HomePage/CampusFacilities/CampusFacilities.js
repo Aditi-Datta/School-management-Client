@@ -51,7 +51,9 @@ const CampusFacilities = () => {
     return (
         <Box sx={{ flexGrow: 1}}>
             <Container  >
-                <Typography variant="h4" component="div" sx={{ color: '#b71c1c',m:5, fontWeight: 600 }} style={{ textAlign: 'center' }}  
+                <Typography variant="h2" component="div" sx={{ 
+                    color: 'gray',
+                m:5, fontWeight: 400 }} style={{ textAlign: 'center' }}  
             //     data-aos="zoom-in"
             // data-aos-easing="ease-out-cubic"
             // data-aos-duration="2000"

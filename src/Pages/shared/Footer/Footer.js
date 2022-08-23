@@ -16,12 +16,12 @@ const Footer = () => {
 
     const footerStyle = {
 
-        backgroundColor: '#110941',
+        backgroundColor: 'black',
         color: 'white',
         marginTop: '60px',
         width: '100%',
         bottom:0,
-        borderTop: 'solid 1px'
+        // borderTop: 'solid 1px'
        
     };
 
@@ -37,7 +37,7 @@ const Footer = () => {
                <Typography variant="h5" component="div"  >
                    Contact Us
                </Typography>
-               <Divider sx={{ backgroundColor: 'white', width: "195px" }} style={{ margin: '0 auto' }}></Divider>
+               
 
                <Box >
                    <Link href="#demoIcon" color="inherit">

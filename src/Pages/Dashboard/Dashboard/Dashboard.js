@@ -127,7 +127,7 @@ function Dashboard() {
     const drawer = (
         <div >
             {/* <Divider /> */}
-            <Box sx={{ backgroundColor: '#110941', height: '650px' }} style={{ textAlign: 'center' }}>
+            <Box sx={{ backgroundColor: 'black', height: '650px' }} style={{ textAlign: 'center' }}>
                 {/* <Box sx={{ height: '625px' }}> */}
 
                 <Toolbar />
@@ -151,40 +151,38 @@ function Dashboard() {
                
                 <Grid xs={8} style={{textAlign:'left'}}>
                 <Box>
+
                 <Link to='/'><Button
                 style={{
                     color: 'white',
-                    // borderRadius: 35,
-                    // backgroundColor: "#21b6ae",
-                    // padding: "18px 36px",
                     fontSize: "16px"
                 }}
-            >
-                {/*<HomeIcon style={{ paddingRight: '2%', color: 'yellow' }}></HomeIcon>*/}
-                Home</Button></Link><br/>  
+            >  Home</Button></Link><br/>  
+
+
                 <Link to={`${url}/classSixRegistration`}><Button
                 style={{
                     color: 'white',
                     fontSize: "16px"
                 }}
-            >
-                {/*<ClassIcon style={{ color: 'yellow' }} />*/}
-                 Six</Button></Link> <br/>
+            > Six</Button></Link> <br/>
+            
                 <Link to={`${url}/classSevenRegistration`}><Button
                 style={{
                     color: 'white',
                     fontSize: "16px"
                 }}
             >
-                {/*<ClassIcon style={{ color: 'yellow' }} />*/}
+                
                 Seven </Button></Link> <br/>
                 <Link to={`${url}/classEightRegistration`}><Button
                 style={{
-                    color: 'white',
-                    fontSize: "16px"
+                    color: 'black',
+                    fontSize: "16px",
+                    textDecoration:'none'
                 }}
             >
-                {/*<ClassIcon style={{ color: 'yellow' }} />*/}
+                
                 Eight </Button></Link> <br/>
                 <Link to={`${url}/classNineRegistration`}><Button
                 style={{
@@ -192,7 +190,7 @@ function Dashboard() {
                     fontSize: "16px"
                 }}
             >
-                {/*<ClassIcon style={{ color: 'yellow' }} />*/}
+                
                 Nine </Button></Link> <br/>
                 <Link to={`${url}/classTenRegistration`}><Button
                 style={{

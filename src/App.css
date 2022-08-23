@@ -16,7 +16,7 @@
 
 
 .App {
-  background-color: #e0e1e6;
+  background-color: white;
   padding-bottom: N;
   
 }
@@ -24,7 +24,7 @@
   font-weight:lighter;
  
   /* color: #eff32b; */
-  color: #e0d561;
+  color: white;
 }
 .registerHover:hover{
   color: rgb(255, 89, 0);
