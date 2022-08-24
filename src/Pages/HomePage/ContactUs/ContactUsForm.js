@@ -7,28 +7,14 @@ import useAuth from "../../../hooks/useAuth";
 import { useState } from "react";
 
 const bannerBackground = {
-    // background: `url(${backgroundImg})`,
-    backgroundColor:'black',
+    
+    backgroundColor:'#f8f8ff',
     borderRadius:'15px',
-    // borderSize:'5px',
     borderWidth:  3, 
-    //  borderLeftColor:  'red',
-    //  borderStyle:  'dashed',
-    // backgroundSize: 'cover',
-    // backgroundRepeat: 'no-repeat',
-    // backgroundPosition: 'center',
-    // backgroundColor: 'rgba(27, 44, 84 ,0.1)',
-    // backgroundBlendMode: 'darken, luminosity',
-    // width: '80vW',
     textAlign:'center',
-    // margin:'20%',
     width:'100vw',
     height:'100vh',
     marginTop:'5%',
-    // marginLeft: '10%',
-    // marginRight:'20%',
-    // height: '70vH'
-    // color:'white'
 }
 
 const ContactUsForm = () => {
@@ -90,6 +76,7 @@ const ContactUsForm = () => {
             name='review'
             required
             
+            
             focused 
             />
 
@@ -101,6 +88,8 @@ const ContactUsForm = () => {
             // color="secondary" 
             onBlur={handleOnBlur} 
             defaultValue={user.displayName}
+            textColor="white"
+            // id="filled-hidden-label-small"
             focused />
 
             <br></br>
@@ -116,7 +105,7 @@ const ContactUsForm = () => {
             <br></br>
            
 
-            <Button variant="contained" type="submit" style={{marginLeft:'40%', marginTop:'2%',  marginBottom:'2%', padding:'15px 55px', backgroundColor:'#053965', borderRadius:'15px'}}>Submit</Button> <br></br>
+            <Button variant="contained" type="submit" style={{marginLeft:'20%', marginTop:'2%',   padding:'15px 55px', backgroundColor:'#1fa4b7', borderRadius:'15px'}}>Submit</Button> <br></br>
 
             </form>
             </Box>

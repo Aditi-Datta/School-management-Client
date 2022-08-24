@@ -16,7 +16,7 @@ const CampusFacility = (props) => {
         // data-aos-duration="2000" 
         sx={{my:1}}>
 
-            <Card sx={{ minWidth: 275, border: 2, borderColor: ' #5d4037', borderRadius: 3, 
+            <Card sx={{ minWidth: 275, border: 2, borderColor: ' #5d4037', borderRadius: 3,  backgroundColor:'white',
             // boxShadow: "0 3px 6px 6px #dcd6ee", 
             py: 2 }}>
                 <CardMedia

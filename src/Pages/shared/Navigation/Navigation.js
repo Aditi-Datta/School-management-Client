@@ -159,22 +159,23 @@ const Navigation = () => {
                             <Button
                             
                                 onClick={handleCloseNavMenu}
-                                sx={{ my: 2, color: 'gray' }}
+                                sx={{ my: 2 }}
+                              
                             >
                                 <Link to="/home"><Button className='buttonHover' color="inherit" sx={{
-                                    color: '#1fa4b7'
+                                    color: 'gray'
                                 }}>Home</Button></Link>
-                                <Link to="/aboutus"><Button className='buttonHover' color="inherit" sx={{ color: '#1fa4b7' }}>About</Button></Link>
-                                <Link to="/contactUs"><Button className='buttonHover' color="inherit" sx={{ color: '#1fa4b7' }}>Contact</Button></Link>
+                                <Link to="/aboutus"><Button className='buttonHover' color="inherit" sx={{ color: 'gray' }}>About</Button></Link>
+                                <Link to="/contactUs"><Button className='buttonHover' color="inherit" sx={{ color: 'gray' }}>Contact</Button></Link>
                                 <Link to="/dashboard"><Button className='buttonHover' color="inherit" sx={{ color: 'gray' }}>Dashboard</Button></Link>
 
 
                                 {teacher &&
-                    < Link to="/teacher"><Button  className='buttonHover' color="inherit" sx={{ color: 'white' }}>Teacher </Button></Link>
+                    < Link to="/teacher"><Button  className='buttonHover' color="inherit" sx={{ color: 'gray' }}>Teacher </Button></Link>
                 }
 
                 {admin &&
-                    < Link to="/admin"><Button className='buttonHover'  sx={{ color: 'white' }}>Admin </Button></Link>
+                    < Link to="/admin"><Button className='buttonHover'  sx={{ color: 'gray' }}>Admin </Button></Link>
                 }
 
 
@@ -182,10 +183,10 @@ const Navigation = () => {
                                     user?.email ?
                                         <Box>
                                             
-                                            <Button onClick={logout}  className='buttonHover' color="inherit" sx={{ color: 'white' }}>Logout</Button>
+                                            <Button onClick={logout}  className='buttonHover' color="inherit" sx={{ color: 'gray' }}>Logout</Button>
                                         </Box>
                                         :
-                                        <NavLink to="/login"><Button  className='buttonHover' color="inherit" sx={{ color: 'white' }}>Login</Button></NavLink>
+                                        <NavLink to="/login"><Button  className='buttonHover' color="inherit" sx={{ color: 'gray' }}>Login</Button></NavLink>
                                 }
                             </Button>
 

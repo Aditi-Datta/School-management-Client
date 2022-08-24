@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import Faq from '../Faq/Faq';
-import faqImg from '../../../images/faqdot2.png';
+import faqImg from '../../../images/qa2-removebg-preview2.png';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import { Container } from "@mui/material";
@@ -56,7 +56,7 @@ function FaqQuestions() {
         height:'100%',
         // margin: '3% auto',
         // height: '200px',
-        borderRadius:'25px',
+        
         position: 'related',
         marginTop: '5%',
         marginBottom: '2%',
@@ -101,12 +101,12 @@ function FaqQuestions() {
 
     return (
         <div>
-            
+            <Container>
                 <Box style={faqsStyle}>
                     <Grid container direction="row"
                     justifyContent="center"
                     alignItems="center"  spacing={{ xs: 3, md: 1}} columns={{ xs: 4, sm: 8, md: 12 }}>
-                         <Grid  component="div" item  xs={4} sm={6} md={4} style={imgStyle} //data-aos="fade-up"
+                         <Grid  component="div" item  xs={4} sm={6} md={6} style={imgStyle} //data-aos="fade-up"
                         >
                             <img src={faqImg}></img>
                         </Grid>
@@ -124,8 +124,9 @@ function FaqQuestions() {
                         </Grid>
 
                     </Grid>
+
                 </Box>
-           
+           </Container>
         </div>
 
 

@@ -8,11 +8,11 @@ const Faq = ({ faq, index, toggleFAQ }) => {
     const faqStyle = {
         margin: '5px',
         // padding: '15px',
-        backgroundColor: 'white',
+        backgroundColor: '#f8f8ff',
     };
 
     const questionStyle = {
-        fontSize: '22px'
+        fontSize: '18px'
         // position: 
     };
     // let questionStyle:: after = {

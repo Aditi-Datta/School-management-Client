@@ -7,6 +7,11 @@ import ContactUs from "../ContactUs/ContactUs";
 import ContactUsForm from "../ContactUs/ContactUsForm";
 
 import FaqQuestions from "../FaqQuestions/FaqQuestions";
+import CarouselReview from "../Review/CarouselReview";
+import CarouselStudentSuccess from '../StudentSuccess/CarouselStudentSuccess';
+// import CarouselReview from "../Review/CarouselReview/CarouselReview";
+
+
 import WhatWeOffer from "../whatWeOffer/WhatWeOffer";
 // import MainBanner from "../MainBanner/MainBanner";
 
@@ -26,9 +31,13 @@ const Home = () => {
 
             <WhatWeOffer></WhatWeOffer><br/>
 
+
+            <CarouselReview></CarouselReview>
+           
+
             <FaqQuestions></FaqQuestions>
             <br></br>
-
+            <CarouselStudentSuccess></CarouselStudentSuccess>
             <CampusFacilities></CampusFacilities>
             <br></br><br></br>
 

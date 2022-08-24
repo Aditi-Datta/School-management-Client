@@ -1,4 +1,4 @@
-import { Box, Container, Divider, Grid, Typography } from '@mui/material';
+import { Box, Container, Divider, Grid, List, Typography } from '@mui/material';
 import React from 'react'
 
 // import DeleteIcon from '@mui/icons-material/Delete';
@@ -10,17 +10,24 @@ import TwitterIcon from '@mui/icons-material/Twitter';
 import YouTubeIcon from '@mui/icons-material/YouTube';
 // import RoomIcon from '@material-ui/icons/Room';
 import Link from '@mui/material/Link';
-
+import LocationOnIcon from '@mui/icons-material/LocationOn';
+import PhoneInTalkIcon from '@mui/icons-material/PhoneInTalk';
+import AttachEmailIcon from '@mui/icons-material/AttachEmail';
 
 const Footer = () => {
 
     const footerStyle = {
 
-        backgroundColor: 'black',
+        backgroundColor: '#1b1b1b',
         color: 'white',
-        marginTop: '60px',
+        // marginTop: '60px',
+        height:'100%',
         width: '100%',
         bottom:0,
+        paddingTop:'5%',
+        paddingLeft:'10%',
+        paddingRight:'10%',
+        textAlign: 'left',
         // borderTop: 'solid 1px'
        
     };
@@ -29,72 +36,99 @@ const Footer = () => {
 
         <>
        
+        
+        
+       
        <Box style={footerStyle} sx={{ flexGrow: 1 }}>
 
-       <Grid container alignItems="center" justifyContent="center" direction="row" spacing={{ xs: 2, md: 3 }} >
-           <Grid item xs={12} sm={12} md={4} style={{ textAlign: 'center' }}>
+       <Grid container alignItems="center" justifyContent="flex-start"  direction="row" spacing={{ xs: 2, md: 3 }} >
+           <Grid item xs={12} sm={12} md={4} style={{  paddingLeft:'5%' }}>
 
-               <Typography variant="h5" component="div"  >
+               <Typography variant="h6" component="div" style={{ paddingBottom:'5%', fontWeight:'bold',color:'#1fa4b7'}} >
                    Contact Us
                </Typography>
                
+               <Box style={{ paddingBottom:'2%'}}>
+               <p>We support programs that </p>
+               <p>create advancement </p>
+               <p>opportunities for people.</p>
 
+               </Box>
+               
                <Box >
                    <Link href="#demoIcon" color="inherit">
                        <FacebookIcon
                            style={{
-                               color: '#a233c8', width: '50px', height: '52px', margin: '8px', borderRadius: 3
+                               color: 'white', width: '20px', height: '22px', margin: '8px', borderRadius: 3
                            }}
                        />
                    </Link>
                    <Link href="#demoIcon" color="inherit">
                        <InstagramIcon
-                           style={{ color: ' #a233c8 ', width: '50px', height: '52px', margin: '8px', borderRadius: 3 }}
+                           style={{ color: ' white ', width: '20px', height: '22px', margin: '8px', borderRadius: 3 }}
                        />
                    </Link>
                    <Link href="#demoIcon" color="inherit">
                        <TwitterIcon
-                           style={{ color: ' #a233c8 ', width: '50px', height: '52px', margin: '8px', borderRadius: 3 }}
+                           style={{ color: 'white ', width: '20px', height: '22px', margin: '8px', borderRadius: 3 }}
                        />
                    </Link>
                    <Link href="#demoIcon" color="inherit">
                        <VoiceChatIcon
-                           style={{ color: ' #a233c8 ', width: '50px', height: '52px', margin: '8px', borderRadius: 3 }}
+                           style={{ color: 'white', width: '20px', height: '22px', margin: '8px', borderRadius: 3 }}
                        />
                    </Link>
                </Box>
 
            </Grid>
 
-           <Grid item xs={12} sm={12} md={4} style={{ textAlign: 'center' }}>
-               <Typography variant="h5" component="div"  >
-                   Quick Links
+           <Grid item xs={12} sm={12} md={4} >
+               <Typography variant="h6" component="div"  style={{ paddingBottom:'5%',fontWeight:'bold',color:'#1fa4b7'}} >
+                  Useful Links
                </Typography>
-               <Divider sx={{ backgroundColor: 'white', width: "190px" }} style={{ margin: '0 auto' }}></Divider>
-
-               <Link href="/home" color="inherit" style={{ textDecoration: 'none', fontWeight: 425 }}>
+              
+               <Link href="/home" color="inherit" style={{ textDecoration: 'none', fontWeight: 425, }}>
                    Home
                </Link><br></br>
-               <Link href="/aboutus" color="inherit" style={{ textDecoration: 'none', fontWeight: 425 }}>
+               <Link href="/aboutus" color="inherit" style={{ textDecoration: 'none',fontWeight: 425 }}>
                    About Us
                </Link><br></br>
-               <Link href="/contactUs" color="inherit" style={{ textDecoration: 'none', fontWeight: 425 }}>
+               <Link href="/contactUs" color="inherit" style={{ textDecoration: 'none',fontWeight: 425 }}>
                    Contact Us
+               </Link><br></br>
+               <Link href="/dashboard" color="inherit" style={{ textDecoration: 'none',fontWeight: 425 }}>
+                   Dashboard
+               </Link><br></br>
+               <Link href="/login" color="inherit" style={{ textDecoration: 'none',fontWeight: 425 }}>
+                   Login
                </Link><br></br>
            </Grid>
 
-           <Grid item xs={12} sm={12} md={4} style={{ textAlign: 'center' }}>
-               <Typography variant="h5" component="div" >
-                   Terms
+           <Grid item xs={12} sm={12} md={4} >
+               <Typography variant="h6" component="div"  style={{paddingBottom:'5%',fontWeight:'bold',color:'#1fa4b7'}} >
+                  Details
                </Typography>
-               <Divider sx={{ backgroundColor: 'white', width: "180px" }} style={{ margin: '0 auto' }}></Divider>
+                     <p >  PO Box 16122 Collins Street West</p>
+                     <p>Victoria 8007 Bangladesh</p>
+                     
+                     <p >   +91 458 654 528a</p>
+                     <p  > gostudy@gmail.com</p> 
+
+          </Grid>
+ 
            </Grid>
 
-       </Grid>
+      
+         
+       <Divider sx={{ backgroundColor: 'gray', width: "90%" }} style={{ marginBottom: '4%', marginTop:'2%' }}></Divider>
 
-       <Divider sx={{ backgroundColor: 'white', width: "90%" }} style={{ margin: '2% 4%' }}></Divider>
-       <Typography style={{ textAlign: 'center', paddingBottom: '25px' }}>Copyright © 2022 All right reserved by sm system</Typography>
+      
 
+           
+            <Typography style={{  paddingBottom: '5%',paddingTop:'1%',textAlign:'center' }}>© Copyright 2022 Goesstudy All rights reserved by GoesStudy. </Typography>
+
+           
+       
 
 
    </Box >

@@ -52,7 +52,8 @@ const CampusFacilities = () => {
         <Box sx={{ flexGrow: 1}}>
             <Container  >
                 <Typography variant="h2" component="div" sx={{ 
-                    color: 'gray',
+                    // color: '#a9a9a9',
+                    color: '#1fa4b7',
                 m:5, fontWeight: 400 }} style={{ textAlign: 'center' }}  
             //     data-aos="zoom-in"
             // data-aos-easing="ease-out-cubic"
