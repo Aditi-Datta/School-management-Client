@@ -10,11 +10,11 @@ const AboutUs = () => {
     return (
         <div>
             <Navigation></Navigation>
-            <MeetOurTeachers></MeetOurTeachers>
+           
             <FounderSays></FounderSays>
             <br/>
 
-           
+            <MeetOurTeachers></MeetOurTeachers>
 
             <CampusFacilities></CampusFacilities>
             <br></br>

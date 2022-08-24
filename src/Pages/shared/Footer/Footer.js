@@ -93,7 +93,7 @@ const Footer = () => {
                <Link href="/aboutus" color="inherit" style={{ textDecoration: 'none',fontWeight: 425 }}>
                    About Us
                </Link><br></br>
-               <Link href="/contactUs" color="inherit" style={{ textDecoration: 'none',fontWeight: 425 }}>
+               <Link href="/contactUs" color="inherit" style={{ textDecoration: 'none',fontWeight: 425 , marginBottom:'4%'}}>
                    Contact Us
                </Link><br></br>
                <Link href="/dashboard" color="inherit" style={{ textDecoration: 'none',fontWeight: 425 }}>

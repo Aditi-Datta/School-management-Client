@@ -12,15 +12,7 @@ import ReviewSlideOne from './ReviewSlideOne';
 import ReviewSlideTwo from './ReviewSlideTwo';
 const CarouselReview = () => {
 
-    const particlesInit = async (main) => {
-        console.log(main);
-        await loadFull(main);
-      };
     
-      const particlesLoaded = (container) => {
-        console.log(container);
-      };
-
     return (
       <>
             <Carousel>
