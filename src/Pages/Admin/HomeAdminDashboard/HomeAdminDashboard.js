@@ -1,26 +1,16 @@
-import { Table, TableCell, TableContainer, TableHead } from "@mui/material";
+import { Container, Divider, Grid, Paper, Table, TableCell, TableContainer, TableHead, Typography } from "@mui/material";
+import { Box } from "@mui/system";
 import React from "react";
-
+import founderImg from "../../../images/elonmask.jpg";
+import AllUsers from "../AllUsers/AllUsers";
 
 
 const HomeAdminDashboard = () => {
-    return (
-        <>
+    
+    return(
         <div>
-            <h2>Admin Dashboard Here</h2>
-
-            <TableContainer>
-                <Table>
-                    <TableHead>
-                        <TableCell>date</TableCell>
-                        <TableCell>day</TableCell>
-                    </TableHead>
-                </Table>
-            </TableContainer>
+            <AllUsers></AllUsers>
         </div>
-
-        
-        </>  
     );
 };
 export default HomeAdminDashboard;

@@ -18,10 +18,11 @@
 .App {
   background-color: white;
   padding-bottom: N;
-  
+  overflow-x: hidden;
+  overflow-y: hidden;
 }
 .buttonHover:hover{
-  font-weight:lighter;
+  /* font-weight:lighter; */
  
   /* color: #eff32b; */
   color: white;

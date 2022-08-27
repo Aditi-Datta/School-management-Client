@@ -11,13 +11,13 @@ import { Button , Alert } from '@mui/material';
 import useAuth from "../../../hooks/useAuth";
 import userEvent from '@testing-library/user-event';
 import AllUsers from './AllUsers';
-import DeleteConfirmModal from './DeleteConfirmModal';
 
-const AllUserRow = ({allUser, index,StyledTableRow,StyledTableCell,openModal,handleModalOpen,handleModalClose,setDeleteSuccess,  deleteUser, setDeleteUser}) => {
+
+const AllUserRow = ({allUser, index,StyledTableRow,StyledTableCell}) => {
     const {email,role,displayName} = allUser;
     const { user,token } = useAuth();
-    const [success, setSuccess] = useState(false);
-
+    const [adminSuccess, setAdminSuccess] = useState(false);
+    const [deleteSuccess, setDeleteSuccess] = useState(false);
     
     // const handleSetDeleteUser = (email) => {
     //     setDeleteUser(email);
@@ -56,36 +56,39 @@ const AllUserRow = ({allUser, index,StyledTableRow,StyledTableCell,openModal,han
         .then(res => res.json())
         .then(data => {
             console.log(data);
+            if(data.modifiedCount){
+                setAdminSuccess(true);
+            }
         })
     }
 
     return (
         
         <>
-        <StyledTableRow>
+        <StyledTableRow >
         <StyledTableCell component="th" scope="row">
           {index + 1}
+        </StyledTableCell>
+        <StyledTableCell component="th" scope="row">
+          {displayName}
         </StyledTableCell>
         <StyledTableCell component="th" scope="row">
           {email}
         </StyledTableCell>
 
-         <StyledTableCell >{role !=='admin' && <Button onClick={makeAdmin} variant="contained" size="small" style={{backgroundColor:'#9a123a'}}>Make Admin</Button>}</StyledTableCell>
+         <StyledTableCell >{role !=='admin' && <Button onClick={makeAdmin} variant="contained" size="small" style={{backgroundColor:'#1fa4b7'}}>Make Admin</Button>}</StyledTableCell>
 
+        
        {/*} <StyledTableCell ><Button onClick={handleModalOpen} variant="contained" size="small" style={{backgroundColor:'#9a123a'}}>Delete</Button></StyledTableCell>*/}
 
         {/*<StyledTableCell ><Button onClick={() => setDeleteUser(email)} variant="contained" size="small" style={{backgroundColor:'#9a123a'}}>Delete</Button></StyledTableCell>*/}
         
-        <StyledTableCell ><Button onClick={handleDelete} variant="contained" size="small" style={{backgroundColor:'#9a123a'}}>Remove User</Button></StyledTableCell>
+        <StyledTableCell ><Button onClick={handleDelete} variant="contained" size="small" style={{backgroundColor:'#ea3a67'}}>Remove User</Button></StyledTableCell>
         </StyledTableRow>
 
-        
-         {/*}  <DeleteConfirmModal 
-            openModal={openModal}
-            handleModalClose={handleModalClose}
-            setDeleteSuccess={setDeleteSuccess}
-            deleteUser={deleteUser}
-    ></DeleteConfirmModal>*/}
+        {deleteSuccess && <Alert severity="success"  >{allUser.displayName} is deleted!!...</Alert>}
+
+        {adminSuccess && <Alert severity="success"  >{allUser.displayName} is Admin now!!...</Alert>}
            
        
         

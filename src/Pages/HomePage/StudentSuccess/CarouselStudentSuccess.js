@@ -11,7 +11,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 // import ReviewSlideTwo from './ReviewSlideTwo';
 import SlideOneStudentSuccess from './SlideOneStudentSuccess';
 import SlideTwoStudentSuccess from './SlideTwoStudentSuccess';
-const StudentSuccess = () => {
+const CarouselStudentSuccess = () => {
 
     
     return (
@@ -33,4 +33,4 @@ const StudentSuccess = () => {
     )
 }
 
-export default StudentSuccess;
+export default CarouselStudentSuccess;

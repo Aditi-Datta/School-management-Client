@@ -8,7 +8,7 @@ const AddResult = () => {
     
     const [success, setSuccess] = useState(false);
     const { user } = useAuth();
-    const initialInfo = {   adminEmail: user.email, studentName:'',studentId:'',result:''  };
+    const initialInfo = {   adminEmail: user.email, studentName:'',studentId:''};
     const [result, setResult] = useState(initialInfo);
     // const [userInfo, setUserInfo] = useState(initialInfo);
 
@@ -111,6 +111,14 @@ const AddResult = () => {
                 sx={{ width: '50vw' }}
                 label="Sociology"
                 name='Sociology' 
+                onBlur={handleOnBlur}
+                required
+                variant="outlined"
+                 /><br/><br/>
+            <TextField
+                sx={{ width: '50vw' }}
+                label="ICT"
+                name='ICT' 
                 onBlur={handleOnBlur}
                 required
                 variant="outlined"

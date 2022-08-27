@@ -88,10 +88,10 @@ const Login = () => {
                             <br></br>
 
                             
-                                <Button variant="link" sx={{}} onClick={handleForgetPassword}>Forgot Password?</Button>
+                                <Button variant="link" sx={{}} onClick={handleForgetPassword}>Forgotten Password?</Button>
                           
                             <NavLink style={{ textDecoration: 'none' }} to='/register'>
-                            <Button variant="text" sx={{ml:'18%'}} >Create New account</Button>
+                            <Button variant="text" sx={{ml:'14%', color:'black'}} >Create New account</Button>
                         </NavLink>
                             <br></br>
 

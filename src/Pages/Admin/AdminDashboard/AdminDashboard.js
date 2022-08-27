@@ -5,48 +5,28 @@ import Drawer from '@mui/material/Drawer';
 import CssBaseline from '@mui/material/CssBaseline';
 import Box from '@mui/material/Box';
 import Divider from '@mui/material/Divider';
-// import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import IconButton from '@mui/material/IconButton';
-import HomeIcon from '@mui/icons-material/Home';
-// import InboxIcon from '@mui/icons-material/MoveToInbox';
-// import List from '@mui/material/List';
-// import ListItemButton from '@mui/material/ListItemButton';
-// import ListItem from '@mui/material/ListItem';
-// import ListItemIcon from '@mui/material/ListItemIcon';
-// import ListItemText from '@mui/material/ListItemText';
-// import MailIcon from '@mui/icons-material/Mail';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
-import AppRegistrationIcon from '@mui/icons-material/AppRegistration';
-// import Checkbox from '@mui/material/Checkbox';
 import {
-    // BrowserRouter as Router,
     Switch,
     Route,
     Link,
-    // useParams,
     useRouteMatch
 } from "react-router-dom";
-
-import useAuth from '../../../hooks/useAuth';
-// import HomeTeacherDashboard from '../HomeTeacherDashboard/HomeTeacherDashboard';
 import ArrowCircleLeftIcon from '@mui/icons-material/ArrowCircleLeft';
-import ClassIcon from '@mui/icons-material/Class';
-import KeyboardDoubleArrowDownIcon from '@mui/icons-material/KeyboardDoubleArrowDown';
-// import HomeClassSeven from '../ClassSeven/HomeClassSeven/HomeClassSeven';
 import HomeAdminDashboard from '../HomeAdminDashboard/HomeAdminDashboard';
 import AllUsers from '../AllUsers/AllUsers';
 import AddTeacher from '../AddTeacher/AddTeacher';
-import { Grid, List } from '@mui/material';
+import {ListItem, ListItemButton, ListItemIcon, ListItemText } from '@mui/material';
 import OtherHousesIcon from '@mui/icons-material/OtherHouses';
-import LayersIcon from '@mui/icons-material/Layers';
 import GroupIcon from '@mui/icons-material/Group';
 import AddModeratorIcon from '@mui/icons-material/AddModerator';
-import AdminFooter from '../../shared/AdminFooter/AdminFooter';
-// import AddTeacher from '../../Dashboard/AddTeacher/AddTeacher';
+import Footer from '../../shared/Footer/Footer';
+import { Container } from '@mui/system';
 
 
 
@@ -92,7 +72,6 @@ const DrawerHeader = styled('div')(({ theme }) => ({
     display: 'flex',
     alignItems: 'center',
     padding: theme.spacing(0, 1),
-    // necessary for content to be below app bar
     ...theme.mixins.toolbar,
     justifyContent: 'flex-end',
 }));
@@ -113,63 +92,53 @@ function AdminDashboard() {
 
     const drawer = (
         <div >
-            {/* <Divider /> */}
-            <Box sx={{ backgroundColor: '#07474e', height: '650px' }} style={{ textAlign: 'center' }}>
-                {/* <Box sx={{ height: '625px' }}> */}
-
+            <Box sx={{ backgroundColor: '#1b1b1b', height: '90vh' ,overflowX:'hidden',overflowY:'hidden' }} style={{ textAlign: 'center' }}>
                 <Toolbar />
 
-                <Grid container spacing={0} style={{marginLeft:'7%'}}>
+                <Container style={{marginLeft:'12%'}}> 
 
-               <Grid xs={4}>
-                <Box style={{color:'skyBlue', fontSize:'8%'}}>
-                    <List>  <OtherHousesIcon/> </List>
-                    <List>  <GroupIcon/> </List>
-                    <List>  <AddModeratorIcon/> </List>
-                  
-                </Box>
-               </Grid>
+                
+                <Link to='/' style={{ textDecoration: 'none', width: '100%', color: 'white' }}>
+                <ListItem disablePadding>
+                    <ListItemButton style={{borderRadius:'0 40px 40px 0', padding: '.4rem '}}>
+                        <ListItemIcon>
+                    <OtherHousesIcon  style={{ color: 'white', fontSize: '1.2rem' }} />
+                    </ListItemIcon>
+                        <ListItemText primary="Home" style={{marginLeft:'-1.5rem'}}/>
+                    </ListItemButton>
+                </ListItem>
+                 </Link>
 
-               <Grid xs={8} style={{textAlign:'left'}}>
-               <Box>
-                <Link to='/'><Button
-                    style={{
-                        color: 'white',
-                        // borderRadius: 35,
-                        // backgroundColor: "#21b6ae",
-                        // padding: "18px 36px",
-                        fontSize: "16px"
-                    }}
-                >
-                    {/*<HomeIcon style={{ paddingRight: '2%', color: 'yellow' }}></HomeIcon>*/}
-                    Home</Button></Link><br></br>
-                    <Link to={`${url}/allUsers`}><Button
-                    style={{
-                        color: 'white',
-                        // borderRadius: 35,
-                        // backgroundColor: "#21b6ae",
-                        // padding: "18px 36px",
-                        fontSize: "16px"
-                    }}
-                >
 
-                    Users</Button></Link><br></br>
-                    <Link to={`${url}/addTeacher`}><Button
-                    style={{
-                        color: 'white',
-                        // borderRadius: 35,
-                        // backgroundColor: "#21b6ae",
-                        // padding: "18px 36px",
-                        fontSize: "16px"
-                    }}
-                >
+                 <Link to={`${url}/allUsers`} style={{ textDecoration: 'none', width: '100%', color: 'white' }}>
+                <ListItem disablePadding>
+                    <ListItemButton style={{borderRadius:'0 40px 40px 0', padding: '.4rem '}}>
+                        <ListItemIcon>
+                    <GroupIcon  style={{ color: 'white', fontSize: '1.2rem' }} />
+                    </ListItemIcon>
+                        <ListItemText primary="Users" style={{marginLeft:'-1.5rem'}}/>
+                    </ListItemButton>
+                </ListItem>
+                 </Link>
 
-                    Add Teacher</Button></Link><br></br> 
+                 <Link to={`${url}/addTeacher`} style={{ textDecoration: 'none', width: '100%', color: 'white' }}>
+                 <ListItem disablePadding>
+                     <ListItemButton style={{borderRadius:'0 40px 40px 0', padding: '.4rem '}}>
+                         <ListItemIcon>
+                     <AddModeratorIcon  style={{ color: 'white', fontSize: '1.2rem' }} />
+                     </ListItemIcon>
+                         <ListItemText primary="AddTeacher" style={{marginLeft:'-1.5rem'}}/>
+                     </ListItemButton>
+                 </ListItem>
+                  </Link>
+               
+              
+                
+                   
+
+                    </Container>
             </Box>
-            </Grid>
-            </Grid>
-        
-            </Box>
+            
             </div >
     );
 
@@ -177,7 +146,7 @@ function AdminDashboard() {
         <>
         <Box sx={{ display: 'flex' }}>
             <CssBaseline />
-            <AppBar position="fixed" open={open} style={{ backgroundColor: '#07474e' }}>
+            <AppBar position="fixed" open={open} style={{ backgroundColor: '#1b1b1b' }}>
                 <Toolbar>
                     <IconButton
                         backgroundColor="white"
@@ -197,7 +166,6 @@ function AdminDashboard() {
             </AppBar>
             <Drawer
                 sx={{
-                    // width: drawerWidth,
                     mx: 5,
                     flexShrink: 0,
                     '& .MuiDrawer-paper': {
@@ -210,7 +178,7 @@ function AdminDashboard() {
                 anchor="left"
                 open={open}
             >
-                <DrawerHeader sx={{ backgroundColor: '#07474e' }}>
+                <DrawerHeader sx={{ backgroundColor: '#1b1b1b' }}>
                     <Box >
                         <IconButton onClick={handleDrawerClose} style={{ color: 'white', fontSize: '2.5em' }}>
                             {theme.direction === 'ltr' ?
@@ -218,14 +186,12 @@ function AdminDashboard() {
                         </IconButton>
                     </Box>
                 </DrawerHeader>
-                {/* <Divider style={{ color: ' #1d0326 ' }} /> */}
                 <Divider style={{ backgroundColor: ' white ' }}></Divider>
                 {drawer}
 
                 </Drawer>
                 <Box>
                     <Toolbar />
-                    {/* exact path={`${path}`} */}
                     <Switch>
                         <Route exact path={path}>
                             <HomeAdminDashboard></HomeAdminDashboard>
@@ -244,10 +210,8 @@ function AdminDashboard() {
                 <Main open={open}>
                     <DrawerHeader />
                 </Main>
-
-                
             </Box >
-            <AdminFooter></AdminFooter>
+            <Footer></Footer>
             </>
         );
     }

@@ -5,29 +5,18 @@ import Drawer from '@mui/material/Drawer';
 import CssBaseline from '@mui/material/CssBaseline';
 import Box from '@mui/material/Box';
 import Divider from '@mui/material/Divider';
-// import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import IconButton from '@mui/material/IconButton';
 import HomeIcon from '@mui/icons-material/Home';
-// import InboxIcon from '@mui/icons-material/MoveToInbox';
-// import List from '@mui/material/List';
-// import ListItemButton from '@mui/material/ListItemButton';
-// import ListItem from '@mui/material/ListItem';
-// import ListItemIcon from '@mui/material/ListItemIcon';
-// import ListItemText from '@mui/material/ListItemText';
-// import MailIcon from '@mui/icons-material/Mail';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import AppRegistrationIcon from '@mui/icons-material/AppRegistration';
-// import Checkbox from '@mui/material/Checkbox';
 import {
-    // BrowserRouter as Router,
     Switch,
     Route,
     Link,
-    // useParams,
     useRouteMatch
 } from "react-router-dom";
 
@@ -43,11 +32,13 @@ import HomeClassEight from '../ClassEight/HomeClassEight/HomeClassEight';
 import HomeClassNine from '../ClassNine/HomeClassNine/HomeClassNine';
 import HomeClassSix from '../ClassSix/HomeClassSix/HomeClassSix';
 import HomeClassTen from '../ClassTen/HomeClassTen/HomeClassTen';
-import { Grid, List } from '@mui/material';
+import { Container, Grid, List, ListItem, ListItemButton, ListItemIcon, ListItemText } from '@mui/material';
 import OtherHousesIcon from '@mui/icons-material/OtherHouses';
 import LayersIcon from '@mui/icons-material/Layers';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
-import TeacherFooter from '../../shared/TeacherFooter/TeacherFooter';
+import { TreeItem, TreeView } from '@mui/lab';
+import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
+import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp';
 const drawerWidth = 230;
 
 const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(
@@ -111,83 +102,111 @@ function TeacherDashboard() {
 
     const drawer = (
         <div >
-            {/* <Divider /> */}
-            <Box sx={{ backgroundColor: '#7b0d69', height: '650px' }} style={{ textAlign: 'center' }}>
-                {/* <Box sx={{ height: '625px' }}> */}
-
+            <Box sx={{ backgroundColor: '#1b1b1b',
+            height: '90vh' ,overflowX:'hidden',overflowY:'hidden'}} style={{ textAlign: 'center' }}>
                 <Toolbar />
+                <Container style={{marginLeft:'5%'}}> 
+               
+                <Link to='/' style={{ textDecoration: 'none', width: '100%', color: 'white' }}>
+                <ListItem disablePadding>
+                    <ListItemButton style={{borderRadius:'0 40px 40px 0', padding: '.4rem '}}>
+                        <ListItemIcon>
+                    <OtherHousesIcon  style={{ color: 'white', fontSize: '1rem' }} />
+                    </ListItemIcon>
+                        <ListItemText primary="Home" style={{marginLeft:'-2rem'}}/>
+                    </ListItemButton>
+                </ListItem>
+              </Link>
 
-                <Grid container spacing={2} style={{marginLeft:'7%'}}>
+              <TreeView
+              style={{
+                   background: '#1b1b1b',
+                  textAlign: 'left', marginLeft:'0%'
+                  
+              }}
+              aria-label="file system navigator"
+              defaultExpanded={['1']}
 
-               <Grid xs={4}>
-                <Box style={{color:'skyBlue', fontSize:'8%'}}>
-                    <List>  <OtherHousesIcon /> </List>
-                    <List>  <CalendarMonthIcon /> </List>
-                    <List>  <CalendarMonthIcon /> </List>
-                    <List>  <CalendarMonthIcon /> </List>
-                    <List>  <CalendarMonthIcon /> </List>
-                    <List>  <CalendarMonthIcon /> </List> 
-                    <List>  <LayersIcon /> </List> 
-                </Box>
-               </Grid>
 
-               <Grid xs={8} style={{textAlign:'left'}}>
-               <Box>
-                <Link to='/'><Button
-                    style={{
-                        color: 'white',
-                        // borderRadius: 35,
-                        // backgroundColor: "#21b6ae",
-                        // padding: "18px 36px",
-                        fontSize: "16px"
-                    }}
-                >
-                    {/*<HomeIcon style={{ paddingRight: '2%', color: 'yellow' }}></HomeIcon>*/}
-                    Home</Button></Link><br></br>
+              defaultCollapseIcon={
+                  <div style={{ padding: '.3rem 0', }}>
+                      <ArrowDropUpIcon style={{ color: 'white', fontSize: '1.5rem' }} />
+                  </div>}
+              defaultExpandIcon={<div style={{ padding: '.3rem 0',  }}>
+                  < ArrowDropDownIcon style={{ color: 'white', fontSize: '1.5rem' }} />
+              </div>}
+                      
+                      sx={{  flexGrow: 1,  overflowY: 'hidden', overflowX:'hidden' }}
+                  >
+                 
+                      <TreeItem nodeId="1" label="Attendance"
+                          style={{ color: 'white', background: '#1b1b1b' }}>
+                          <Link to={`${url}/classSix`} style={{ textDecoration: 'none', width: '100%', color: 'white' }}>
+                              <ListItem disablePadding>
+                                  <ListItemButton style={{borderRadius:'0 40px 40px 0', marginLeft:'15%'}}>
+                                   <ListItemIcon>
+                                   <CalendarMonthIcon  style={{ color: 'white', fontSize: '1.1rem' }} />
+                                  </ListItemIcon>
+                                      <ListItemText primary="Class VI" style={{marginLeft:'-2rem'}}/>
+                                  </ListItemButton>
+                              </ListItem>
+                          </Link>
+                          <Link to={`${url}/classSeven`} style={{ textDecoration: 'none', width: '100%', color: 'white' }}>
+                              <ListItem disablePadding>
+                                  <ListItemButton style={{borderRadius:'0 40px 40px 0', marginLeft:'15%'}}>
+                                  <ListItemIcon>
+                                  <CalendarMonthIcon  style={{ color: 'white', fontSize: '1.1rem' }} />
+                                 </ListItemIcon>
+                                      <ListItemText primary="Class VII" style={{marginLeft:'-2rem'}} />
+                                  </ListItemButton>
+                              </ListItem>
+                          </Link>
+                          <Link to={`${url}/classEight`} style={{ textDecoration: 'none', width: '100%', color: 'white' }}>
+                              <ListItem disablePadding>
+                                  <ListItemButton style={{borderRadius:'0 40px 40px 0', marginLeft:'15%'}}>
+                                  <ListItemIcon>
+                                  <CalendarMonthIcon  style={{ color: 'white', fontSize: '1.1rem' }} />
+                                 </ListItemIcon>
+                                      <ListItemText primary="Class VIII" style={{marginLeft:'-2rem'}} />
+                                  </ListItemButton>
+                              </ListItem>
+                          </Link>
+                          <Link to={`${url}/classNine`} style={{ textDecoration: 'none', width: '100%', color: 'white' }}>
+                              <ListItem disablePadding>
+                                  <ListItemButton style={{borderRadius:'0 40px 40px 0', marginLeft:'15%'}}>
+                                  <ListItemIcon>
+                                  <CalendarMonthIcon  style={{ color: 'white', fontSize: '1.1rem' }} />
+                                 </ListItemIcon>
+                                      <ListItemText primary="Class IX" style={{marginLeft:'-2rem'}} />
+                                  </ListItemButton>
+                              </ListItem>
+                          </Link>
+                          <Link to={`${url}/classTen`} style={{ textDecoration: 'none', width: '100%', color: 'white' }}>
+                              <ListItem disablePadding>
+                                  <ListItemButton style={{borderRadius:'0 40px 40px 0', marginLeft:'15%'}}>
+                                  <ListItemIcon>
+                                  <CalendarMonthIcon style={{ color: 'white', fontSize: '1.1rem' }} />
+                                 </ListItemIcon>
+                                      <ListItemText primary="Class X" style={{marginLeft:'-2rem'}} />
+                                  </ListItemButton>
+                              </ListItem>
+                          </Link>
+                      </TreeItem>
+                  </TreeView>
 
                 
-                    <Link to={`${url}/classSix`}><Button
-                    style={{
-                        color: 'white',
-                        fontSize: "16px"
-                    }}
-                >Class VI </Button></Link><br/>
-                
-                    <Link to={`${url}/classSeven`}><Button
-                    style={{
-                        color: 'white',
-                        fontSize: "16px"
-                    }}
-                >Class VII </Button></Link>
+                  <Link to={`${url}/Result`} style={{ textDecoration: 'none', width: '100%', color: 'white' }}>
+                  <ListItem disablePadding>
+                      <ListItemButton style={{borderRadius:'0 40px 40px 0', padding: '.4rem '}}>
+                          <ListItemIcon>
+                          <LayersIcon   style={{ color: 'white', fontSize: '1rem' }} />
+                      </ListItemIcon>
+                          <ListItemText primary="AddResult" style={{marginLeft:'-2rem'}}/>
+                      </ListItemButton>
+                  </ListItem>
+         </Link>
 
-                    <Link to={`${url}/classEight`}><Button
-                    style={{
-                        color: 'white',
-                        fontSize: "16px"
-                    }}
-                >Class VIII </Button></Link> <br/>
-                    <Link to={`${url}/classNine`}><Button
-                    style={{
-                        color: 'white',
-                        fontSize: "16px"
-                    }}
-                >Class IX </Button></Link><br/>
-                    <Link to={`${url}/classTen`}><Button
-                    style={{
-                        color: 'white',
-                        fontSize: "16px"
-                    }}
-                >Class X </Button></Link><br/>
-                
-                <Link to={`${url}/Result`}><Button
-                style={{
-                    color: 'white',
-                    fontSize: "16px"
-                }}
-            >Add Result</Button></Link>
-            </Box>  
-            </Grid>
-            </Grid>
+           </Container>
         
             </Box>
             </div >
@@ -197,7 +216,7 @@ function TeacherDashboard() {
         <>
         <Box sx={{ display: 'flex' }}>
             <CssBaseline />
-            <AppBar position="fixed" open={open} style={{ backgroundColor: '#7b0d69' }}>
+            <AppBar position="fixed" open={open} style={{ backgroundColor: '#1b1b1b' }}>
                 <Toolbar>
                     <IconButton
                         backgroundColor="white"
@@ -207,7 +226,7 @@ function TeacherDashboard() {
                         style={{ color: 'white' }}
                         sx={{ mr: 2, ...(open && { display: 'none' }) }}
                     >
-                        {/* <MenuIcon />*/}
+                        
                         <MenuIcon style={{ color: 'skyBlue' }} />
                     </IconButton>
                     <Typography variant="h6" noWrap component="div">
@@ -217,7 +236,6 @@ function TeacherDashboard() {
             </AppBar>
             <Drawer
                 sx={{
-                    // width: drawerWidth,
                     mx: 5,
                     flexShrink: 0,
                     '& .MuiDrawer-paper': {
@@ -230,7 +248,7 @@ function TeacherDashboard() {
                 anchor="left"
                 open={open}
             >
-                <DrawerHeader sx={{ backgroundColor: '#7b0d69' }}>
+                <DrawerHeader sx={{ backgroundColor: '#1b1b1b' }}>
                     <Box >
                         <IconButton onClick={handleDrawerClose} style={{ color: 'white', fontSize: '2.5em' }}>
                             {theme.direction === 'ltr' ?
@@ -238,14 +256,12 @@ function TeacherDashboard() {
                         </IconButton>
                     </Box>
                 </DrawerHeader>
-                {/* <Divider style={{ color: ' #1d0326 ' }} /> */}
                 <Divider style={{ backgroundColor: ' white ' }}></Divider>
                 {drawer}
 
                 </Drawer>
                 <Box>
                     <Toolbar />
-                    {/* exact path={`${path}`} */}
                     <Switch>
                         <Route exact path={path}>
                             <HomeTeacherDashboard></HomeTeacherDashboard>
@@ -277,7 +293,7 @@ function TeacherDashboard() {
                     <DrawerHeader />
                 </Main>
             </Box >
-            <TeacherFooter></TeacherFooter>
+           <Footer></Footer>
             </>
         );
     }

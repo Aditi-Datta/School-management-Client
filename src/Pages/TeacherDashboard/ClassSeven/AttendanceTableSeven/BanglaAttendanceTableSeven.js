@@ -139,7 +139,7 @@ const BanglaAttendanceTableSeven = () => {
             <Grid container justifyContent="space-around"
             alignItems="center" marginBottom={'2%'}>
             <Grid >
-            <h5 style={{ textAlign: "left", margin: 20 }}>Total Registered students: {studentInformation.length}</h5>
+            <h4 style={{ textAlign: "left", margin: 20 }}>Total Registered students: {studentInformation.length}</h4>
             </Grid>
             <Grid  >
              {/*<Calender></Calender>*/}

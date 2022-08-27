@@ -4,6 +4,7 @@ import Footer from '../../shared/Footer/Footer';
 import CampusFacilities from "../CampusFacilities/CampusFacilities";
 import FounderSays from "./FounderSays";
 import MeetOurTeachers from "./MeetOurTeachers";
+import CarouselTeachers from "./CarouselTeachers";
 // import Navigation from "../../shared/Navigation/Navigation";
 
 const AboutUs = () => {
@@ -14,7 +15,7 @@ const AboutUs = () => {
             <FounderSays></FounderSays>
             <br/>
 
-            <MeetOurTeachers></MeetOurTeachers>
+            <CarouselTeachers></CarouselTeachers>
 
             <CampusFacilities></CampusFacilities>
             <br></br>

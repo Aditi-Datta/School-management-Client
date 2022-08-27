@@ -20,7 +20,10 @@ import { Link, NavLink } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
 import LightbulbIcon from '@mui/icons-material/Lightbulb';
 import Teacher from "../../TeacherDashboard/TeacherDashboard/TeacherDashboard";
-import '../../../App.css';
+import { ListItem, ListItemButton, ListItemText } from "@mui/material";
+import SchoolLogo from '../../../images/school-logo2-removebg-preview.png';
+// import '../../../App.css';
+
 
 const Navigation = () => {
     const { user,teacher,admin, logout } = useAuth();
@@ -54,10 +57,14 @@ const Navigation = () => {
                 <Container maxWidth="xl">
                     <Toolbar disableGutters>
 
-                        <LightbulbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 2 }} style={{ color: 'yellow' }} />
+                        {/*<LightbulbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 2 }} style={{ color: 'yellow' }} />*/}
+                        <div>
+                        <img src={SchoolLogo} ></img>
+                        </div>
+                       
                         <Typography
                             variant="h6"
-
+                            
                             sx={{
 
                                 display: { xs: 'none', md: 'flex' },
@@ -66,9 +73,10 @@ const Navigation = () => {
                                 flexGrow: 1,
                                 color: 'inherit',
                                 textDecoration: 'none',
+                                
                             }}
                         >
-                            Leading Light School & College
+                        Biddanondo Cadet High School
                         </Typography>
 
                         <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -146,15 +154,15 @@ const Navigation = () => {
                                 fontFamily: 'monospace',
                                 fontWeight: 700,
                                 letterSpacing: '.3rem',
-                                // color: 'inherit',
                                 textDecoration: 'none',
-                                // color:'#fff'
+                                
                             }}
                             
+                            style={{color:'gray'}}
                         >
-                            Leading Light School & College
+                        Biddanondo Cadet High School
                         </Typography>
-                        <Box sx={{ display: { xs: 'none', md: 'block' } }} >
+                        <Box sx={{ display: { xs: 'none', md: 'block' } }}  >
 
                             <Button
                             
@@ -162,20 +170,29 @@ const Navigation = () => {
                                 sx={{ my: 2 }}
                               
                             >
-                                <Link to="/home"><Button className='buttonHover' color="inherit" sx={{
+                             {/*   <Link to="/home" style={{textDecoration:'none'}}><Button className='buttonHover' color="inherit" sx={{
                                     color: 'gray'
-                                }}>Home</Button></Link>
-                                <Link to="/aboutus"><Button className='buttonHover' color="inherit" sx={{ color: 'gray' }}>About</Button></Link>
-                                <Link to="/contactUs"><Button className='buttonHover' color="inherit" sx={{ color: 'gray' }}>Contact</Button></Link>
-                                <Link to="/dashboard"><Button className='buttonHover' color="inherit" sx={{ color: 'gray' }}>Dashboard</Button></Link>
+                                }}>
+                            Home</Button></Link>*/}
+                                <Link to="/home" style={{textDecoration:'none', color: 'gray'}} >
+                                <ListItem disablePadding>
+                                <ListItemButton style={{borderRadius:'0 40px 40px 0', marginLeft:'15%'}} className='buttonHover'>
+                               
+                                <ListItemText primary="Home" />
+                                </ListItemButton>
+                                </ListItem>
+                                </Link>
+                                <Link to="/aboutus" style={{textDecoration:'none'}}><Button className='buttonHover' color="inherit" sx={{ color: 'gray' }}>About</Button></Link>
+                                <Link to="/contactUs" style={{textDecoration:'none'}}><Button className='buttonHover' color="inherit" sx={{ color: 'gray' }}>Contact</Button></Link>
+                                <Link to="/dashboard" style={{textDecoration:'none'}}><Button className='buttonHover' color="inherit" sx={{ color: 'gray' }}>Dashboard</Button></Link>
 
 
                                 {teacher &&
-                    < Link to="/teacher"><Button  className='buttonHover' color="inherit" sx={{ color: 'gray' }}>Teacher </Button></Link>
+                    < Link to="/teacher" style={{textDecoration: 'none'}}><Button  className='buttonHover' color="inherit" sx={{ color: 'gray' }}>Teacher </Button></Link>
                 }
 
                 {admin &&
-                    < Link to="/admin"><Button className='buttonHover'  sx={{ color: 'gray' }}>Admin </Button></Link>
+                    < Link to="/admin" style={{textDecoration: 'none'}}><Button className='buttonHover'  sx={{ color: 'gray' }}>Admin </Button></Link>
                 }
 
 
@@ -186,7 +203,7 @@ const Navigation = () => {
                                             <Button onClick={logout}  className='buttonHover' color="inherit" sx={{ color: 'gray' }}>Logout</Button>
                                         </Box>
                                         :
-                                        <NavLink to="/login"><Button  className='buttonHover' color="inherit" sx={{ color: 'gray' }}>Login</Button></NavLink>
+                                        <NavLink to="/login" style={{textDecoration: 'none'}}><Button  className='buttonHover' color="inherit" sx={{ color: 'gray' }}>Login</Button></NavLink>
                                 }
                             </Button>
 
@@ -194,37 +211,6 @@ const Navigation = () => {
 
                     </Toolbar>
                 </Container>
-
-                {/* <Toolbar>
-                     <IconButton
-                        size="large"
-                        edge="start"
-                        color="inherit"
-                        aria-label="menu"
-                        sx={{ mr: 2 }}
-                    >
-                        <MenuIcon /> 
-                     </IconButton> 
-                    <Typography variant="h6" component="div" sx={{ flexGrow: 2 }}>
-                        School Management
-                    </Typography>
-                    <Link to="/home"><Button color="inherit" sx={{ color: 'white' }}>Home</Button></Link>
-                    <Link to="/aboutus"><Button color="inherit" sx={{ color: 'white' }}>AboutUs</Button></Link>
-                    <Link to="/contactUs"><Button color="inherit" sx={{ color: 'white' }}>ContactUs</Button></Link>
-
-
-                    {
-                        user?.email ?
-                            <Box>
-                                <NavLink to="/dashboard"><Button color="inherit" sx={{ color: 'white' }}>Dashboard</Button></NavLink>
-                                <Button onClick={logout} color="inherit" sx={{ color: 'white' }}>Logout</Button>
-                            </Box>
-                            :
-                            <NavLink to="/login"><Button color="inherit" sx={{ color: 'white' }}>Login</Button></NavLink>
-                    }
-
-
-                </Toolbar> */}
             </AppBar>
         </Box >
     );

@@ -1,63 +1,46 @@
 import * as React from 'react';
-// import useState from 'react';
-// import PropTypes from 'prop-types';
-// import AppBar from '@mui/material/AppBar';
 import MuiAppBar from '@mui/material/AppBar';
 import { styled, useTheme } from '@mui/material/styles';
 import Drawer from '@mui/material/Drawer';
 import CssBaseline from '@mui/material/CssBaseline';
 import Box from '@mui/material/Box';
 import Divider from '@mui/material/Divider';
-// import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import IconButton from '@mui/material/IconButton';
-import HomeIcon from '@mui/icons-material/Home';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import List from '@mui/material/List';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import MailIcon from '@mui/icons-material/Mail';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
-
-// import Checkbox from '@mui/material/Checkbox';
 import {
-    // BrowserRouter as Router,
     Switch,
     Route,
     Link,
-    // useParams,
-    useRouteMatch
+    useRouteMatch,
 } from "react-router-dom";
 
 import useAuth from '../../../hooks/useAuth';
-import AdminRoute from '../../Login/AdminRoute/AdminRoute';
 import DashboardHome from '../DashboardHome/DashboardHome';
-// import StudentSubmitModal from '../StudentSubmitModal/StudentSubmitModal';
 import ArrowCircleLeftIcon from '@mui/icons-material/ArrowCircleLeft';
 import SevenRegistration from '../ClassSevenReg/SevenRegistration/SevenRegistration';
-import ClassIcon from '@mui/icons-material/Class';
-import KeyboardDoubleArrowDownIcon from '@mui/icons-material/KeyboardDoubleArrowDown';
-
 import OtherHousesIcon from '@mui/icons-material/OtherHouses';
-import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
 import AppRegistrationIcon from '@mui/icons-material/AppRegistration';
 import LayersIcon from '@mui/icons-material/Layers';
-
 import SearchResult from '../SearchResult/SearchResult';
 import Footer from '../../shared/Footer/Footer';
-import MakeTeacher from '../MakeTeacher/MakeTeacher';
 import EightRegistration from '../ClassEightReg/EightRegistration/EightRegistration';
 import SixRegistration from '../ClassSixReg/SixRegistration/SixRegistration';
 import NineRegistration from '../ClassNineReg/NineRegistration/NineRegistration';
 import TenRegistration from '../ClassTenReg/TenRegistration/TenRegistration';
-import { Grid } from '@mui/material';
-// import { ListItem } from '@mui/material';
-// const drawerWidth = 200;
+import TreeView from '@mui/lab/TreeView';
+import TreeItem from '@mui/lab/TreeItem';
+import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
+import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp';
+import { Container } from '@mui/system';
+import '../../../App.css';
+
 const drawerWidth = 230;
 
 const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(
@@ -100,13 +83,10 @@ const DrawerHeader = styled('div')(({ theme }) => ({
     display: 'flex',
     alignItems: 'center',
     padding: theme.spacing(0, 1),
-    // necessary for content to be below app bar
     ...theme.mixins.toolbar,
     justifyContent: 'flex-end',
 }));
 
-
-// function Dashboard(prop) {
 function Dashboard() {
     const theme = useTheme();
     const [open, setOpen] = React.useState(false);
@@ -121,111 +101,124 @@ function Dashboard() {
     };
 
     let { path, url } = useRouteMatch();
-    // const { admin } = useAuth();
-    // const { teacher } = useAuth();
 
     const drawer = (
         <div >
-            {/* <Divider /> */}
-            <Box sx={{ backgroundColor: 'black', height: '650px' }} style={{ textAlign: 'center' }}>
-                {/* <Box sx={{ height: '625px' }}> */}
-
+           
+            <Box sx={{ 
+                backgroundColor: '#1b1b1b',
+                 height: '90vh' ,overflowX:'hidden',overflowY:'hidden'}} style={{ textAlign: 'center'}}>
                 <Toolbar />
+                <Container style={{marginLeft:'5%'}}> 
 
-               <Grid container spacing={2} style={{marginLeft:'10%'}}>
-
-               <Grid xs={4}>
-                <Box style={{color:'skyBlue', fontSize:'8%'}}>
-                    <List>  <OtherHousesIcon /> </List>
-                    <List>  <AppRegistrationIcon /> </List>
-                    <List>  <AppRegistrationIcon /> </List>
-                    <List>  <AppRegistrationIcon /> </List>
-                    <List>  <AppRegistrationIcon /> </List>
-                    <List>  <AppRegistrationIcon /> </List>
-                    <List>  <LayersIcon /> </List>
-                   
+                <Link to='/' style={{ textDecoration: 'none', width: '100%', color: 'white' }}>
+                         <ListItem disablePadding>
+                             <ListItemButton style={{borderRadius:'0 40px 40px 0', padding: '.4rem '}}>
+                                 <ListItemIcon>
+                             <OtherHousesIcon  style={{ color: 'white', fontSize: '1rem' }} />
+                             </ListItemIcon>
+                                 <ListItemText primary="Home" style={{marginLeft:'-2rem'}}/>
+                             </ListItemButton>
+                         </ListItem>
+                </Link>
+                <TreeView
+                style={{
+                     background: '#1b1b1b',
+                    textAlign: 'left', marginLeft:'0%'
                     
-                </Box>
-               </Grid>
-               
-               
-                <Grid xs={8} style={{textAlign:'left'}}>
-                <Box>
-
-                <Link to='/'><Button
-                style={{
-                    color: 'white',
-                    fontSize: "16px"
                 }}
-            >  Home</Button></Link><br/>  
+                aria-label="file system navigator"
+                defaultExpanded={['1']}
 
 
-                <Link to={`${url}/classSixRegistration`}><Button
-                style={{
-                    color: 'white',
-                    fontSize: "16px"
-                }}
-            > Six</Button></Link> <br/>
-            
-                <Link to={`${url}/classSevenRegistration`}><Button
-                style={{
-                    color: 'white',
-                    fontSize: "16px"
-                }}
-            >
-                
-                Seven </Button></Link> <br/>
-                <Link to={`${url}/classEightRegistration`}><Button
-                style={{
-                    color: 'black',
-                    fontSize: "16px",
-                    textDecoration:'none'
-                }}
-            >
-                
-                Eight </Button></Link> <br/>
-                <Link to={`${url}/classNineRegistration`}><Button
-                style={{
-                    color: 'white',
-                    fontSize: "16px"
-                }}
-            >
-                
-                Nine </Button></Link> <br/>
-                <Link to={`${url}/classTenRegistration`}><Button
-                style={{
-                    color: 'white',
-                    fontSize: "16px"
-                }}
-            >
-                {/*<ClassIcon style={{ color: 'yellow' }} />*/}
-                Ten </Button></Link> <br/>
-                <Link to={`${url}/SearchResult`}><Button
-                style={{
-                    color: 'white',
-                    fontSize: "16px"
-                }}
-            >Result</Button></Link>
-                </Box>
+                defaultCollapseIcon={
+                    <div style={{ padding: '.3rem 0', }}>
+                        <ArrowDropUpIcon style={{ color: 'white', fontSize: '1.5rem' }} />
+                    </div>}
+                defaultExpandIcon={<div style={{ padding: '.3rem 0',  }}>
+                    < ArrowDropDownIcon style={{ color: 'white', fontSize: '1.5rem' }} />
+                </div>}
+                        
+                        sx={{  flexGrow: 1,  overflowY: 'hidden', overflowX:'hidden' }}
+                    >
+                   
+                        <TreeItem nodeId="1" label="Registration"
+                            style={{ color: 'white', background: '#1b1b1b' }}>
+                            <Link to={`${url}/classSixRegistration`} style={{ textDecoration: 'none', width: '100%', color: 'white' }}>
+                                <ListItem disablePadding>
+                                    <ListItemButton style={{borderRadius:'0 40px 40px 0', marginLeft:'15%'}}>
+                                     <ListItemIcon>
+                                     <AppRegistrationIcon  style={{ color: 'white', fontSize: '1.1rem' }} />
+                                    </ListItemIcon>
+                                        <ListItemText primary="Six" style={{marginLeft:'-2rem'}}/>
+                                    </ListItemButton>
+                                </ListItem>
+                            </Link>
+                            <Link to={`${url}/classSevenRegistration`} style={{ textDecoration: 'none', width: '100%', color: 'white' }}>
+                                <ListItem disablePadding>
+                                    <ListItemButton style={{borderRadius:'0 40px 40px 0', marginLeft:'15%'}}>
+                                    <ListItemIcon>
+                                    <AppRegistrationIcon  style={{ color: 'white', fontSize: '1.1rem' }} />
+                                   </ListItemIcon>
+                                        <ListItemText primary="Seven" style={{marginLeft:'-2rem'}} />
+                                    </ListItemButton>
+                                </ListItem>
+                            </Link>
+                            <Link to={`${url}/classEightRegistration`} style={{ textDecoration: 'none', width: '100%', color: 'white' }}>
+                                <ListItem disablePadding>
+                                    <ListItemButton style={{borderRadius:'0 40px 40px 0', marginLeft:'15%'}}>
+                                    <ListItemIcon>
+                                    <AppRegistrationIcon  style={{ color: 'white', fontSize: '1.1rem' }} />
+                                   </ListItemIcon>
+                                        <ListItemText primary="Eight" style={{marginLeft:'-2rem'}} />
+                                    </ListItemButton>
+                                </ListItem>
+                            </Link>
+                            <Link to={`${url}/classNineRegistration`} style={{ textDecoration: 'none', width: '100%', color: 'white' }}>
+                                <ListItem disablePadding>
+                                    <ListItemButton style={{borderRadius:'0 40px 40px 0', marginLeft:'15%'}}>
+                                    <ListItemIcon>
+                                    <AppRegistrationIcon  style={{ color: 'white', fontSize: '1.1rem' }} />
+                                   </ListItemIcon>
+                                        <ListItemText primary="Nine" style={{marginLeft:'-2rem'}} />
+                                    </ListItemButton>
+                                </ListItem>
+                            </Link>
+                            <Link to={`${url}/classTenRegistration`} style={{ textDecoration: 'none', width: '100%', color: 'white' }}>
+                                <ListItem disablePadding>
+                                    <ListItemButton style={{borderRadius:'0 40px 40px 0', marginLeft:'15%'}}>
+                                    <ListItemIcon>
+                                    <AppRegistrationIcon  style={{ color: 'white', fontSize: '1.1rem' }} />
+                                   </ListItemIcon>
+                                        <ListItemText primary="Ten" style={{marginLeft:'-2rem'}} />
+                                    </ListItemButton>
+                                </ListItem>
+                            </Link>
+                        </TreeItem>
+                    </TreeView>
 
-                </Grid>
-                </Grid>
+                <Link to={`${url}/SearchResult`} style={{ textDecoration: 'none', width: '100%', color: 'white' }}>
+                         <ListItem disablePadding>
+                             <ListItemButton style={{borderRadius:'0 40px 40px 0', padding: '.4rem '}}>
+                                 <ListItemIcon>
+                                 <LayersIcon   style={{ color: 'white', fontSize: '1rem' }} />
+                             </ListItemIcon>
+                                 <ListItemText primary="Result" style={{marginLeft:'-2rem'}}/>
+                             </ListItemButton>
+                         </ListItem>
+                </Link>
+
+                </Container>
             </Box>
-
-            
-            
         </div >
     );
 
-  
-console.log(user);
-console.log(user.emailVerified);
     return (
         <>
       
         <Box sx={{ display: 'flex' }}>
             <CssBaseline />
-            <AppBar position="fixed" open={open} style={{ backgroundColor: '#110941' }}>
+            <AppBar position="fixed" open={open} style={{ backgroundColor: '#1b1b1b' }}>
                 <Toolbar>
                     <IconButton
                         backgroundColor="white"
@@ -235,8 +228,7 @@ console.log(user.emailVerified);
                         style={{ color: 'white' }}
                         sx={{ mr: 2, ...(open && { display: 'none' }) }}
                     >
-                        {/* <MenuIcon />*/}
-                        <MenuIcon style={{ color: 'skyBlue' }} />
+                        <MenuIcon style={{ color: 'gray' }} className='buttonHover'/>
                     </IconButton>
                     <Typography variant="h6" noWrap component="div">
                        Dashboard
@@ -245,7 +237,6 @@ console.log(user.emailVerified);
             </AppBar>
             <Drawer
                 sx={{
-                    // width: drawerWidth,
                     mx: 5,
                     flexShrink: 0,
                     '& .MuiDrawer-paper': {
@@ -258,15 +249,14 @@ console.log(user.emailVerified);
                 anchor="left"
                 open={open}
             >
-                <DrawerHeader sx={{ backgroundColor: '#110941' }}>
+                <DrawerHeader sx={{ backgroundColor: '#1b1b1b' }}>
                     <Box >
                         <IconButton onClick={handleDrawerClose} style={{ color: 'white', fontSize: '2.5em' }}>
                             {theme.direction === 'ltr' ?
-                                <ArrowCircleLeftIcon style={{ color: 'skyBlue' }} /> : <ChevronRightIcon />}
+                                <ArrowCircleLeftIcon style={{ color: 'gray' }} /> : <ChevronRightIcon />}
                         </IconButton>
                     </Box>
                 </DrawerHeader>
-                {/* <Divider style={{ color: ' #1d0326 ' }} /> */}
                 <Divider style={{ backgroundColor: ' white ' }}></Divider>
                 {drawer}
 
@@ -276,40 +266,34 @@ console.log(user.emailVerified);
                 <Toolbar />
               
                 <Switch>
-             {user.emailVerified? <Route exact path={path}>
-                    <DashboardHome ></DashboardHome>
-                </Route>:<p>Your email is not verified</p>} 
-               
-                   
-                <Route exact path={path}>
-                    <DashboardHome ></DashboardHome>
+             {user.emailVerified? 
+
+                <Box>
+                    <Route exact path={path}>
+                     <DashboardHome ></DashboardHome>
+                     </Route>
+                     <Route exact path={`${path}/classSixRegistration`}>
+                    <SixRegistration></SixRegistration>
                 </Route>
+                <Route exact path={`${path}/classSevenRegistration`}>
+                    <SevenRegistration></SevenRegistration>
+                </Route>
+                <Route exact path={`${path}/classEightRegistration`}>
+                    <EightRegistration></EightRegistration>
+                </Route>
+                <Route exact path={`${path}/classNineRegistration`}>
+                    <NineRegistration></NineRegistration>
+                </Route>
+                <Route exact path={`${path}/classTenRegistration`}>
+                    <TenRegistration></TenRegistration>
+                </Route>
+                <Route exact path={`${path}/SearchResult`}>
+                    <SearchResult></SearchResult>
+                </Route>
+                </Box>
 
-                    
-                   
-                    <Route exact path={`${path}/classSixRegistration`}>
-                        <SixRegistration></SixRegistration>
-                    </Route>
-                    <Route exact path={`${path}/classSevenRegistration`}>
-                        <SevenRegistration></SevenRegistration>
-                    </Route>
-                    <Route exact path={`${path}/classEightRegistration`}>
-                        <EightRegistration></EightRegistration>
-                    </Route>
-                    <Route exact path={`${path}/classNineRegistration`}>
-                        <NineRegistration></NineRegistration>
-                    </Route>
-                    <Route exact path={`${path}/classTenRegistration`}>
-                        <TenRegistration></TenRegistration>
-                    </Route>
-                    <Route exact path={`${path}/SearchResult`}>
-                        <SearchResult></SearchResult>
-                    </Route>
-                   
-                    <AdminRoute path={`${path}/makeTeacher`}>
-                    <MakeTeacher></MakeTeacher>
-                    </AdminRoute>
-
+                :<p>Your email is not verified</p>} 
+                
                 </Switch>
            </Box>
 
@@ -321,9 +305,6 @@ console.log(user.emailVerified);
             </Box>
             <Footer></Footer>
             </>
-           
-      
     );
 }
-
 export default Dashboard;

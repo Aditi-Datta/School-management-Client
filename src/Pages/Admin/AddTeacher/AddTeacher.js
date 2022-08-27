@@ -37,7 +37,7 @@ const AddTeacher = ({ course, setCourse }) => {
 
     return (
         <Container style={{height:'45vh', marginLeft:'8%'}}>
-            <h2 style={{marginTop:'8%', textAlign:'center'}}>Add Teacher</h2>
+            <h2 style={{marginTop:'8%', textAlign:'center'}}>Add Teacher </h2>
             <form onSubmit={handleTeacherSubmit} style={{marginTop:'8%'}}>
                 <TextField
                     sx={{ width: '60vw' }}
@@ -47,7 +47,7 @@ const AddTeacher = ({ course, setCourse }) => {
                     required
                     onBlur={handleOnBlur}
                     variant="standard" />
-                <Button type='submit' variant='contained' style={{backgroundColor:'#3b0749'}}>Add Teacher</Button>
+                <Button type='submit' variant='contained' style={{backgroundColor:'#1fa4b7'}}>Add Teacher</Button>
             </form>
             {success && <Alert severity="success"  >Add Teacher successfully!!! </Alert>}
             <br></br>

@@ -28,6 +28,7 @@ const Footer = () => {
         paddingLeft:'10%',
         paddingRight:'10%',
         textAlign: 'left',
+        marginTop:'5%'
         // borderTop: 'solid 1px'
        
     };
@@ -48,7 +49,7 @@ const Footer = () => {
                    Contact Us
                </Typography>
                
-               <Box style={{ paddingBottom:'2%'}}>
+               <Box style={{ marginBottom:'2%'}}>
                <p>We support programs that </p>
                <p>create advancement </p>
                <p>opportunities for people.</p>

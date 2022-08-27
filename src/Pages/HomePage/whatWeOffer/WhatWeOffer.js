@@ -1,14 +1,13 @@
-import { Grid, Paper } from "@mui/material";
+import { Container, Grid, Paper } from "@mui/material";
 import { Box } from "@mui/system";
 import React from "react";
 import education from '../../../images/edu.jpg';
 import program from '../../../images/program4.png';
 import campus from '../../../images/campuss.png';
-import { Container } from "react-bootstrap";
 const WhatWeOffer = () => {
     return(
         <>
-        <Container style={{backgroundColor:'#f8f8ff', padding:'4%', paddingBottom:'4%'}}>
+        <Container style={{backgroundColor:'#f8f8ff', padding:'4%', paddingBottom:'4%' ,borderBottom:  "2px solid #f17917",borderTop:  "2px solid #f17917"}}>
         <div style={{ textAlign: "center", marginBottom:'2%',marginTop:'3%'}}>
         <h2 style={{color: '#1fa4b7'}}>Guaranteed Success</h2>
         <h1 style={{fontSize:50, fontWeight: '600'}}>What We Offer</h1>

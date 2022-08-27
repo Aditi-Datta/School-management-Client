@@ -36,7 +36,7 @@ const MeetOurTeachers = () => {
     <>
         
     <Box style={teacherComponentStyle}>
-        <h2 style={{color:'gray', paddingBottom:'4%', textAlign:'center', paddingTop:'2%'}}>Meet The Our Tecahers</h2>
+        <h2 style={{color:'gray', paddingBottom:'4%', textAlign:'center', paddingTop:'2%'}}>Meet The Our Teachers</h2>
 
         <Grid container direction="row"
         justifyContent="space-around"

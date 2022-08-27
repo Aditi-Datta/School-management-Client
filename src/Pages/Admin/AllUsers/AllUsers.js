@@ -7,12 +7,8 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import { Button , Alert } from '@mui/material';
-import useAuth from "../../../hooks/useAuth";
 import AllUserRow from './AllUserRow';
 import { Container } from '@mui/system';
-import DeleteConfirmModal from './DeleteConfirmModal';
-
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
       backgroundColor: theme.palette.common.black,
@@ -27,7 +23,6 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
     '&:nth-of-type(odd)': {
       backgroundColor: theme.palette.action.hover,
     },
-    // hide last border
     '&:last-child td, &:last-child th': {
       border: 0,
     },
@@ -37,17 +32,7 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
  
 
   const AllUsers = () => {
-
-    const [openModal, setOpenModal] = React.useState(false);
-    const handleModalOpen = () => setOpenModal(true);
-    const handleModalClose = () => setOpenModal(false);
-
-    const [deleteUser,setDeleteUser] = useState(null);
-
     const [allUser, setAllUser] = useState([]);
-    const { token } = useAuth();
-    const [deleteSuccess, setDeleteSuccess] = useState(false);
-    const { user } = useAuth();
     useEffect(() => {
         const url = `https://secure-temple-79203.herokuapp.com/users`;
         fetch(url)
@@ -55,38 +40,13 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
             .then((data) => setAllUser(data));
 
     }, []);
-
-  //   const makeAdmin =() =>{
-       
-  //     useEffect(() => {
-  //       const url = `https://secure-temple-79203.herokuapp.com/users/admin`;
-  //       fetch(url, {
-  //           method: 'PUT',
-  //           headers: {
-  //             'authorization': `Bearer ${token}`,
-  //             'content-type': 'application/json'
-  //           }
-  //           // body: JSON.stringify(allUser)
-  //       })
-  //           .then(res => res.json())
-  //           .then(data => {
-  //               console.log(data);
-  //               // if (data.modifiedCount) {
-  //               //     console.log(data);
-  //               //     // setEmail('');
-  //               //     setSuccess(true);
-  //               // }
-  
-  //           })
-  //   }, [user.email]);
-  // }
   
     
     return (
         <>
         
         <div style={{textAlign:'center', marginTop:'2%'}}>
-        <h1>All Users: {allUser.length} </h1>
+        <h1>Total Users: {allUser.length} </h1>
         </div>
       
 
@@ -98,6 +58,7 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
          <TableHead>
            <StyledTableRow>
              <StyledTableCell></StyledTableCell>
+             <StyledTableCell >User Name</StyledTableCell>
              <StyledTableCell >User Email</StyledTableCell>
              <StyledTableCell align="right"></StyledTableCell>
              <StyledTableCell ></StyledTableCell>
@@ -113,12 +74,6 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
                StyledTableRow={StyledTableRow}
                StyledTableCell={StyledTableCell}
 
-              //  openModal={openModal}
-              //  handleModalOpen={handleModalOpen}
-              //  handleModalClose={handleModalClose}
-              //  setDeleteSuccess={setDeleteSuccess}
-               setDeleteUser={setDeleteUser}
-              //  deleteUser={deleteUser}
                ></AllUserRow>)
            }
          </TableBody>
@@ -126,9 +81,9 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
      </TableContainer>
      </Paper>
        </Container>
-      {deleteSuccess && <Alert severity="success"  >{allUser.displayName} is deleted!!...</Alert>}
-
-     {deleteUser && <DeleteConfirmModal></DeleteConfirmModal>}
+      
+       
+          
       </>
     );
 };
